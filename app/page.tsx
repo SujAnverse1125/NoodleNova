@@ -51,7 +51,7 @@ export default function HomePage() {
                                 Enter App →
                             </button>
                         ) : (
-                            <button className="wallet-button" onClick={connect} disabled={isLoading}>
+                            <button className="wallet-button" onClick={() => connect()} disabled={isLoading}>
                                 {isLoading ? "Connecting..." : "Connect Wallet"}
                             </button>
                         )}
