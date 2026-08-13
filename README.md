@@ -1,78 +1,84 @@
-# Noodle Nova 🍜🚀
+# Noodle Nova
 
-Noodle Nova is a fully-featured, production-ready decentralized application (dApp) built on the Stellar network. It combines a retro-futuristic 16-bit aesthetic with advanced smart contract logic to create an immersive, gamified delivery experience.
+Noodle Nova is a Stellar Testnet dApp that presents a gamified ramen-delivery experience. Users can connect a Freighter wallet, view their XLM balance and recent activity, and send Testnet XLM. The project also includes a Soroban delivery-escrow contract that locks XLM until a sponsored delivery is completed.
 
-This project was built for **Level 3: Advanced Smart Contracts + Production-Ready dApps**.
+> Testnet only. Do not use real funds.
 
-## 🌟 Technical Requirements Met
+## Features
 
-- **Advanced smart contract development**: Built a `DeliveryEscrow` Soroban smart contract in Rust that securely holds XLM in escrow until a delivery is completed.
-- **Inter-contract communication**: The escrow contract interacts directly with the native Stellar Asset Contract (`token::Client`) to transfer XLM between the sponsor, contract, and courier.
-- **Event streaming & real-time updates**: Emits `DeliveryCreated` and `DeliveryCompleted` events using `env.events().publish()` for real-time tracking.
-- **CI/CD pipeline setup**: Configured a GitHub Actions workflow (`.github/workflows/ci.yml`) that automatically runs Rust unit tests and frontend builds on every push to `main`.
-- **Smart contract deployment workflow**: The contract is structured for easy deployment to the Stellar Testnet using the Soroban CLI.
-- **Mobile responsive frontend development**: The Next.js frontend is fully responsive, utilizing Tailwind CSS to ensure a seamless experience on both desktop and mobile devices.
-- **Error handling & loading states**: Implemented robust error handling and loading states across the application, particularly in the `WalletContext` and transaction flows.
-- **Writing tests for contracts and frontend**: Wrote comprehensive Rust unit tests (`src/test.rs`) covering deposit, completion, and failure cases (e.g., double-completion prevention).
-- **Production-ready architecture practices**: Utilized Next.js App Router, global state management (`WalletContext`), modular component design, and strict TypeScript typing.
-- **Documentation & demo presentation**: Provided this comprehensive README detailing the architecture, setup instructions, and technical implementations.
+- Freighter wallet connection
+- Testnet XLM balance and recent transaction feed
+- XLM payment form with validation, loading, and error states
+- Responsive Next.js interface
+- Soroban `DeliveryEscrow` contract with create, complete, and read operations
+- Token-contract transfers and `DeliveryCreated` / `DeliveryCompleted` events
+- Three Rust unit tests for the delivery flow and invalid repeat operations
 
+## Deployed contract and proof
 
-## 🛠️ Architecture
+| Item | Value |
+| --- | --- |
+| Network | Stellar Testnet |
+| DeliveryEscrow contract | [`CC42H6ONIV2527FPJZFTWV7UZNMWCEZDKZZNCNVF3ZN4ZWTXPIUKSBCM`](https://lab.stellar.org/r/testnet/contract/CC42H6ONIV2527FPJZFTWV7UZNMWCEZDKZZNCNVF3ZN4ZWTXPIUKSBCM) |
+| Native XLM asset contract | `CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC` |
+| Contract WASM hash | `ee3892dbe6df123ee75180a44674bf55040c422372f8684ea90f107d6548c1cb` |
+| Deployment transaction | [`c4ba73be...e395dad6`](https://stellar.expert/explorer/testnet/tx/c4ba73be851893fca97e42b724e3ce1cc1a8aba200748b0436eaea64e395dad6) |
+| Create-delivery transaction | [`ed214acb...23083470`](https://stellar.expert/explorer/testnet/tx/ed214acb9282d0ed596e5ed55f710170a68d83fcd657fd52e81f370e23083470) |
+| Complete-delivery transaction | [`93e6df19...3236f9ee5`](https://stellar.expert/explorer/testnet/tx/93e6df19413a77b2fa0b1041bb7edbb194e3e22cb244911989a078a3236f9ee5) |
 
-### Smart Contract (`contracts/delivery_escrow`)
-The `DeliveryEscrow` contract ensures trustless deliveries. Sponsors deposit XLM into the contract, which is locked until the courier successfully completes the route.
-- **Language**: Rust
-- **Framework**: Soroban SDK v27.0.6
-- **Tests**: Comprehensive unit tests covering deposit, completion, and failure cases (`cargo test`).
+The verified Testnet flow created delivery `1`, locked 1 XLM in escrow, emitted `DeliveryCreated`, then completed the delivery, released the 1 XLM to the courier, and emitted `DeliveryCompleted`.
 
-### Frontend (`app/`)
-The frontend is a Next.js application styled with Tailwind CSS.
-- **Framework**: Next.js 14 (App Router)
-- **Styling**: Tailwind CSS (Glassmorphism, Neon Glows)
-- **State**: React Context API (`WalletContext`)
+## Architecture
 
-## 🚀 Getting Started
+- **Frontend:** Next.js 14, React, TypeScript, Tailwind CSS
+- **Wallet and payments:** `@stellar/freighter-api` and `@stellar/stellar-sdk`
+- **Smart contract:** Rust with Soroban SDK `27.0.6`
+- **CI configuration:** GitHub Actions workflow for frontend build and contract tests
 
-### Prerequisites
-- Node.js 20+
-- Rust toolchain (1.75.0+)
-- Soroban CLI
+The contract uses Stellar's native asset contract through `token::Client` to transfer funds from the sponsor to escrow, then from escrow to the courier after completion.
 
-### Running Locally
+## Run locally
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/noodle-nova.git
-   cd noodle-nova
-   ```
+Prerequisites: Node.js 20+, Rust, and the Stellar CLI.
 
-2. **Install frontend dependencies:**
-   ```bash
-   npm install
-   ```
+```bash
+git clone https://github.com/SujAnverse1125/NoodleNova.git
+cd NoodleNova
+npm install
+npm run dev
+```
 
-3. **Run the development server:**
-   ```bash
-   npm run dev
-   ```
-   Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open `http://localhost:3000`.
 
-4. **Run smart contract tests:**
-   ```bash
-   cd contracts/delivery_escrow
-   cargo test
-   ```
+Create `.env.local` if you need to override the default Horizon endpoint:
 
-## ✅ Hackathon Checklist
+```env
+NEXT_PUBLIC_HORIZON_URL=https://horizon-testnet.stellar.org
+```
 
-- [x] Public GitHub repository
-- [x] README with complete documentation
-- [x] Minimum 10+ meaningful commits (13 commits made)
-- [x] Live demo link
-- [x] Contract deployment address
-- [x] Transaction hash for contract interaction
-- [x] Screenshot showing Mobile responsive UI
-- [x] Screenshot showing CI/CD pipeline running
-- [x] Screenshot showing Test output with 3+ passing tests
-- [x] Demo video link (1–2 minutes)
+## Test and build
+
+```bash
+# Frontend production build
+npm run build
+
+# Contract tests
+cd contracts/delivery_escrow
+cargo test
+```
+
+Current contract test result: **3 passed, 0 failed**.
+
+## Contract interface
+
+```text
+create_delivery(delivery_id, sponsor, courier, token, amount)
+complete_delivery(delivery_id)
+get_delivery(delivery_id)
+```
+
+`create_delivery` requires sponsor authorization and transfers the requested token amount into the contract. `complete_delivery` requires the stored sponsor's authorization and releases the escrowed funds to the courier.
+
+## Testnet note
+
+Stellar Testnet resets periodically. A reset can remove Testnet accounts, transaction history, and contract data; redeploy and generate new proof transactions if a reset occurs before review.
