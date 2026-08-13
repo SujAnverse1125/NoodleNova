@@ -2303,3 +2303,18 @@ button:active {
 .btn-secondary {
   @apply px-6 py-2 bg-ink-2 text-cyan font-bold rounded-full border-2 border-cyan shadow-[0_0_10px_rgba(90,229,225,0.3)] hover:shadow-[0_0_20px_rgba(90,229,225,0.6)] hover:-translate-y-1 transition-all;
 }
+
+@layer utilities {
+  .bg-glass-card {
+    @apply bg-ink-2/80 backdrop-blur-md border border-white/10 shadow-glass;
+  }
+  .border-glow {
+    @apply border border-cyan/30 shadow-[0_0_15px_rgba(90,229,225,0.15)];
+  }
+  .card-glow {
+    @apply shadow-[0_0_20px_rgba(90,229,225,0.1)];
+  }
+  .card-glow-gold {
+    @apply shadow-[0_0_20px_rgba(255,201,91,0.1)];
+  }
+}
