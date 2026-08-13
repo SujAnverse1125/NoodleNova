@@ -7,7 +7,8 @@ interface WalletState {
     isConnected: boolean;
     isLoading: boolean;
     error: string | null;
-    connect: () => Promise<void>;
+    userName: string | null;
+    connect: (name?: string) => Promise<void>;
     disconnect: () => void;
     rareStamps: number;
     unlockedChapters: number[];
@@ -22,6 +23,7 @@ const WalletContext = createContext<WalletState>({
     isConnected: false,
     isLoading: false,
     error: null,
+    userName: null,
     connect: async () => { },
     disconnect: () => { },
     rareStamps: 0,
@@ -37,6 +39,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
     const [isConnected, setIsConnected] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [userName, setUserName] = useState<string | null>(null);
 
     // Game State
     const [rareStamps, setRareStamps] = useState(2); // Start with 2 for testing
@@ -66,7 +69,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
         checkConnection();
     }, []);
 
-    const connect = useCallback(async () => {
+    const connect = useCallback(async (name?: string) => {
         setIsLoading(true);
         setError(null);
 
@@ -87,6 +90,23 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
                 setAddress(pubKey);
                 setIsConnected(true);
                 setError(null);
+
+                // Register user if name is provided
+                if (name) {
+                    try {
+                        const res = await fetch("/api/users", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ walletAddress: pubKey, name }),
+                        });
+                        if (res.ok) {
+                            const data = await res.json();
+                            setUserName(data.user.name);
+                        }
+                    } catch (e) {
+                        console.error("Failed to register user:", e);
+                    }
+                }
             } else {
                 setError("Could not retrieve wallet address. Please try again.");
             }
@@ -125,7 +145,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
     return (
         <WalletContext.Provider
             value={{
-                address, isConnected, isLoading, error, connect, disconnect,
+                address, isConnected, isLoading, error, userName, connect, disconnect,
                 rareStamps, unlockedChapters, unlockedRoutes, addRareStamp, unlockChapter, unlockRoute
             }}
         >

@@ -87,6 +87,21 @@ export function SendForm() {
             const result = await server.submitTransaction(signedTransaction);
             showSuccess(result.hash);
 
+            // Record transaction in DB
+            try {
+                await fetch("/api/transactions", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        hash: result.hash,
+                        walletAddress: address,
+                        type: "send_xlm",
+                    }),
+                });
+            } catch (e) {
+                console.error("Failed to record transaction:", e);
+            }
+
             // Reset form
             setRecipient("");
             setAmount("");
