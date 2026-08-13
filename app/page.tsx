@@ -87,7 +87,7 @@ export default function HomePage() {
                                     <img src="/icon_routes.png" alt="Enter" className="w-5 h-5 rounded" /> Enter Nova City
                                 </button>
                             ) : (
-                                <button className="button primary flex items-center gap-2" onClick={connect} disabled={isLoading}>
+                                <button className="button primary flex items-center gap-2" onClick={() => connect()} disabled={isLoading}>
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img src="/icon_routes.png" alt="Start" className="w-5 h-5 rounded" /> {isLoading ? "Connecting..." : "Start Delivering"}
                                 </button>
