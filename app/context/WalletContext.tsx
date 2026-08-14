@@ -91,21 +91,25 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
                 setIsConnected(true);
                 setError(null);
 
-                // Register user if name is provided
-                if (name) {
-                    try {
-                        const res = await fetch("/api/users", {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({ walletAddress: pubKey, name }),
-                        });
-                        if (res.ok) {
-                            const data = await res.json();
-                            setUserName(data.user.name);
-                        }
-                    } catch (e) {
-                        console.error("Failed to register user:", e);
+                // Prompt for name if not provided (fallback for buttons that don't pass it)
+                let finalName = name;
+                if (!finalName) {
+                    finalName = window.prompt("Enter your Courier Name to register:") || "Anonymous Courier";
+                }
+
+                // Register user
+                try {
+                    const res = await fetch("/api/users", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ walletAddress: pubKey, name: finalName }),
+                    });
+                    if (res.ok) {
+                        const data = await res.json();
+                        setUserName(data.user.name);
                     }
+                } catch (e) {
+                    console.error("Failed to register user:", e);
                 }
             } else {
                 setError("Could not retrieve wallet address. Please try again.");
