@@ -183,7 +183,7 @@ export default function HomePage() {
                             Enter App →
                         </button>
                     ) : (
-                        <button className="button inverted" onClick={connect} disabled={isLoading}>
+                        <button className="button inverted" onClick={() => connect()} disabled={isLoading}>
                             Connect Wallet →
                         </button>
                     )}
