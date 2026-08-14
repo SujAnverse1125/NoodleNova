@@ -181,6 +181,20 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
                         <div className="absolute -top-20 -right-20 w-40 h-40 bg-pink/20 rounded-full blur-3xl pointer-events-none" />
 
                         <div className="relative z-10">
+                            {/* Close Button */}
+                            <button
+                                onClick={() => {
+                                    setShowNameModal(false);
+                                    disconnect();
+                                }}
+                                className="absolute top-0 right-0 text-muted hover:text-pink transition-colors"
+                                aria-label="Close"
+                            >
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <path d="M18 6L6 18M6 6l12 12" />
+                                </svg>
+                            </button>
+
                             <div className="w-16 h-16 bg-cyan/20 rounded-full flex items-center justify-center border border-cyan/50 mb-6 shadow-[0_0_15px_rgba(90,229,225,0.3)]">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-cyan">
                                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
