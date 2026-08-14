@@ -46,6 +46,10 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
     const [unlockedChapters, setUnlockedChapters] = useState<number[]>([1]); // Chapter 1 unlocked by default
     const [unlockedRoutes, setUnlockedRoutes] = useState(1); // Route 1 unlocked by default
 
+    const [showNameModal, setShowNameModal] = useState(false);
+    const [tempPubKey, setTempPubKey] = useState<string | null>(null);
+    const [nameInput, setNameInput] = useState("");
+
     // Check if already connected on mount
     useEffect(() => {
         const checkConnection = async () => {
@@ -87,29 +91,13 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
             const pubKey = await freighterApi.getPublicKey();
 
             if (pubKey) {
-                setAddress(pubKey);
-                setIsConnected(true);
-                setError(null);
-
-                // Prompt for name if not provided (fallback for buttons that don't pass it)
-                let finalName = name;
-                if (!finalName) {
-                    finalName = window.prompt("Enter your Courier Name to register:") || "Anonymous Courier";
-                }
-
-                // Register user
-                try {
-                    const res = await fetch("/api/users", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ walletAddress: pubKey, name: finalName }),
-                    });
-                    if (res.ok) {
-                        const data = await res.json();
-                        setUserName(data.user.name);
-                    }
-                } catch (e) {
-                    console.error("Failed to register user:", e);
+                if (name) {
+                    // Name provided directly (e.g. from a specific button)
+                    await registerUser(pubKey, name);
+                } else {
+                    // Show custom modal
+                    setTempPubKey(pubKey);
+                    setShowNameModal(true);
                 }
             } else {
                 setError("Could not retrieve wallet address. Please try again.");
@@ -122,6 +110,36 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
             setIsLoading(false);
         }
     }, []);
+
+    const registerUser = async (pubKey: string, name: string) => {
+        setIsLoading(true);
+        try {
+            const res = await fetch("/api/users", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ walletAddress: pubKey, name }),
+            });
+            if (res.ok) {
+                const data = await res.json();
+                setUserName(data.user.name);
+            }
+        } catch (e) {
+            console.error("Failed to register user:", e);
+        } finally {
+            setAddress(pubKey);
+            setIsConnected(true);
+            setError(null);
+            setIsLoading(false);
+            setShowNameModal(false);
+        }
+    };
+
+    const handleNameSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (tempPubKey) {
+            registerUser(tempPubKey, nameInput || "Anonymous Courier");
+        }
+    };
 
     const disconnect = useCallback(() => {
         setAddress(null);
@@ -154,6 +172,56 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
             }}
         >
             {children}
+
+            {/* Custom Name Modal */}
+            {showNameModal && (
+                <div className="fixed inset-0 z-[100] bg-space-dark/90 backdrop-blur-md flex items-center justify-center p-4">
+                    <div className="bg-ink-2/90 border border-cyan/30 rounded-2xl p-8 max-w-md w-full shadow-[0_0_40px_rgba(90,229,225,0.15)] relative overflow-hidden">
+                        {/* Decorative background element */}
+                        <div className="absolute -top-20 -right-20 w-40 h-40 bg-pink/20 rounded-full blur-3xl pointer-events-none" />
+
+                        <div className="relative z-10">
+                            <div className="w-16 h-16 bg-cyan/20 rounded-full flex items-center justify-center border border-cyan/50 mb-6 shadow-[0_0_15px_rgba(90,229,225,0.3)]">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-cyan">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                    <circle cx="12" cy="7" r="4" />
+                                </svg>
+                            </div>
+
+                            <h2 className="text-2xl font-bold text-paper tracking-tight mb-2">Welcome to Noodle Nova</h2>
+                            <p className="text-muted text-sm mb-6">
+                                Your wallet is connected! Please enter a Courier Name to register your profile on the network.
+                            </p>
+
+                            <form onSubmit={handleNameSubmit} className="flex flex-col gap-4">
+                                <div>
+                                    <label htmlFor="courierName" className="block text-xs font-mono text-cyan mb-2 tracking-widest uppercase">
+                                        Courier Name
+                                    </label>
+                                    <input
+                                        id="courierName"
+                                        type="text"
+                                        value={nameInput}
+                                        onChange={(e) => setNameInput(e.target.value)}
+                                        placeholder="e.g. StarRider99"
+                                        className="w-full bg-ink-3 border border-white/10 rounded-lg px-4 py-3 text-paper focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/50 transition-all"
+                                        autoFocus
+                                        required
+                                    />
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    className="w-full bg-cyan text-ink font-bold py-3 rounded-lg mt-2 hover:bg-cyan/90 transition-colors shadow-[0_0_15px_rgba(90,229,225,0.4)]"
+                                    disabled={isLoading}
+                                >
+                                    {isLoading ? "Registering..." : "Complete Registration"}
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            )}
         </WalletContext.Provider>
     );
 }
