@@ -19,14 +19,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         }
     }, [isLoading, isConnected, router]);
 
-    if (!isConnected) {
-        return (
-            <div className="min-h-screen flex items-center justify-center bg-space-dark">
-                <div className="w-8 h-8 rounded-full bg-neon-green animate-pulse" />
-            </div>
-        );
-    }
-
     const handleReplayPrologue = useCallback(() => {
         localStorage.removeItem("noodle-nova-prologue-complete");
         setShowPrologue(true);
@@ -35,6 +27,14 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     const handlePrologueComplete = useCallback(() => {
         setShowPrologue(false);
     }, []);
+
+    if (!isConnected) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-space-dark">
+                <div className="w-8 h-8 rounded-full bg-neon-green animate-pulse" />
+            </div>
+        );
+    }
 
     return (
         <>
