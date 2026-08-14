@@ -12,6 +12,9 @@ Mobile responsive UI
 CI/CD pipeline running
 ![CI/CD Pipeline](/public/cicd-pipeline.png)
 
+Test output with 3+ passing tests
+![Test Output](/public/test-output.png)
+
 
 ## Features
 
