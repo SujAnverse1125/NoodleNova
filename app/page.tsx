@@ -8,6 +8,8 @@ export default function HomePage() {
     const { isConnected, connect, isLoading, error } = useWallet();
     const router = useRouter();
 
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
     const handleEnter = () => {
         localStorage.removeItem("noodle-nova-prologue-complete");
         router.push("/app/dashboard");
@@ -56,12 +58,37 @@ export default function HomePage() {
                             </button>
                         )}
                     </nav>
-                    <button className="landing-mobile-menu">
+                    <button className="landing-mobile-menu" onClick={() => setIsMobileMenuOpen(true)}>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <path d="M3 12h18M3 6h18M3 18h18" />
                         </svg>
                     </button>
                 </header>
+
+                {/* Mobile Menu Overlay */}
+                {isMobileMenuOpen && (
+                    <div className="fixed inset-0 z-50 bg-space-dark/95 backdrop-blur-md flex flex-col items-center justify-center gap-8">
+                        <button
+                            className="absolute top-6 right-6 text-lavender hover:text-pink-neon"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M18 6L6 18M6 6l12 12" />
+                            </svg>
+                        </button>
+                        <a href="#features" className="text-2xl font-bold text-lavender hover:text-pink-neon" onClick={() => setIsMobileMenuOpen(false)}>Features</a>
+                        <a href="#how-it-works" className="text-2xl font-bold text-lavender hover:text-pink-neon" onClick={() => setIsMobileMenuOpen(false)}>How it works</a>
+                        {isConnected ? (
+                            <button onClick={handleEnter} className="button primary text-xl px-8 py-4">
+                                Enter App →
+                            </button>
+                        ) : (
+                            <button className="button primary text-xl px-8 py-4" onClick={() => { connect(); setIsMobileMenuOpen(false); }} disabled={isLoading}>
+                                {isLoading ? "Connecting..." : "Connect Wallet"}
+                            </button>
+                        )}
+                    </div>
+                )}
 
                 {/* ═══════ Hero ═══════ */}
                 <section className="hero">

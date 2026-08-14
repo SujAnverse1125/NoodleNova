@@ -1,13 +1,31 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Sidebar } from "@/components/Sidebar";
 import { Topbar } from "@/components/Topbar";
 import { Prologue } from "@/components/Prologue";
+import { useWallet } from "@/app/context/WalletContext";
+import { useRouter } from "next/navigation";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [showPrologue, setShowPrologue] = useState(true);
+    const { isConnected, isLoading } = useWallet();
+    const router = useRouter();
+
+    useEffect(() => {
+        if (!isLoading && !isConnected) {
+            router.push("/");
+        }
+    }, [isLoading, isConnected, router]);
+
+    if (!isConnected) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-space-dark">
+                <div className="w-8 h-8 rounded-full bg-neon-green animate-pulse" />
+            </div>
+        );
+    }
 
     const handleReplayPrologue = useCallback(() => {
         localStorage.removeItem("noodle-nova-prologue-complete");
