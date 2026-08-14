@@ -56,7 +56,7 @@ export function Topbar({ onMenuOpen }: TopbarProps) {
                         </button>
                     </div>
                 ) : (
-                    <button className="wallet-button" onClick={connect} disabled={isLoading}>
+                    <button className="wallet-button" onClick={() => connect()} disabled={isLoading}>
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
                             <path d="M1 10h22" />
