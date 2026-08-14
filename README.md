@@ -68,12 +68,11 @@ NEXT_PUBLIC_HORIZON_URL=https://horizon-testnet.stellar.org
 # Frontend production build
 npm run build
 
-# Contract tests
-cd contracts/delivery_escrow
-cargo test
+# Frontend tests
+npm test
 ```
 
-Current contract test result: **3 passed, 0 failed**.
+Current test result: **3 passed, 0 failed**.
 
 ## Contract interface
 
