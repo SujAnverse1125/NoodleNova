@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useWallet } from "@/app/context/WalletContext";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function HomePage() {
     const { isConnected, connect, isLoading, error } = useWallet();
