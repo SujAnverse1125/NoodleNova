@@ -1,5 +1,5 @@
 # Noodle Nova
-
+ 
 **Live Demo:** [https://noodle-nova-seven.vercel.app/](https://noodle-nova-seven.vercel.app/)
 
 Noodle Nova is a Stellar Testnet dApp that presents a gamified ramen-delivery experience. Users can connect a Freighter wallet, view their XLM balance and recent activity, and send Testnet XLM. The project also includes a Soroban delivery-escrow contract that locks XLM until a sponsored delivery is completed.
