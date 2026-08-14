@@ -15,7 +15,7 @@ const LANES = [0, 1, 2];
 const LANE_LABELS = ["Top", "Mid", "Bot"];
 
 export default function GamePage() {
-    const { unlockRoute } = useWallet();
+    const { unlockRoute, isConnected, connect, isLoading } = useWallet();
     const [gameState, setGameState] = useState<"start" | "playing" | "paused" | "result">("start");
     const [score, setScore] = useState(0);
     const [combo, setCombo] = useState(0);
@@ -362,6 +362,27 @@ export default function GamePage() {
                     →
                 </button>
             </div>
+
+            {/* Not connected overlay */}
+            {!isConnected && (
+                <div className="game-overlay bg-space-dark/90 backdrop-blur-md z-50">
+                    <div className="text-center text-paper max-w-md mx-auto p-8 bg-ink-2/80 rounded-2xl border border-pink/30 shadow-[0_0_30px_rgba(255,42,133,0.2)]">
+                        <div className="w-16 h-16 mx-auto mb-4 bg-pink/20 rounded-full flex items-center justify-center border border-pink/50">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-pink">
+                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                                <path d="M1 10h22" />
+                            </svg>
+                        </div>
+                        <h2 className="text-2xl font-bold tracking-tight mb-2">Wallet Required</h2>
+                        <p className="text-muted text-sm mb-6">
+                            You must connect your wallet to play Noodle Run and earn stardust.
+                        </p>
+                        <button className="button primary w-full" onClick={() => connect()} disabled={isLoading}>
+                            {isLoading ? "Connecting..." : "Connect Wallet"}
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
