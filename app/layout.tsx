@@ -3,6 +3,7 @@ import "./globals.css";
 import { WalletProvider } from "@/app/context/WalletContext";
 import { ToastProvider } from "@/app/context/ToastContext";
 import { Toast } from "@/components/Toast";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
     title: "Noodle Nova — Stellar Testnet Ramen Courier",
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         <Toast />
                     </ToastProvider>
                 </WalletProvider>
+                <Analytics />
             </body>
         </html>
     );

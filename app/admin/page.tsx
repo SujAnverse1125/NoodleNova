@@ -28,6 +28,11 @@ export default async function AdminPage({
         orderBy: { createdAt: "desc" },
     });
 
+    const feedbacks = await prisma.feedback.findMany({
+        orderBy: { createdAt: "desc" },
+        include: { user: true },
+    });
+
     return (
         <div className="min-h-screen bg-ink text-paper font-sans p-8">
             <div className="max-w-6xl mx-auto">
@@ -43,7 +48,7 @@ export default async function AdminPage({
                     </div>
                 </header>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                     {/* Users Table */}
                     <div className="bg-ink-2/50 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
                         <h2 className="text-2xl font-bold text-cyan mb-6">Registered Couriers ({users.length})</h2>
@@ -116,6 +121,40 @@ export default async function AdminPage({
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                </div>
+
+                {/* Feedback Table */}
+                <div className="bg-ink-2/50 border border-white/10 rounded-2xl p-6 backdrop-blur-md">
+                    <h2 className="text-2xl font-bold text-pink mb-6">User Feedback ({feedbacks.length})</h2>
+                    <div className="overflow-x-auto">
+                        <table className="w-full text-left border-collapse">
+                            <thead>
+                                <tr className="border-b border-white/10 text-xs uppercase tracking-wider text-muted">
+                                    <th className="pb-3 pr-4">Courier</th>
+                                    <th className="pb-3 pr-4">Rating</th>
+                                    <th className="pb-3 pr-4">Message</th>
+                                    <th className="pb-3">Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {feedbacks.map((fb) => (
+                                    <tr key={fb.id} className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                                        <td className="py-4 pr-4 font-bold text-cyan">{fb.user?.name || "Unknown"}</td>
+                                        <td className="py-4 pr-4 text-gold">{"★".repeat(fb.rating)}{"☆".repeat(5 - fb.rating)}</td>
+                                        <td className="py-4 pr-4 text-sm text-paper max-w-md truncate">{fb.message}</td>
+                                        <td className="py-4 text-xs text-muted">
+                                            {new Date(fb.createdAt).toLocaleDateString()}
+                                        </td>
+                                    </tr>
+                                ))}
+                                {feedbacks.length === 0 && (
+                                    <tr>
+                                        <td colSpan={4} className="py-8 text-center text-muted">No feedback received yet.</td>
+                                    </tr>
+                                )}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

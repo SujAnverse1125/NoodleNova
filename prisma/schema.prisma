@@ -8,10 +8,11 @@ datasource db {
 }
 
 model User {
-  id            String   @id @default(uuid())
-  walletAddress String   @unique
+  id            String     @id @default(uuid())
+  walletAddress String     @unique
   name          String
-  createdAt     DateTime @default(now())
+  createdAt     DateTime   @default(now())
+  feedbacks     Feedback[]
 }
 
 model Transaction {
@@ -20,4 +21,13 @@ model Transaction {
   walletAddress String
   type          String   // e.g., "delivery_funded", "delivery_completed"
   createdAt     DateTime @default(now())
+}
+
+model Feedback {
+  id            String   @id @default(cuid())
+  walletAddress String
+  message       String
+  rating        Int      @default(5)
+  createdAt     DateTime @default(now())
+  user          User     @relation(fields: [walletAddress], references: [walletAddress])
 }
