@@ -11,7 +11,7 @@ interface FeedbackModalProps {
 
 export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
     const { address } = useWallet();
-    const { showToast } = useToast();
+    const { showSuccess, showError } = useToast();
     const [rating, setRating] = useState(5);
     const [message, setMessage] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -21,7 +21,7 @@ export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!address) {
-            showToast("Please connect your wallet first", "error");
+            showError("Please connect your wallet first");
             return;
         }
 
@@ -34,15 +34,15 @@ export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
             });
 
             if (res.ok) {
-                showToast("Thank you for your feedback!", "success");
+                showSuccess("Thank you for your feedback!");
                 setMessage("");
                 setRating(5);
                 onClose();
             } else {
-                showToast("Failed to submit feedback", "error");
+                showError("Failed to submit feedback");
             }
         } catch (error) {
-            showToast("An error occurred", "error");
+            showError("An error occurred");
         } finally {
             setIsSubmitting(false);
         }

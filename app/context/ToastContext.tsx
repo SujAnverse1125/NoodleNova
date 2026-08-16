@@ -13,7 +13,7 @@ interface ToastData {
 
 interface ToastContextType {
     toasts: ToastData[];
-    showSuccess: (txHash: string) => void;
+    showSuccess: (message?: string, txHash?: string) => void;
     showError: (message: string) => void;
     dismissToast: (id: string) => void;
 }
@@ -33,12 +33,12 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
     }, []);
 
     const showSuccess = useCallback(
-        (txHash: string) => {
+        (message: string = "Transaction sent!", txHash?: string) => {
             const id = `toast-${Date.now()}`;
             const toast: ToastData = {
                 id,
                 type: "success",
-                message: "Transaction sent!",
+                message,
                 txHash,
             };
             setToasts((prev) => [...prev, toast]);
