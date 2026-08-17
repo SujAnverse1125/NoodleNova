@@ -2,9 +2,14 @@
 
 import { SendForm } from "@/components/SendForm";
 import { useState } from "react";
+import { useWallet } from "@/app/context/WalletContext";
+import { useToast } from "@/app/context/ToastContext";
 
 export default function RoutesPage() {
     const [selectedRoute, setSelectedRoute] = useState<number | null>(null);
+    const [isSponsoring, setIsSponsoring] = useState<number | null>(null);
+    const { address } = useWallet();
+    const { showSuccess, showError } = useToast();
 
     const routes = [
         { id: 1, title: "StarPort Embassy", cost: "50", emoji: "🍜", desc: "High priority delivery to the ambassador.", stamp: "1x Common", color: "cyan" },
@@ -12,6 +17,33 @@ export default function RoutesPage() {
         { id: 3, title: "Orbital Station 9", cost: "300", emoji: "🛰️", desc: "Deep space delivery. High risk.", stamp: "1x Rare", color: "gold" },
         { id: 4, title: "Sector 7 Slums", cost: "25", emoji: "🏙️", desc: "Charity run for the lower levels.", stamp: "1x Common", color: "purple" },
     ];
+
+    const handleSponsor = async (routeId: number) => {
+        if (!address) {
+            showError("Please connect your wallet first");
+            return;
+        }
+
+        setIsSponsoring(routeId);
+        try {
+            const res = await fetch("/api/rewards", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ walletAddress: address, type: "sponsor_route" }),
+            });
+            const data = await res.json();
+
+            if (res.ok && data.success) {
+                showSuccess("Route sponsored! Reward sent.", data.hash);
+            } else {
+                showError(data.error || "Failed to sponsor route");
+            }
+        } catch (error) {
+            showError("An error occurred while sponsoring");
+        } finally {
+            setIsSponsoring(null);
+        }
+    };
 
     return (
         <div className="p-6 md:p-10 max-w-6xl mx-auto">
@@ -56,8 +88,16 @@ export default function RoutesPage() {
                                             <p className={`font-bold text-sm ${textColor}`}>{route.stamp}</p>
                                         </div>
                                         <div className="text-right">
-                                            <span className="text-xs font-mono text-muted uppercase tracking-wider">Status</span>
-                                            <p className="font-bold text-sm text-cyan">Open</p>
+                                            <button
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    handleSponsor(route.id);
+                                                }}
+                                                disabled={isSponsoring === route.id}
+                                                className={`px-4 py-1.5 rounded-lg font-bold text-sm transition-colors ${isSponsoring === route.id ? "bg-white/10 text-muted" : "bg-cyan/20 text-cyan hover:bg-cyan/30 border border-cyan/30"}`}
+                                            >
+                                                {isSponsoring === route.id ? "Funding..." : "Sponsor"}
+                                            </button>
                                         </div>
                                     </div>
                                 </div>

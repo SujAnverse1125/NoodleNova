@@ -1,0 +1,19 @@
+Connecting to Neon DB...
+❌ DB Error: PrismaClientKnownRequestError: 
+Invalid `prisma.user.create()` invocation in
+D:\dRamenapp\test-db.js:8:39
+
+  5 console.log('Connecting to Neon DB...');
+  6 
+  7 // Create a dummy user
+→ 8 const newUser = await prisma.user.create(
+The table `public.User` does not exist in the current database.
+    at In.handleRequestError (D:\dRamenapp\node_modules\@prisma\client\runtime\library.js:122:6877)
+    at In.handleAndLogRequestError (D:\dRamenapp\node_modules\@prisma\client\runtime\library.js:122:6211)
+    at In.request (D:\dRamenapp\node_modules\@prisma\client\runtime\library.js:122:5919)
+    at async l (D:\dRamenapp\node_modules\@prisma\client\runtime\library.js:127:11167)
+    at async main (D:\dRamenapp\test-db.js:8:21) {
+  code: 'P2021',
+  clientVersion: '5.14.0',
+  meta: { modelName: 'User', table: 'public.User' }
+}
