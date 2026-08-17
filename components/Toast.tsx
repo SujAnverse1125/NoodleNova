@@ -13,8 +13,8 @@ export function Toast() {
                 <div
                     key={toast.id}
                     className={`animate-slide-in-right rounded-xl p-4 border backdrop-blur-md shadow-2xl ${toast.type === "success"
-                            ? "bg-toast-green-bg/95 border-neon-green/50"
-                            : "bg-toast-red-bg/95 border-toast-red-border/50"
+                        ? "bg-toast-green-bg/95 border-neon-green/50"
+                        : "bg-toast-red-bg/95 border-toast-red-border/50"
                         }`}
                 >
                     {/* Header row */}
@@ -29,9 +29,7 @@ export function Toast() {
                                 className={`font-semibold text-sm ${toast.type === "success" ? "text-neon-green" : "text-red-400"
                                     }`}
                             >
-                                {toast.type === "success"
-                                    ? "Transaction sent!"
-                                    : "Transaction failed"}
+                                {toast.message}
                             </span>
                         </div>
 
@@ -60,10 +58,6 @@ export function Toast() {
                                 View on Stellar Expert ↗
                             </a>
                         </div>
-                    )}
-
-                    {toast.type === "error" && (
-                        <p className="mt-2 text-xs text-red-300/80">{toast.message}</p>
                     )}
                 </div>
             ))}
