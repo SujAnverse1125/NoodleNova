@@ -1,12 +1,36 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useWallet } from "@/app/context/WalletContext";
 import { BalanceCard } from "@/components/BalanceCard";
 import { TxFeed } from "@/components/TxFeed";
 import Link from "next/link";
 
 export default function DashboardPage() {
-    const { isConnected, rareStamps } = useWallet();
+    const { isConnected, address } = useWallet();
+    const [stats, setStats] = useState({ routesFunded: 0, xlmEarned: 0, stampsEarned: 0 });
+
+    useEffect(() => {
+        if (address) {
+            fetch(`/api/user/stats?walletAddress=${address}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.success) {
+                        setStats(data.stats);
+                    }
+                })
+                .catch(console.error);
+        }
+    }, [address]);
+
+    const getRank = (routes: number) => {
+        if (routes >= 10) return { name: "Cosmic", top: "Top 1%", color: "gold" };
+        if (routes >= 6) return { name: "Gold", top: "Top 5%", color: "gold" };
+        if (routes >= 3) return { name: "Silver", top: "Top 20%", color: "purple" };
+        return { name: "Novice", top: "Top 80%", color: "cyan" };
+    };
+
+    const rank = getRank(stats.routesFunded);
 
     return (
         <div className="dashboard-page">
@@ -30,8 +54,8 @@ export default function DashboardPage() {
                     </span>
                     <div>
                         <p className="text-muted font-mono text-[10px] tracking-wider mb-1">ROUTES FUNDED</p>
-                        <h2 className="text-2xl font-bold text-paper leading-none">12</h2>
-                        <small className="text-pink text-xs font-bold mt-1 block">+3 this week</small>
+                        <h2 className="text-2xl font-bold text-paper leading-none">{stats.routesFunded}</h2>
+                        <small className="text-pink text-xs font-bold mt-1 block">Total Deliveries</small>
                     </div>
                 </div>
                 <div className="bg-[#121126] border border-white/10 rounded-xl p-5 flex items-center gap-4 hover:border-cyan/50 transition-colors shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
@@ -40,8 +64,8 @@ export default function DashboardPage() {
                         <img src="/icon_dashboard.png" alt="XLM" className="w-full h-full object-cover rounded-lg" />
                     </span>
                     <div>
-                        <p className="text-muted font-mono text-[10px] tracking-wider mb-1">XLM SENT</p>
-                        <h2 className="text-2xl font-bold text-paper leading-none">450</h2>
+                        <p className="text-muted font-mono text-[10px] tracking-wider mb-1">XLM EARNED</p>
+                        <h2 className="text-2xl font-bold text-paper leading-none">{stats.xlmEarned}</h2>
                         <small className="text-cyan text-xs font-bold mt-1 block">Testnet XLM</small>
                     </div>
                 </div>
@@ -52,19 +76,19 @@ export default function DashboardPage() {
                     </span>
                     <div>
                         <p className="text-muted font-mono text-[10px] tracking-wider mb-1">STAMPS EARNED</p>
-                        <h2 className="text-2xl font-bold text-paper leading-none">{rareStamps * 4}</h2>
-                        <small className="text-gold text-xs font-bold mt-1 block">{rareStamps} Rare</small>
+                        <h2 className="text-2xl font-bold text-paper leading-none">{stats.stampsEarned}</h2>
+                        <small className="text-gold text-xs font-bold mt-1 block">Total Stamps</small>
                     </div>
                 </div>
                 <div className="bg-[#121126] border border-white/10 rounded-xl p-5 flex items-center gap-4 hover:border-purple/50 transition-colors shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
-                    <span className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center bg-purple/20 p-1.5 border border-purple/30">
+                    <span className={`w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center bg-${rank.color}/20 p-1.5 border border-${rank.color}/30`}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src="/icon_quests.png" alt="Rank" className="w-full h-full object-cover rounded-lg" />
                     </span>
                     <div>
                         <p className="text-muted font-mono text-[10px] tracking-wider mb-1">COURIER RANK</p>
-                        <h2 className="text-2xl font-bold text-paper leading-none">Silver</h2>
-                        <small className="text-purple text-xs font-bold mt-1 block">Top 20%</small>
+                        <h2 className="text-2xl font-bold text-paper leading-none">{rank.name}</h2>
+                        <small className={`text-${rank.color} text-xs font-bold mt-1 block`}>{rank.top}</small>
                     </div>
                 </div>
             </div>

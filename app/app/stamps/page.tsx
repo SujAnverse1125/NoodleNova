@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useWallet } from "@/app/context/WalletContext";
 
 const STAMPS = [
@@ -11,7 +12,7 @@ const STAMPS = [
         name: "First Bowl",
         description: "Funded 1 route",
         bgGlow: "",
-        unlocked: true,
+        requiredStamps: 1,
     },
     {
         emoji: "🛸",
@@ -21,7 +22,7 @@ const STAMPS = [
         name: "Neon Runner",
         description: "Funded 5 routes",
         bgGlow: "shadow-neon-cyan",
-        unlocked: true,
+        requiredStamps: 5,
     },
     {
         emoji: "🛰️",
@@ -31,7 +32,7 @@ const STAMPS = [
         name: "Deep Space",
         description: "Orbital Station 9",
         bgGlow: "shadow-neon-pink",
-        unlocked: true,
+        requiredStamps: 10,
     },
     {
         emoji: "?",
@@ -41,13 +42,26 @@ const STAMPS = [
         name: "Unknown",
         description: "Keep delivering",
         bgGlow: "",
-        unlocked: false,
+        requiredStamps: 15,
     },
 ];
 
 export default function StampsPage() {
-    const { rareStamps } = useWallet();
-    const totalStamps = rareStamps * 4 || 8;
+    const { address } = useWallet();
+    const [stampsEarned, setStampsEarned] = useState(0);
+
+    useEffect(() => {
+        if (address) {
+            fetch(`/api/user/stats?walletAddress=${address}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.success) {
+                        setStampsEarned(data.stats.stampsEarned);
+                    }
+                })
+                .catch(console.error);
+        }
+    }, [address]);
 
     return (
         <div className="p-6 md:p-10 max-w-6xl mx-auto">
@@ -67,10 +81,10 @@ export default function StampsPage() {
                     <div className="text-center md:text-left flex-1">
                         <div className="text-6xl mb-3">🏅</div>
                         <h2 className="text-5xl font-bold text-paper mb-2">
-                            {totalStamps} <span className="text-gold text-2xl font-mono">Stamps</span>
+                            {stampsEarned} <span className="text-gold text-2xl font-mono">Stamps</span>
                         </h2>
                         <div className="w-full max-w-xs h-3 rounded-full bg-ink-3 border border-white/10 overflow-hidden mb-2">
-                            <div className="h-full bg-gradient-to-r from-pink to-gold rounded-full transition-all" style={{ width: "35%" }} />
+                            <div className="h-full bg-gradient-to-r from-pink to-gold rounded-full transition-all" style={{ width: `${Math.min(100, (stampsEarned / 15) * 100)}%` }} />
                         </div>
                         <small className="text-muted text-xs">Top 15% of all couriers</small>
                     </div>
@@ -88,19 +102,22 @@ export default function StampsPage() {
 
             {/* Stamp Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                {STAMPS.map((stamp, idx) => (
-                    <div
-                        key={idx}
-                        className={`rounded-2xl border-2 ${stamp.borderColor} bg-ink-2/60 backdrop-blur-md p-5 text-center transition-all duration-300 hover:-translate-y-1 ${stamp.bgGlow} ${!stamp.unlocked ? "opacity-50" : ""}`}
-                    >
-                        <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center text-3xl mb-4 ${stamp.unlocked ? "bg-ink-3 border-2 border-white/10" : "border-2 border-dashed border-white/10"}`}>
-                            {stamp.emoji}
+                {STAMPS.map((stamp, idx) => {
+                    const isUnlocked = stampsEarned >= stamp.requiredStamps;
+                    return (
+                        <div
+                            key={idx}
+                            className={`rounded-2xl border-2 ${stamp.borderColor} bg-ink-2/60 backdrop-blur-md p-5 text-center transition-all duration-300 hover:-translate-y-1 ${stamp.bgGlow} ${!isUnlocked ? "opacity-50" : ""}`}
+                        >
+                            <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center text-3xl mb-4 ${isUnlocked ? "bg-ink-3 border-2 border-white/10" : "border-2 border-dashed border-white/10"}`}>
+                                {stamp.emoji}
+                            </div>
+                            <p className={`font-mono text-xs tracking-widest mb-1 ${stamp.rarityColor}`}>{stamp.rarity}</p>
+                            <h2 className="text-lg font-bold text-paper mb-1">{stamp.name}</h2>
+                            <small className="text-muted text-xs">{stamp.description}</small>
                         </div>
-                        <p className={`font-mono text-xs tracking-widest mb-1 ${stamp.rarityColor}`}>{stamp.rarity}</p>
-                        <h2 className="text-lg font-bold text-paper mb-1">{stamp.name}</h2>
-                        <small className="text-muted text-xs">{stamp.description}</small>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
 
             {/* Security Card */}

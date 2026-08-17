@@ -160,6 +160,26 @@ export default function AuroraShoyuGame() {
         };
     }, [gameState, updateGame]);
 
+    const { address } = useWallet();
+    const [rewardStatus, setRewardStatus] = useState<"pending" | "success" | "error" | null>(null);
+
+    useEffect(() => {
+        if (gameState === "won" && address && rewardStatus === null) {
+            setRewardStatus("pending");
+            fetch("/api/rewards", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ walletAddress: address, type: "game_win" }),
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) setRewardStatus("success");
+                    else setRewardStatus("error");
+                })
+                .catch(() => setRewardStatus("error"));
+        }
+    }, [gameState, address, rewardStatus]);
+
     return (
         <div className="min-h-screen bg-[#0a091a] flex flex-col items-center justify-center p-6 font-mono text-paper">
             <div className="mb-6 text-center">
@@ -218,7 +238,12 @@ export default function AuroraShoyuGame() {
                     <div className="absolute inset-0 bg-ink/90 backdrop-blur-md flex flex-col items-center justify-center z-20 border-4 border-gold rounded-lg">
                         <div className="text-7xl mb-4 animate-bounce">🏅</div>
                         <h2 className="text-4xl font-bold text-gold mb-2 drop-shadow-[0_0_15px_rgba(255,201,91,0.5)]">MISSION ACCOMPLISHED</h2>
-                        <p className="text-cyan mb-8">Route 3: Black Hole Broth Unlocked!</p>
+                        <p className="text-cyan mb-4">Route 3: Black Hole Broth Unlocked!</p>
+
+                        {rewardStatus === "pending" && <p className="text-muted mb-8 animate-pulse">Sending 5 XLM reward...</p>}
+                        {rewardStatus === "success" && <p className="text-gold font-bold mb-8 drop-shadow-[0_0_10px_rgba(255,201,91,0.5)]">+5 XLM Reward Sent!</p>}
+                        {rewardStatus === "error" && <p className="text-pink mb-8">Failed to send reward.</p>}
+
                         <div className="flex gap-4">
                             <button onClick={() => router.push("/app/map")} className="btn-secondary">Return to Map</button>
                         </div>
