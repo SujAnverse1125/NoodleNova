@@ -24,14 +24,17 @@ export function TxFeed() {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
+    // The app's sponsor wallet public key
+    const SPONSOR_PUBLIC_KEY = "GC4A3NM4JORA2NI5B556ME25H3U7OPDY3FDFCCCSRG5CF6WK6X6XYKFT";
+
     const fetchTransactions = useCallback(async () => {
-        if (!address) return;
         setIsLoading(true);
         setError(null);
 
         try {
             const res = await fetch(
-                `${HORIZON_URL}/accounts/${address}/transactions?order=desc&limit=5`
+                `${HORIZON_URL}/accounts/${SPONSOR_PUBLIC_KEY}/transactions?order=desc&limit=5`,
+                { cache: "no-store" }
             );
             if (!res.ok) {
                 throw new Error("Could not fetch transactions.");
@@ -45,14 +48,13 @@ export function TxFeed() {
         } finally {
             setIsLoading(false);
         }
-    }, [address]);
+    }, []);
 
     useEffect(() => {
-        if (!isConnected || !address) return;
         fetchTransactions();
-        const interval = setInterval(fetchTransactions, 30000);
+        const interval = setInterval(fetchTransactions, 15000); // Refresh every 15s
         return () => clearInterval(interval);
-    }, [isConnected, address, fetchTransactions]);
+    }, [fetchTransactions]);
 
     const formatTime = (timestamp: string) => {
         const date = new Date(timestamp);
@@ -132,8 +134,8 @@ export function TxFeed() {
                                     {/* Status indicator */}
                                     <div
                                         className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold ${tx.successful
-                                                ? "bg-neon-green/10 text-neon-green"
-                                                : "bg-red-500/10 text-red-400"
+                                            ? "bg-neon-green/10 text-neon-green"
+                                            : "bg-red-500/10 text-red-400"
                                             }`}
                                     >
                                         {tx.successful ? "✓" : "✗"}
