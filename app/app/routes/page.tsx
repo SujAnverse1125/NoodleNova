@@ -56,83 +56,62 @@ export default function RoutesPage() {
                 <p className="text-muted text-sm">Fund delivery missions with XLM on Stellar Testnet to earn stamps.</p>
             </header>
 
-            <div className="grid md:grid-cols-3 gap-6">
-                {/* Left: Routes Grid */}
-                <div className="md:col-span-2">
-                    <div className="grid sm:grid-cols-2 gap-4">
-                        {routes.map((route) => {
-                            const isSelected = selectedRoute === route.id;
-                            const borderColor = route.color === "cyan" ? "border-cyan/40" : route.color === "pink" ? "border-pink/40" : route.color === "gold" ? "border-gold/40" : "border-purple/40";
-                            const shadowColor = route.color === "cyan" ? "shadow-neon-cyan" : route.color === "pink" ? "shadow-neon-pink" : route.color === "gold" ? "shadow-neon-gold" : "shadow-neon-purple";
-                            const textColor = route.color === "cyan" ? "text-cyan" : route.color === "pink" ? "text-pink" : route.color === "gold" ? "text-gold" : "text-purple";
+            <div className="max-w-4xl mx-auto">
+                {/* Routes Grid */}
+                <div className="grid sm:grid-cols-2 gap-6">
+                    {routes.map((route) => {
+                        const isSelected = selectedRoute === route.id;
+                        const borderColor = route.color === "cyan" ? "border-cyan/40" : route.color === "pink" ? "border-pink/40" : route.color === "gold" ? "border-gold/40" : "border-purple/40";
+                        const shadowColor = route.color === "cyan" ? "shadow-neon-cyan" : route.color === "pink" ? "shadow-neon-pink" : route.color === "gold" ? "shadow-neon-gold" : "shadow-neon-purple";
+                        const textColor = route.color === "cyan" ? "text-cyan" : route.color === "pink" ? "text-pink" : route.color === "gold" ? "text-gold" : "text-purple";
 
-                            return (
-                                <div
-                                    key={route.id}
-                                    className={`relative rounded-2xl border-2 ${isSelected ? `${borderColor} ${shadowColor}` : "border-white/10"} bg-ink-2/60 backdrop-blur-md p-5 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-white/20`}
-                                    onClick={() => setSelectedRoute(route.id)}
-                                >
-                                    <div className="flex justify-between items-start mb-4">
-                                        <div className="w-12 h-12 rounded-xl bg-ink-3 border border-white/10 flex items-center justify-center text-2xl">
-                                            {route.emoji}
-                                        </div>
-                                        <div className={`px-3 py-1 rounded-full text-xs font-bold font-mono ${textColor} bg-ink-3 border border-white/10`}>
-                                            {route.cost} XLM
-                                        </div>
+                        return (
+                            <div
+                                key={route.id}
+                                className={`relative rounded-2xl border-2 ${isSelected ? `${borderColor} ${shadowColor}` : "border-white/10"} bg-ink-2/60 backdrop-blur-md p-6 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-white/20`}
+                                onClick={() => setSelectedRoute(route.id)}
+                            >
+                                <div className="flex justify-between items-start mb-4">
+                                    <div className="w-14 h-14 rounded-xl bg-ink-3 border border-white/10 flex items-center justify-center text-3xl">
+                                        {route.emoji}
                                     </div>
-                                    <h2 className="text-lg font-bold text-paper mb-1">{route.title}</h2>
-                                    <p className="text-muted text-xs mb-4">{route.desc}</p>
-                                    <div className="flex justify-between items-center pt-3 border-t border-white/10">
-                                        <div>
-                                            <span className="text-xs font-mono text-muted uppercase tracking-wider">Reward</span>
-                                            <p className={`font-bold text-sm ${textColor}`}>{route.stamp}</p>
-                                        </div>
-                                        <div className="text-right">
-                                            <button
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    handleSponsor(route.id);
-                                                }}
-                                                disabled={isSponsoring === route.id}
-                                                className={`px-4 py-1.5 rounded-lg font-bold text-sm transition-colors ${isSponsoring === route.id ? "bg-white/10 text-muted" : "bg-cyan/20 text-cyan hover:bg-cyan/30 border border-cyan/30"}`}
-                                            >
-                                                {isSponsoring === route.id ? "Funding..." : "Sponsor"}
-                                            </button>
-                                        </div>
+                                    <div className={`px-4 py-1.5 rounded-full text-sm font-bold font-mono ${textColor} bg-ink-3 border border-white/10`}>
+                                        {route.cost} XLM
                                     </div>
                                 </div>
-                            );
-                        })}
-                    </div>
-
-                    {/* Escrow strip */}
-                    <div className="mt-6 rounded-xl border border-white/10 bg-ink-2/60 backdrop-blur-md p-4 flex justify-between items-center">
-                        <div>
-                            <p className="text-xs font-mono text-muted tracking-wider uppercase">Escrow Contract</p>
-                            <b className="text-paper text-sm">Noodle Nova Treasury</b>
-                            <span className="text-xs text-muted ml-2">Testnet Only</span>
-                        </div>
-                        <code className="font-mono text-cyan text-xs bg-ink-3 px-3 py-1.5 rounded-lg border border-cyan/20">GCNOVA...XLM9</code>
-                    </div>
+                                <h2 className="text-xl font-bold text-paper mb-2">{route.title}</h2>
+                                <p className="text-muted text-sm mb-6">{route.desc}</p>
+                                <div className="flex justify-between items-center pt-4 border-t border-white/10">
+                                    <div>
+                                        <span className="text-xs font-mono text-muted uppercase tracking-wider">Reward</span>
+                                        <p className={`font-bold text-base ${textColor}`}>{route.stamp}</p>
+                                    </div>
+                                    <div className="text-right">
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                handleSponsor(route.id);
+                                            }}
+                                            disabled={isSponsoring === route.id}
+                                            className={`px-6 py-2 rounded-lg font-bold text-sm transition-colors ${isSponsoring === route.id ? "bg-white/10 text-muted" : "bg-cyan/20 text-cyan hover:bg-cyan/30 border border-cyan/30"}`}
+                                        >
+                                            {isSponsoring === route.id ? "Funding..." : "Sponsor"}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
 
-                {/* Right: Send Form */}
-                <div>
-                    <div className="sticky top-6">
-                        <div className="mb-4 p-5 border-2 border-white/10 rounded-2xl bg-ink-2/60 backdrop-blur-md shadow-glass">
-                            <h3 className="text-sm font-bold text-cyan mb-1">
-                                {selectedRoute ? `Funding: ${routes.find(r => r.id === selectedRoute)?.title}` : "Select a route to fund"}
-                            </h3>
-                            <p className="text-xs text-muted">
-                                {selectedRoute
-                                    ? `Cost: ${routes.find(r => r.id === selectedRoute)?.cost} XLM`
-                                    : "Click a route card to view details."}
-                            </p>
-                        </div>
-
-                        {/* Reused SendForm component */}
-                        <SendForm />
+                {/* Escrow strip */}
+                <div className="mt-8 rounded-xl border border-white/10 bg-ink-2/60 backdrop-blur-md p-5 flex justify-between items-center">
+                    <div>
+                        <p className="text-xs font-mono text-muted tracking-wider uppercase">Escrow Contract</p>
+                        <b className="text-paper text-base">Noodle Nova Treasury</b>
+                        <span className="text-xs text-muted ml-3">Testnet Only</span>
                     </div>
+                    <code className="font-mono text-cyan text-sm bg-ink-3 px-4 py-2 rounded-lg border border-cyan/20">GCNOVA...XLM9</code>
                 </div>
             </div>
         </div>
