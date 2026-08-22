@@ -245,6 +245,8 @@ export default function AuroraShoyuGame() {
                         {rewardStatus === "error" && <p className="text-pink mb-8">Failed to send reward.</p>}
 
                         <div className="flex gap-4">
+                            <button onClick={() => router.push("/app/game3")} className="btn-primary">Next Level ⏭️</button>
+                            <button onClick={() => router.push("/app/stamps")} className="btn-secondary">View Stamp Vault</button>
                             <button onClick={() => router.push("/app/map")} className="btn-secondary">Return to Map</button>
                         </div>
                     </div>
