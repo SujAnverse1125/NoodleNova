@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useWallet } from "@/app/context/WalletContext";
+import { useRouter } from "next/navigation";
 
 interface GameItem {
     id: number;
@@ -15,8 +16,10 @@ const LANES = [0, 1, 2];
 const LANE_LABELS = ["Top", "Mid", "Bot"];
 
 export default function GamePage() {
-    const { unlockRoute, isConnected, connect, isLoading } = useWallet();
+    const { unlockRoute, isConnected, connect, isLoading, address } = useWallet();
+    const router = useRouter();
     const [gameState, setGameState] = useState<"start" | "playing" | "paused" | "result">("start");
+    const [rewardStatus, setRewardStatus] = useState<"pending" | "success" | "error" | null>(null);
     const [score, setScore] = useState(0);
     const [combo, setCombo] = useState(0);
     const [hearts, setHearts] = useState(3);
@@ -163,6 +166,23 @@ export default function GamePage() {
     const laneY = (lane: number) => `${18 + lane * 29}%`;
     const itemEmoji = (type: string) =>
         type === "star" ? "⭐" : type === "ramen" ? "🍜" : "🪨";
+
+    useEffect(() => {
+        if (gameState === "result" && address && rewardStatus === null) {
+            setRewardStatus("pending");
+            fetch("/api/rewards", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ walletAddress: address, type: "game_win" }),
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) setRewardStatus("success");
+                    else setRewardStatus("error");
+                })
+                .catch(() => setRewardStatus("error"));
+        }
+    }, [gameState, address, rewardStatus]);
 
     return (
         <div className="max-w-[1240px] mx-auto">
@@ -334,8 +354,19 @@ export default function GamePage() {
                                 <span>🍜 Bowls: {Math.floor(score / 25)}</span>
                                 <span>❤️ Hearts: {hearts}</span>
                             </div>
+
+                            {rewardStatus === "pending" && <p className="text-muted mb-6 animate-pulse">Sending 5 XLM reward...</p>}
+                            {rewardStatus === "success" && <p className="text-gold font-bold mb-6 drop-shadow-[0_0_10px_rgba(255,201,91,0.5)]">+5 XLM Reward Sent!</p>}
+                            {rewardStatus === "error" && <p className="text-pink mb-6">Failed to send reward.</p>}
+
                             <div className="flex justify-center gap-3">
-                                <button className="button primary" onClick={startGame}>
+                                <button className="button primary" onClick={() => router.push("/app/game2")}>
+                                    Next Level ⏭️
+                                </button>
+                                <button className="button secondary" onClick={() => router.push("/app/stamps")}>
+                                    View Stamp Vault
+                                </button>
+                                <button className="button secondary" onClick={startGame}>
                                     🔄 Play Again
                                 </button>
                             </div>
