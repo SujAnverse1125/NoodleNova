@@ -52,7 +52,7 @@ See [`submission/analytics-evidence.md`](submission/analytics-evidence.md) for t
 ### Remaining Level 5 gates
 
 - Reconcile the 50+ user claim against consented wallet identities, admin records, and successful Testnet activity before publishing a definitive user-to-transaction number.
-- Verify the final Vercel deployment and GitHub Actions result after the approved product commit is pushed.
+- Recheck the final live Vercel deployment immediately before submission; GitHub Actions is already green for the published release.
 - Provide a dated provider-dashboard screenshot if analytics dashboard proof is required; source instrumentation alone is not dashboard evidence.
 - Publish the editable deck to a reviewer-accessible location because the sandbox export endpoint returned a permission error.
 - Replace the older unavailable Drive demo URL with the new walkthrough link if the reviewer requires an external video host; the repository video remains available as a downloadable artifact.
