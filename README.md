@@ -11,7 +11,6 @@ Noodle Nova is a **Stellar Testnet dApp** built around a gamified ramen-delivery
 | Live demo | [noodle-nova-seven.vercel.app](https://noodle-nova-seven.vercel.app/) |
 | Demo video | [Owner-provided Google Drive link](https://drive.google.com/file/d/1N6QC__iKYQbef9ZXsaxMIjnC2TDsDUWn/view?usp=drive_link) — currently unavailable in the read-only access check; replace before submission |
 | Public repository | [SujAnverse1125/NoodleNova](https://github.com/SujAnverse1125/NoodleNova) |
-| Reference presentation pattern | [AmitabhDey-byte/Cosmic-Capture](https://github.com/AmitabhDey-byte/Cosmic-Capture) |
 
 ## Product Evidence
 
@@ -137,22 +136,7 @@ The existing README records **3 passed, 0 failed** for the documented frontend t
 
 The table below is intentionally evidence-based. `Verified` means the item is directly supported by a public repository or public link. `Evidence available` means the repository or owner-provided material contains supporting evidence, but the claim may still require reviewer-side confirmation. `Pending verification` means the available material is not sufficient for a cryptographic or operational claim. Missing evidence is not represented as completed.
 
-| Green Belt requirement | Status | Current evidence and submission note |
-| --- | --- | --- |
-| Public GitHub repository | **Verified** | This public repository is the submission source: [NoodleNova](https://github.com/SujAnverse1125/NoodleNova). |
-| Production deployment | **Evidence available** | The live application is linked at [noodle-nova-seven.vercel.app](https://noodle-nova-seven.vercel.app/). |
-| Stellar Testnet smart contract | **Evidence available** | Contract identifier and public Testnet proof links are listed above. |
-| Production MVP functionality | **Evidence available** | Existing live demo, feature description, product screenshot, contract proof, and test output are linked in this README. |
-| Mobile responsive UI | **Evidence available** | The existing mobile screenshot is linked above. |
-| Loading and error handling | **Evidence available** | The existing feature list documents validation, loading, and error states; no new behavior is claimed here. |
-| Minimum 10 real users onboarded | **Evidence available** | The shared feedback sheet shows 12 visible response rows dated 24–25 August 2026. The supporting sanitized summary is in [`submission/feedback-summary.md`](submission/feedback-summary.md). |
-| Proof of 10+ wallet interactions | **Pending verification** | The authorized admin-panel review exposed nine shortened transaction-link entries in the inspected view, while the shared sheet contains several null-like transaction values and truncated fields. Full hashes and independent Stellar verification are required before claiming 10 completed wallet interactions. See [`submission/interaction-evidence.md`](submission/interaction-evidence.md). |
-| Basic user feedback collection | **Evidence available** | The feedback UI and shared response summary document ratings and written comments. |
-| Analytics integration | **Not verified** | No public analytics dashboard or configuration evidence was available in the read-only audit. |
-| Monitoring/error tracking | **Not verified** | No public monitoring dashboard or configuration evidence was available in the read-only audit. |
-| Minimum 15 meaningful commits | **Verified** | GitHub reports more than 60 public commits, including the documentation updates. |
-| Live demo video | **Pending replacement** | The existing owner-provided Google Drive URL currently returns a file-not-found page in the read-only access check. Replace it with an active public link before submission. |
-| Complete documentation | **In progress / documented here** | This README and the `submission/` evidence notes organize the currently available proof without changing product code. |
+
 
 ## Users Onboarded and Feedback Evidence
 
