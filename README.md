@@ -134,15 +134,26 @@ The existing README records **3 passed, 0 failed** for the documented frontend t
 
 The GitHub Actions check currently shows a red status because recursive `node --test` discovery encounters broken tracked `.claude/skills` links on the hosted runner. This is a pre-existing CI/test-discovery issue unrelated to the documentation or image updates; see [`submission/ci-status-diagnosis.md`](submission/ci-status-diagnosis.md) for the verified details.
 
-## Green Belt Submission Evidence
-
-The detailed Green Belt checklist is maintained in [`submission/checklist.md`](submission/checklist.md). It uses evidence-based statuses: `Verified`, `Evidence available`, `Pending verification`, `Not verified`, and `Pending replacement`. Missing evidence is not represented as completed.
-
 ## Users Onboarded and Feedback Evidence
 
 The supplied Excel/Sheets-style response image is included as visual evidence for the onboarding and feedback requirement. It shows the `Form_Responses` sheet with 12 visible response rows and the fields used for the submission: timestamp, name, email, wallet address, transaction hash, rating, and written feedback.
+## Users Onboarded and Feedback
 
-![User onboarding and feedback spreadsheet](submission/user-feedback-sheet-updated.png)
+| Timestamp | Full Name | Email Address | Wallet Address | Transaction Hash | Rating | Review / Suggestions |
+|---|---|---|---|---|---:|---|
+| 24/08/2026 22:41:20 | Amitabh Dey | amitabhdey101@gmail.com | GBKYHWSL2MNUO73HWY6KWNOA64AKSUENCOBTR56M66HNLMMKMZHK5OAS | none | 5 | Really good UI and interactive game. |
+| 24/08/2026 22:43:12 | Neel Madhav | zerotrace971@gmail.com | GBO7BZSNAX6APJW32OE5LHXQZ6MTIHBTWRZZRCJL3VSILWCAZLGCPM4T | NADA | 4 | The gameplay is good but needs improvement. |
+| 24/08/2026 22:45:07 | Harsh Mitra | harsh101@gmail.com | GDHYPRZCSOHMGPVM3XETQL3AXUBVLPCLUR4LSYW4QOC7AKR5MWGXAEND | nIL | 5 | Very good. |
+| 24/08/2026 22:51:01 | harshit kumar | aditimandal736@gmail.com | GB3OASNQ4B3DBZBXXT4UW3WXGQRMUBHXK3WAVH2VOWUHR6BUWHFKTVKI | None | 5 | Everything is good, best one till now. |
+| 24/08/2026 22:57:49 | Abhi mandal | abhishekmandalt4x@gmail.com | GDD4VQG7DXQTQ4SM32Q5GMTYCJAKPRPDHUYRMRWBBW5SLOLOTPGEQXKF | none | 4 | Overall good and best. |
+| 24/08/2026 22:59:41 | Manish sharma | manish07@gmail.com | GC5D7MTHTTEINHVN3W6JCNROFRAI4ZXDMYI4GYTR5L46TKNWSJHDXYZ2 | none | 5 | Good. |
+| 24/08/2026 23:01:25 | Disha | dish aaa06@gmail.com | GCFHMXPIVQPNUZGXQUQDAT656UBVEL6RCRDKMPJ3FCT73CODOKNJFMXF | none | 5 | One of the best till now I saw. |
+| 24/08/2026 23:05:04 | Supriyo mandal | pradepmandal736@gmail.com | GABKZVXSUGV7P24X24EEF3LTNKZRSWBNT6D77DER7XVLVX77WKEID2XA | na | 5 | Overall it is among the best, after seeing others. |
+| 24/08/2026 23:12:15 | SK JISHAN UDDIN | j2097138@gmail.com | GAVVOOVYGE7QEJWQO2BZZBGYYSFQPBC3QAYWRC6AFP7E3UMCWFT6YC4U | d5bd5b60c643767cb355fabde02a8426cdc2d4103bde2576251e20aeb3416103 | 5 | Really impressive work, bro. Keep building! |
+| 24/08/2026 23:12:55 | RITESH GUPTA | kingofpirates451@gmail.com | GDFSDPEEBZYQVG5JPPTJUOH4FID4M5XV45BKTWCIEIRYMCWJ6DQADBMB | none | 2 | None. |
+| 25/08/2026 02:00:54 | riyam lahu | pritamsdev2@gmail.com | GATJMD6BGNK4FQYNFWB354N7RP4XHA2R74GNSYM472ALNLJFX7NXBS3X | 6bd2cc147f99f17e373c6ce507176611700b9a63ca46a2c4c8b70f847d5d0bf7 | 4 | Good, nice. |
+| 25/08/2026 10:41:47 | Shubham Raj | studiosfox72@gmail.com | GAQW2UZBSRIQVW7YVS3GFYGMAJOXWQLTCTXXI3F7IZWQBTAAVENVFISW | Not provided | 4 | Great experience. |
+
 
 ### Admin-panel interaction evidence
 
