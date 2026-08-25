@@ -255,6 +255,20 @@ The table above is the complete current-sheet row-level evidence. The separate [
 - **Gameplay Development:** While the current gameplay is viewed positively, feedback indicates that it still requires further refinement and improvement.
 - **Onboarding and reliability:** The Level 5 iteration adds a first-flight checklist, an explicit How it works guide, registration failure handling, feedback validation, and pending/confirmed/error/retry transaction states. See [`submission/feedback-to-improvements.md`](submission/feedback-to-improvements.md) for the traceability table and Git commit link.
 
+## User Feedback Iteration Summary
+
+The owner-confirmed feedback sheet contains **80 responses**, with an average rating of **4.34/5**. The detailed aggregate analysis is available in [`submission/feedback-summary.md`](submission/feedback-summary.md), and the feedback-to-product traceability is documented in [`submission/feedback-to-improvements.md`](submission/feedback-to-improvements.md). The implemented iteration includes a first-flight onboarding checklist, a clearer How it works guide, wallet-registration failure handling, feedback validation, and pending/confirmed/error/retry transaction states. The implementation links and commit references are listed in the traceability document.
+
+![Noodle Nova aggregate feedback iteration summary](submission/level5-feedback-summary.png)
+
+## Analytics and Transaction Activity Evidence
+
+The public-safe activity register is available in [`submission/level5-user-activity.md`](submission/level5-user-activity.md), and the analytics instrumentation and evidence boundary are documented in [`submission/analytics-evidence.md`](submission/analytics-evidence.md). The activity register records **42 unique non-placeholder Testnet hash candidates** that resolved successfully through Horizon. Hash existence is not treated as proof that a particular form respondent created the transaction; wallet attribution remains explicitly separated until private reconciliation is complete.
+
+![Noodle Nova aggregate Testnet activity evidence](submission/level5-activity-summary.png)
+
+The public aggregate visual shows activity counts without exposing admin names, email addresses, wallet fragments, or access tokens. The private admin screenshots remain available as sensitive operational evidence under [`submission/admin-panel-couriers-transactions.webp`](submission/admin-panel-couriers-transactions.webp) and [`submission/admin-panel-feedback.webp`](submission/admin-panel-feedback.webp).
+
 ## Admin and Privacy Note
 
 The authorized admin panel was reviewed as a private operational evidence source. Its access token is intentionally not linked, copied, or published here. The public submission package uses only sanitized counts and verification status. Any final reviewer package that needs full wallet addresses or transaction hashes should be shared through the appropriate private submission channel, not committed to a public repository unless those records have been explicitly consented for publication.
