@@ -9,7 +9,7 @@ Noodle Nova is a **Stellar Testnet dApp** built around a gamified ramen-delivery
 | Resource | Link |
 | --- | --- |
 | Live demo | [noodle-nova-seven.vercel.app](https://noodle-nova-seven.vercel.app/) |
-| Demo video | [Owner-provided Google Drive link](https://drive.google.com/file/d/1N6QC__iKYQbef9ZXsaxMIjnC2TDsDUWn/view?usp=drive_link) — currently unavailable in the read-only access check; replace before submission |
+| Demo video |https://drive.google.com/file/d/1N6QC__iKYQbef9ZXsaxMIjnC2TDsDUwN/view?usp=drive_link |
 | Public repository | [SujAnverse1125/NoodleNova](https://github.com/SujAnverse1125/NoodleNova) |
 
 ## Product Evidence
