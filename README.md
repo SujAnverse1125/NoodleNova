@@ -165,6 +165,8 @@ Because both screenshots contain names, wallet-address fragments, transaction id
 ## Feedback Summary
 
 The current shared sheet contains **80 responses**, all with a wallet-address field and written feedback. Ratings average **4.34/5**, with the following distribution: **40 five-star**, **30 four-star**, **7 three-star**, and **3 two-star** responses. The sheet contains **42 non-placeholder transaction-hash values**; these values are evidence candidates only and are not independently verified here as successful Stellar transactions. The responses span **16–25 August 2026**. Feedback is predominantly positive about the interface and overall experience, while gameplay refinement remains the clearest improvement theme.
+
+The row-level public evidence table is available in [`submission/user-onboarding-table.md`](submission/user-onboarding-table.md). It keeps the sheet structure while masking email addresses and shortening wallet and transaction identifiers.
 * **User Experience:** Players consistently describe the interface as visually appealing, engaging, and among the best they have encountered.
  * **Gameplay Development:** While the current gameplay is viewed positively, feedback indicates that it still requires further refinement and improvement.
 
