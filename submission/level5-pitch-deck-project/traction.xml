@@ -6,14 +6,14 @@
   <text id="traction-subtitle" x="60" y="166" width="1080" height="34" font="body" size="18" color="text-muted">Owner-confirmed form data, admin records, and public Testnet verification show meaningful activity signals.</text>
   <text id="traction-chart-title" x="60" y="198" width="650" height="24" font="strong" size="19" color="text-main" wrap="false">Observed records at audit time</text>
   <chart id="traction-chart" type="column" x="60" y="230" width="650" height="300" font="caption" categories="Responses,Unique wallets,Admin couriers,Successful hashes" color="cyan-accent" data-labels="true" y-axis="true" x-axis="true" gridlines="none" y-min="0" y-max="90">
-    <series name="Observed" values="80,76,69,42" label-expr="{value:.0f}"/>
+    <series name="Observed" values="80,76,79,42" label-expr="{value:.0f}"/>
   </chart>
   <shape id="traction-ledger" type="rect" x="760" y="210" width="460" height="320" fill="surface" stroke="hairline" stroke-width="1"/>
   <text id="traction-ledger-title" x="790" y="240" width="380" height="26" font="strong" size="22" color="text-main" wrap="false">What each number means</text>
   <text id="traction-ledger-body" x="790" y="290" width="385" height="190" font="body" size="17" color="text-muted" line-height="1.42">
     <ul bullet="—">
       <li><strong color="text-main">80</strong> response rows; <strong color="text-main">76</strong> unique wallet values after four repeated rows.</li>
-      <li><strong color="text-main">69</strong> registered couriers in the admin application records.</li>
+      <li><strong color="text-main">79</strong> registered couriers in the latest admin application snapshot.</li>
       <li><strong color="text-main">42</strong> unique non-placeholder hashes resolved successfully through Horizon Testnet.</li>
       <li><strong color="pink-accent">0 / 42</strong> same-row wallet/source matches; attribution remains a private reconciliation task.</li>
     </ul>

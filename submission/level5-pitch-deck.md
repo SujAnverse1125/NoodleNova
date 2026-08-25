@@ -73,11 +73,11 @@ Visual: use one redacted transaction/admin screenshot and one public explorer li
 
 **Owner-confirmed response sheet:** 80 rows and 76 unique wallet values after four repeated-wallet rows are deduplicated.
 
-**Admin application records:** 69 registered couriers, 40 transaction-log entries, and 69 feedback records at audit time.
+**Admin application records:** 79 registered couriers, 40 transaction-log entries, and 79 feedback records at the latest read-only audit.
 
 **Testnet verification:** 42 unique non-placeholder hashes returned successful Horizon records.
 
-**Evidence boundary:** same-row wallet-to-transaction-source matching was 0/42; 40/76 sheet wallets appeared as a source account somewhere in the candidate set. Therefore, the public claim remains “candidate onboarding and verified Testnet receipts,” not “50 users each completed a verified transaction,” until private reconciliation is complete.
+**Evidence boundary:** the latest admin schema branch reports 40/40 Neon transaction-to-user matches by exact stored wallet, but that branch is not merged and the result is not independently verified here. The earlier external-sheet reconciliation found 0/42 same-row wallet/source matches and 40/76 sheet wallets appearing as a source account somewhere in the candidate set. Therefore, the public claim remains “candidate onboarding, application records, and verified Testnet receipts,” not “50 users each completed a verified transaction,” until private reconciliation and release validation are complete.
 
 Visual: use the public-safe activity register and admin evidence images. Keep this slide honest and reviewer-friendly.
 
@@ -128,7 +128,7 @@ A third-party IMARC estimate places the global blockchain-gaming market at **USD
 
 **Now:** stabilize the first-run flow, prove the evidence chain, and publish the Level 5 deck/demo/docs.
 
-**Next 30 days:** reconcile user-to-transaction attribution, add a reviewer-safe activity dashboard, improve mobile route status, and run a fresh feedback cycle.
+**Next 30 days:** complete the reviewed admin data migration, protect the verification workflow, reconcile user-to-transaction attribution, add a reviewer-safe activity dashboard, improve mobile route status, and run a fresh feedback cycle.
 
 **Next 60–90 days:** expand route/gameplay progression, add sustainable reward/quest design, improve wallet compatibility guidance, and evaluate a privacy-safe monitoring provider.
 
@@ -146,4 +146,4 @@ A third-party IMARC estimate places the global blockchain-gaming market at **USD
 
 **Evidence package:** `submission/level5-checklist.md` · `submission/level5-user-activity.md` · `submission/feedback-to-improvements.md`
 
-**Next gate:** publish a new accessible walkthrough video and complete the private user/activity reconciliation before claiming full Level 5 compliance.
+**Next gate:** complete final deployment/security review, publish accessible deck and walkthrough links, and complete private user/activity reconciliation before claiming full Level 5 compliance.

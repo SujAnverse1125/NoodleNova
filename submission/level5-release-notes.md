@@ -25,7 +25,7 @@ This release prepares Noodle Nova for Level 5 review with focused changes driven
 - Hosted verification: [GitHub Actions run 32850838890](https://github.com/SujAnverse1125/NoodleNova/actions/runs/32850838890) completed successfully for [`f4cd575`](https://github.com/SujAnverse1125/NoodleNova/commit/f4cd575); the runner reported only a Node.js action deprecation annotation.
 - Sheet analysis: 80 response rows, 76 unique wallets, four duplicate wallet rows, 42 unique valid hash values, average rating 4.34/5.
 - Testnet verification: all 42 candidate hashes returned successful Horizon records; same-row wallet/source attribution remains unresolved.
-- Admin read-only evidence: 69 registered couriers, 40 transaction-log records, and 69 feedback records.
+- Admin read-only evidence: the earlier committed capture showed 69 registered couriers, 40 transaction-log records, and 69 feedback records; the latest live audit showed 79, 40, and 79 respectively.
 
 ## Remaining gates
 

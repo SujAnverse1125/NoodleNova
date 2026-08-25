@@ -14,7 +14,7 @@
   <text id="roadmap-1-body" x="80" y="300" width="180" height="100" font="body" size="16" color="text-muted" align="center" line-height="1.35">Deploy onboarding and transaction UX. Publish deck, demo, docs, and evidence gates.</text>
   <text id="roadmap-2-time" x="400" y="410" width="180" height="24" font="caption" size="14" color="pink-accent" align="center" wrap="false">NEXT 30 DAYS</text>
   <text id="roadmap-2-title" x="400" y="445" width="180" height="28" font="strong" size="20" color="text-main" align="center" wrap="false">Prove activity</text>
-  <text id="roadmap-2-body" x="400" y="485" width="180" height="100" font="body" size="16" color="text-muted" align="center" line-height="1.35">Reconcile wallets, application records, and receipts. Add reviewer-safe activity reporting.</text>
+  <text id="roadmap-2-body" x="400" y="485" width="180" height="100" font="body" size="16" color="text-muted" align="center" line-height="1.35">Complete the reviewed admin migration, protect verification, reconcile wallets and receipts, and publish reviewer-safe activity reporting.</text>
   <text id="roadmap-3-time" x="720" y="225" width="180" height="24" font="caption" size="14" color="gold-accent" align="center" wrap="false">NEXT 60–90 DAYS</text>
   <text id="roadmap-3-title" x="720" y="260" width="180" height="28" font="strong" size="20" color="text-main" align="center" wrap="false">Deepen play</text>
   <text id="roadmap-3-body" x="720" y="300" width="180" height="100" font="body" size="16" color="text-muted" align="center" line-height="1.35">Expand route progression, sustainable rewards, wallet compatibility, and mobile status UX.</text>
