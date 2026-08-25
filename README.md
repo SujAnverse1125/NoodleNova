@@ -160,9 +160,8 @@ Stellar Testnet resets periodically. A reset can remove Testnet accounts, transa
 
 ## References
 
-[1]: https://github.com/SujAnverse1125/NoodleNova "NoodleNova public repository"
-[2]: https://github.com/AmitabhDey-byte/Cosmic-Capture "Cosmic-Capture reference repository"
-[3]: https://noodle-nova-seven.vercel.app/ "Noodle Nova live deployment"
-[4]: https://lab.stellar.org/r/testnet/contract/CC42H6ONIV2527FPJZFTWV7UZNMWCEZDKZZNCNVF3ZN4ZWTXPIUKSBCM "Noodle Nova DeliveryEscrow contract on Stellar Lab Testnet"
-[5]: https://stellar.expert/explorer/testnet/tx/c4ba73be851893fca97e42b724e3ce1cc1a8aba200748b0436eaea64e395dad6 "Noodle Nova deployment transaction on Stellar Expert Testnet"
-[6]: https://drive.google.com/file/d/1N6QC__iKYQbef9ZXsaxMIjnC2TDsDUWn/view?usp=drive_link "Noodle Nova demo video"
+[1]: https://github.com/SujAnverse1125/NoodleNova "NoodleNova public repository" 
+[2]: https://noodle-nova-seven.vercel.app/ "Noodle Nova live deployment"
+[2]: https://lab.stellar.org/r/testnet/contract/CC42H6ONIV2527FPJZFTWV7UZNMWCEZDKZZNCNVF3ZN4ZWTXPIUKSBCM "Noodle Nova DeliveryEscrow contract on Stellar Lab Testnet"
+[4]: https://stellar.expert/explorer/testnet/tx/c4ba73be851893fca97e42b724e3ce1cc1a8aba200748b0436eaea64e395dad6 "Noodle Nova deployment transaction on Stellar Expert Testnet"
+[5]: https://drive.google.com/file/d/1N6QC__iKYQbef9ZXsaxMIjnC2TDsDUWn/view?usp=drive_link "Noodle Nova demo video"
