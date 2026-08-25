@@ -16,7 +16,8 @@ The initial documentation update was pushed to the public repository in commit [
 | [`submission/interaction-evidence.md`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/interaction-evidence.md) | Conservative wallet-interaction register distinguishing visible records from independently verified transactions. |
 | [`submission/noodlenova-architecture.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/noodlenova-architecture.png) | NoodleNova-specific architecture diagram generated from the verified repository structure. |
 | [`submission/user-feedback-sheet-updated.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/user-feedback-sheet-updated.png) | Supplied Excel/Sheets-style onboarding and feedback image with 12 visible rows. |
-| [`submission/admin-panel-user-onboarding.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/admin-panel-user-onboarding.png) | Supplied admin-panel screenshot showing the registered-courier list and transaction log. |
+| [`submission/admin-panel-user-onboarding.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/admin-panel-user-onboarding.png) | Updated admin-panel screenshot showing 69 registered couriers and the transaction log. |
+| [`submission/admin-panel-feedback.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/admin-panel-feedback.png) | Updated admin-panel screenshot showing 69 user-feedback records. |
 | [`submission/ci-status-diagnosis.md`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/ci-status-diagnosis.md) | Documents the pre-existing GitHub Actions/test-discovery failure without changing the workflow. |
 
 ## Verified during delivery
@@ -34,7 +35,7 @@ The supplied Google Drive demo-video URL did **not** pass verification: it retur
 | Stellar Testnet contract | Evidence available | Re-open the public contract and transaction links shortly before review because Testnet state can reset. |
 | Product, architecture, and mobile UI screenshots | Evidence available | Confirm existing image links remain accessible; the NoodleNova-specific architecture diagram is now included in `submission/noodlenova-architecture.png`. |
 | 80 onboarding/feedback responses and admin user list | Evidence available | Use the current shared sheet, spreadsheet snapshot, admin-panel screenshot, and sanitized summary; treat the raw sheet and images as sensitive evidence. |
-| 10+ wallet interactions | Pending verification | The current sheet provides 42 transaction-hash candidates, but full admin-panel records and independent verification of at least 10 distinct successful Stellar transactions are still required. |
+| 10+ wallet interactions | Pending verification | The current sheet provides 42 transaction-hash candidates and the updated admin panel shows 40 transaction-log entries, but full-hash reconciliation and independent verification of at least 10 distinct successful Stellar transactions are still required. |
 | Analytics | Not verified | Provide existing dashboard/configuration evidence if available; otherwise leave unverified. |
 | Monitoring/error tracking | Not verified | Provide existing dashboard/configuration evidence if available; otherwise leave unverified. |
 | 15+ meaningful commits | Verified | GitHub reports more than 60 public commits, including the documentation updates. |

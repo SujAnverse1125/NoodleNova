@@ -13,7 +13,7 @@ The supplied Excel/Sheets-style user-response image is included here: [`user-fee
 | Evidence source | What was observed | Submission status |
 | --- | --- | --- |
 | Shared feedback sheet | 80 response rows, 80 populated wallet-address fields, and 42 non-placeholder transaction-hash values | Supports onboarding/feedback count and identifies transaction candidates; does not independently verify 10 successful transactions |
-| Authorized admin panel | Nine shortened transaction-link entries were exposed in the inspected navigation response | Supports the existence of recorded transaction entries; full hashes and network confirmation remain required |
+| Authorized admin panel | The supplied screenshots show 69 registered couriers, 40 transaction-log entries, and 69 user-feedback records | Supports the existence of recorded transaction and feedback entries; full hashes and network confirmation remain required |
 | Public Stellar explorer records in the repository README | Deployment, create-delivery, and complete-delivery proof transactions are documented | Supports the project’s contract demonstration; these are not automatically 10 distinct user interactions |
 
 ## Verification register
