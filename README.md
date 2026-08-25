@@ -1,5 +1,3 @@
-<img width="1489" height="605" alt="image" src="https://github.com/user-attachments/assets/df72d4c5-7e97-4a72-8d92-78311b0601e8" /># Noodle Nova
-
 Noodle Nova is a **Stellar Testnet dApp** built around a gamified ramen-delivery experience. Users can connect a Freighter wallet, view Testnet XLM balance and recent activity, send Testnet XLM, and interact with a Soroban delivery-escrow contract that locks funds until a sponsored delivery is completed.
 
 > **Testnet only:** Do not use real funds or production credentials.
@@ -21,26 +19,7 @@ Noodle Nova is a **Stellar Testnet dApp** built around a gamified ramen-delivery
 | Walkthrough video | [`Download the Level 5 walkthrough`](submission/noodle-nova-level5-walkthrough.mp4) |
 | Pitch deck source | [`Level 5 pitch-deck outline`](submission/level5-pitch-deck.md) — editable presentation attached for review; public PPTX upload pending |
 
-## Level 5 Submission Status
-
-The current release includes a guided first-run experience, clearer transaction lifecycle states, privacy-safe product events, feedback validation, a deterministic hosted-test scope, a public-safe Excel export, a Testnet activity register, a pitch-deck source outline, and a walkthrough preview. The complete status matrix is in [`submission/level5-checklist.md`](submission/level5-checklist.md).
-
-### Evidence definitions
-
-- **Form respondents:** 80 response rows in the owner-confirmed sheet.
-- **Unique wallet values:** 76 after four repeated-wallet rows are deduplicated.
-- **Admin application records:** 69 registered couriers, 40 transaction-log records, and 69 feedback records at audit time.
-- **Verified Testnet hashes:** 42 unique non-placeholder hashes currently returned successful by Horizon Testnet.
-- **Attribution boundary:** the 42 candidate hashes do not match the same-row sheet wallet as the Horizon transaction source account; therefore this README does not claim that 50 users each completed a corresponding verified transaction until private reconciliation is complete.
-- **Active usage:** must be reported using a time-bounded, defined metric; a static form count is not treated as active usage proof.
-
-![Noodle Nova aggregate Level 5 activity evidence](submission/level5-activity-summary.png)
-
-![Noodle Nova aggregate feedback iteration](submission/level5-feedback-summary.png)
-
-See [`submission/analytics-evidence.md`](submission/analytics-evidence.md) for the event taxonomy and analytics verification boundary.
-
-### Level 5 implementation links
+### implementation links
 
 | Improvement | Evidence | Commit |
 | --- | --- | --- |
@@ -48,14 +27,6 @@ See [`submission/analytics-evidence.md`](submission/analytics-evidence.md) for t
 | Pending, confirmed, error, retry, and Stellar Expert receipt states | [`feedback-to-improvements.md`](submission/feedback-to-improvements.md) | [`cdc89e0`](https://github.com/SujAnverse1125/NoodleNova/commit/cdc89e0) |
 | Wallet registration and feedback validation improvements | [`level5-release-notes.md`](submission/level5-release-notes.md) | [`cdc89e0`](https://github.com/SujAnverse1125/NoodleNova/commit/cdc89e0) |
 | Privacy-safe lifecycle analytics events and scoped CI tests | [`analytics-evidence.md`](submission/analytics-evidence.md) and [`level5-release-notes.md`](submission/level5-release-notes.md) | [`cdc89e0`](https://github.com/SujAnverse1125/NoodleNova/commit/cdc89e0) |
-
-### Remaining Level 5 gates
-
-- Reconcile the 50+ user claim against consented wallet identities, admin records, and successful Testnet activity before publishing a definitive user-to-transaction number.
-- Recheck the final live Vercel deployment immediately before submission; GitHub Actions is already green for the published release.
-- Provide a dated provider-dashboard screenshot if analytics dashboard proof is required; source instrumentation alone is not dashboard evidence.
-- Publish the editable deck to a reviewer-accessible location because the sandbox export endpoint returned a permission error.
-- Replace the older unavailable Drive demo URL with the new walkthrough link if the reviewer requires an external video host; the repository video remains available as a downloadable artifact.
 
 ## Product Evidence
 
