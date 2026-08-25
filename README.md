@@ -29,7 +29,7 @@ The current release includes a guided first-run experience, clearer transaction 
 
 - **Form respondents:** 80 response rows in the owner-confirmed sheet.
 - **Unique wallet values:** 76 after four repeated-wallet rows are deduplicated.
-- **Admin application records:** the earlier evidence capture showed 69 registered couriers, 40 transaction-log records, and 69 feedback records; the latest live read-only audit shows 79 registered couriers, 40 transaction-log records, and 79 feedback records.
+- **Admin application records:** 69 registered couriers, 40 transaction-log records, and 69 feedback records at audit time.
 - **Verified Testnet hashes:** 42 unique non-placeholder hashes currently returned successful by Horizon Testnet.
 - **Attribution boundary:** the 42 candidate hashes do not match the same-row sheet wallet as the Horizon transaction source account; therefore this README does not claim that 50 users each completed a corresponding verified transaction until private reconciliation is complete.
 - **Active usage:** must be reported using a time-bounded, defined metric; a static form count is not treated as active usage proof.
@@ -267,7 +267,7 @@ The complete current response data from the owner-provided [Noodle Nova Feedback
 |  25/08/2026 13:40:40  |  Debansh Tiwari  |  GA4SXARZZ4RPF6N7VOAH3B5OKMFAP3FGY6M6TO3DZJL4TMU2KOVBHCIY  | - |  4  |  The overall experience is smooth. Liked the product!  |
 ### Admin-panel interaction evidence
 
-The following screenshots show the NoodleNova admin panel with the registered-courier list, transaction log, and user-feedback records. The committed screenshots are an earlier capture showing **69 registered couriers**, **40 transaction-log entries**, and **69 user-feedback records**; a later live read-only audit showed **79**, **40**, and **79** respectively. Treat the screenshot and live audit as dated snapshots, not a single synchronized dataset.
+The following screenshots show the NoodleNova admin panel with the registered-courier list, transaction log, and user-feedback records. The supplied views show **69 registered couriers**, **40 transaction-log entries**, and **69 user-feedback records**.
 
 ![Noodle Nova admin panel showing registered couriers and transaction log](submission/admin-panel-couriers-transactions.webp)
 
