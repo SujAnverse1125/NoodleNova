@@ -57,9 +57,9 @@ This README describes the current deployed product as documented by the reposito
 
 ## Architecture
 
-![Noodle Nova architecture diagram](submission/architecture.png)
+![Noodle Nova architecture diagram](submission/noodlenova-architecture.png)
 
-The architecture diagram above summarizes the current application flow: a Player using a Freighter or Albedo wallet connects to the React game client; the client communicates with the FastAPI game service, Sentry/PostHog observability, and the result-verifier path; the verifier records the compact signed result in the Soroban contract. Gameplay remains off-chain for responsive movement, collisions, core spawns, and abilities, while the final verified result is the blockchain-facing outcome.
+The architecture diagram above is **NoodleNova-specific** and is based on the actual repository paths. A player connects a Freighter wallet to the Next.js frontend. The frontend uses Stellar Horizon for Testnet balance, activity, and XLM transfers; calls the existing Next.js route handlers for users, rewards, transactions, feedback, and user statistics; persists application records through Prisma to PostgreSQL; and interacts with the Soroban `DeliveryEscrow` contract. The contract emits the documented delivery events. This is a documentation diagram only; no application architecture was changed.
 
 | Layer | Current implementation documented by the repository |
 | --- | --- |
@@ -150,19 +150,21 @@ The table below is intentionally evidence-based. `Verified` means the item is di
 | Basic user feedback collection | **Evidence available** | The feedback UI and shared response summary document ratings and written comments. |
 | Analytics integration | **Not verified** | No public analytics dashboard or configuration evidence was available in the read-only audit. |
 | Monitoring/error tracking | **Not verified** | No public monitoring dashboard or configuration evidence was available in the read-only audit. |
-| Minimum 15 meaningful commits | **Verified** | GitHub reports 62 public commits at the time of the audit. |
+| Minimum 15 meaningful commits | **Verified** | GitHub reports more than 60 public commits, including the documentation updates. |
 | Live demo video | **Pending replacement** | The existing owner-provided Google Drive URL currently returns a file-not-found page in the read-only access check. Replace it with an active public link before submission. |
 | Complete documentation | **In progress / documented here** | This README and the `submission/` evidence notes organize the currently available proof without changing product code. |
+
+## Users Onboarded and Feedback Evidence
+
+The supplied Excel/Sheets-style response image is included as visual evidence for the onboarding and feedback requirement. It shows the `Form_Responses` sheet with 12 visible response rows and the fields used for the submission: timestamp, name, email, wallet address, transaction hash, rating, and written feedback.
+
+![User onboarding and feedback spreadsheet](submission/user-feedback-sheet.png)
+
+Because the image contains personal fields, it should be treated as sensitive submission evidence and not redistributed beyond the authorized review process. The analysis in [`submission/feedback-summary.md`](submission/feedback-summary.md) intentionally reports aggregate results instead of reproducing the raw rows.
 
 ## Feedback Summary
 
 The shared onboarding and feedback sheet contains 12 visible responses. The recorded ratings are `5, 4, 5, 5, 4, 5, 5, 5, 5, 2, 4, 4`, producing an average of approximately **4.42/5**. The comments are predominantly positive about the interface and game experience, with one clear recurring improvement signal: gameplay could be refined further.
-
-The feedback evidence is summarized in [`submission/feedback-summary.md`](submission/feedback-summary.md), and the supplied spreadsheet screenshot is included as visual evidence below. The image is retained because it was explicitly provided for the submission; reviewers should treat the visible names, email addresses, and wallet addresses as sensitive evidence and avoid redistributing it beyond the authorized review process.
-
-![User onboarding and feedback spreadsheet](submission/user-feedback-sheet.png)
-
-The written summary avoids copying the full spreadsheet rows into Markdown and reports only aggregate counts, ratings, themes, and verification limitations.
 
 ## Admin and Privacy Note
 

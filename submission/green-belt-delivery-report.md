@@ -4,7 +4,7 @@
 
 The NoodleNova repository has been prepared for Level 4 Green Belt submission through a **documentation-only update**. The application source, smart contracts, database, deployment configuration, dependencies, environment variables, admin records, and existing Git history were not changed.
 
-The update was pushed to the public repository in commit [`aaa6e90`](https://github.com/SujAnverse1125/NoodleNova/commit/aaa6e9084d144ba61b9bba4373286acb5abc2949), titled `docs: prepare Level 4 Green Belt submission`.
+The initial documentation update was pushed to the public repository in commit [`aaa6e90`](https://github.com/SujAnverse1125/NoodleNova/commit/aaa6e9084d144ba61b9bba4373286acb5abc2949), and the supplied architecture and spreadsheet images were added in commit [`7ae80e1`](https://github.com/SujAnverse1125/NoodleNova/commit/7ae80e1c00899ebaaa302dce24d5a8e09520cf97), titled `docs: add architecture and user evidence images`.
 
 | Changed path | Purpose |
 | --- | --- |
@@ -13,10 +13,12 @@ The update was pushed to the public repository in commit [`aaa6e90`](https://git
 | [`submission/evidence-index.md`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/evidence-index.md) | Index of existing screenshots, links, contract proof, onboarding evidence, and missing evidence. |
 | [`submission/feedback-summary.md`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/feedback-summary.md) | Sanitized analysis of 12 visible feedback responses and approximately 4.42/5 average rating. |
 | [`submission/interaction-evidence.md`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/interaction-evidence.md) | Conservative wallet-interaction register distinguishing visible records from independently verified transactions. |
+| [`submission/noodlenova-architecture.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/noodlenova-architecture.png) | NoodleNova-specific architecture diagram generated from the verified repository structure. |
+| [`submission/user-feedback-sheet.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/user-feedback-sheet.png) | Supplied Excel/Sheets-style onboarding and feedback image with 12 visible rows. |
 
 ## Verified during delivery
 
-The repository remained clean after the push. The public repository showed the new documentation commit, the `submission/` directory, and 63 total commits. The key public repository, live deployment, Stellar Lab contract, and Stellar Expert deployment-transaction links responded successfully during the read-only link check.
+The repository remained clean after the push. The public repository showed the new documentation commit, the `submission/` directory, and more than 60 total commits. The key public repository, live deployment, Stellar Lab contract, and Stellar Expert deployment-transaction links responded successfully during the read-only link check.
 
 The supplied Google Drive demo-video URL did **not** pass verification: it returned a Google Drive file-not-found page and HTTP 404. It is marked **Pending replacement** in the README and checklist.
 
@@ -27,12 +29,12 @@ The supplied Google Drive demo-video URL did **not** pass verification: it retur
 | Public GitHub repository | Verified | Use the public repository link. |
 | Live production deployment | Evidence available | Open the live demo and capture any final owner-approved screenshot if required. |
 | Stellar Testnet contract | Evidence available | Re-open the public contract and transaction links shortly before review because Testnet state can reset. |
-| Product and mobile UI screenshots | Evidence available | Confirm existing image links remain accessible. |
+| Product, architecture, and mobile UI screenshots | Evidence available | Confirm existing image links remain accessible; the NoodleNova-specific architecture diagram is now included in `submission/noodlenova-architecture.png`. |
 | 12 onboarding/feedback responses | Evidence available | Use the sanitized feedback summary; keep the original sheet private or redact it. |
 | 10+ wallet interactions | Pending verification | Reconcile full admin-panel records and independently verify at least 10 distinct successful Stellar transactions. |
 | Analytics | Not verified | Provide existing dashboard/configuration evidence if available; otherwise leave unverified. |
 | Monitoring/error tracking | Not verified | Provide existing dashboard/configuration evidence if available; otherwise leave unverified. |
-| 15+ meaningful commits | Verified | GitHub reported 63 public commits after this documentation commit. |
+| 15+ meaningful commits | Verified | GitHub reports more than 60 public commits, including the documentation updates. |
 | Demo video | Pending replacement | Replace the unavailable Google Drive URL with a working public video link. |
 
 ## Privacy and safety controls
