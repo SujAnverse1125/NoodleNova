@@ -12,6 +12,7 @@ Noodle Nova is a **Stellar Testnet dApp** built around a gamified ramen-delivery
 | Demo video | [`Download the Level 5 walkthrough`](submission/noodle-nova-level5-walkthrough.mp4) — external host pending |
 | Public repository | [SujAnverse1125/NoodleNova](https://github.com/SujAnverse1125/NoodleNova) |
 | Level 5 checklist | [`submission/level5-checklist.md`](submission/level5-checklist.md) |
+| CI verification | [`submission/ci-status-level5.md`](submission/ci-status-level5.md) · [successful workflow run](https://github.com/SujAnverse1125/NoodleNova/actions/runs/32850838890) |
 | Feedback-to-improvement traceability | [`submission/feedback-to-improvements.md`](submission/feedback-to-improvements.md) |
 | User/activity evidence register | [`submission/level5-user-activity.md`](submission/level5-user-activity.md) |
 | Public feedback export | [`submission/noodle-nova-feedback-export.xlsx`](submission/noodle-nova-feedback-export.xlsx) |
@@ -176,7 +177,7 @@ npm test
 
 The current frontend validation passes **3 unit tests** with `npm test`, and `npm run build` completes successfully. The build still emits existing Stellar/Sodium critical-dependency warnings and an existing dynamic-server-usage diagnostic for `/api/user/stats`; these are documented limitations rather than hidden.
 
-The `npm test` script now targets the intended repository unit tests only. The database smoke test remains available separately as `npm run test:db` because it requires a configured database and performs a temporary write. The hosted GitHub Actions result must be checked after the approved commit is pushed; do not claim the workflow is green until that run is verified.
+The `npm test` script now targets the intended repository unit tests only. The database smoke test remains available separately as `npm run test:db` because it requires a configured database and performs a temporary write. The hosted GitHub Actions run for [`f4cd575`](https://github.com/SujAnverse1125/NoodleNova/commit/f4cd575) completed successfully; see [`submission/ci-status-level5.md`](submission/ci-status-level5.md). The runner reported only a Node.js action deprecation annotation.
 
 ## Users Onboarded and Feedback Evidence
 
