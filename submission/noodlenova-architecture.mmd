@@ -1,0 +1,22 @@
+flowchart LR
+    U[Player] --> W[Freighter Wallet]
+    W --> FE[Next.js Frontend<br/>app/ + components/ + WalletContext]
+
+    FE --> H[Stellar Horizon Testnet<br/>balance, activity, XLM transfers]
+    FE --> SC[Soroban DeliveryEscrow<br/>contracts/delivery_escrow]
+
+    FE --> API[Next.js Route Handlers<br/>/api/users<br/>/api/rewards<br/>/api/transactions<br/>/api/feedback<br/>/api/user/stats]
+    API --> PR[Prisma ORM<br/>lib/prisma.ts]
+    PR --> DB[(PostgreSQL<br/>DATABASE_URL)]
+    API --> RH[Horizon Testnet<br/>reward transaction verification]
+
+    SC --> EV[DeliveryCreated<br/>DeliveryCompleted events]
+
+    classDef user fill:#13233a,stroke:#5eead4,color:#ffffff;
+    classDef app fill:#1e293b,stroke:#60a5fa,color:#ffffff;
+    classDef chain fill:#3b1d5b,stroke:#c084fc,color:#ffffff;
+    classDef data fill:#183b2b,stroke:#4ade80,color:#ffffff;
+    class U,W user;
+    class FE,API,PR app;
+    class H,SC,RH,EV chain;
+    class DB data;

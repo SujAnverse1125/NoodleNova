@@ -6,7 +6,7 @@ This index catalogs evidence already present in the repository or supplied by th
 | --- | --- | --- |
 | Product UI | [`../public/product-ui.png`](../public/product-ui.png) | Existing repository screenshot; safe to reference in the README. |
 | Feedback UI | [`../public/feedback-ui.png`](../public/feedback-ui.png) | Existing repository screenshot; safe to reference in the README. |
-| Architecture | [`architecture.png`](architecture.png) | Supplied architecture diagram showing wallet → React client → FastAPI/observability/result-verifier → Soroban flow. |
+| Architecture | [`noodlenova-architecture.png`](noodlenova-architecture.png) and [`architecture.png`](architecture.png) | `noodlenova-architecture.png` is the NoodleNova-specific diagram based on the repository. `architecture.png` is the supplied Cosmic-Capture-style reference visual and is not presented as NoodleNova’s own architecture. |
 | User onboarding spreadsheet | [`user-feedback-sheet.png`](user-feedback-sheet.png) | Supplied Excel/Sheets-style evidence image showing 12 visible response rows; contains sensitive personal fields and should not be redistributed beyond authorized review. |
 | Mobile responsive UI | External GitHub user-attachment image referenced by the README | Existing owner-provided evidence; confirm the link remains accessible before final submission. |
 | CI/CD setup | [`../public/cicd-pipeline.png`](../public/cicd-pipeline.png) | Existing repository screenshot; reference only. |

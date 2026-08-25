@@ -5,6 +5,7 @@ This checklist records the evidence currently available for the existing NoodleN
 | Requirement | Status | Evidence |
 | --- | --- | --- |
 | Public GitHub repository | **Verified** | [SujAnverse1125/NoodleNova](https://github.com/SujAnverse1125/NoodleNova) |
+| Architecture documentation | **Evidence available** | [`noodlenova-architecture.png`](noodlenova-architecture.png) and the Architecture section in the root README document the actual Next.js, route-handler, Prisma, Horizon, and Soroban flow. |
 | Production deployment | **Evidence available** | [Noodle Nova live demo](https://noodle-nova-seven.vercel.app/) |
 | Smart contract deployed on Stellar Testnet | **Evidence available** | Existing README contract table and public Testnet links |
 | Functional MVP | **Evidence available** | Existing live demo, feature description, product UI, contract proof, and test-output image |
@@ -15,7 +16,7 @@ This checklist records the evidence currently available for the existing NoodleN
 | Basic feedback collection | **Evidence available** | Existing feedback UI and shared response summary |
 | Analytics integration | **Not verified** | No public dashboard/configuration evidence available in the read-only audit |
 | Monitoring/error tracking | **Not verified** | No public dashboard/configuration evidence available in the read-only audit |
-| 15+ meaningful commits | **Verified** | GitHub reported 62 public commits at the time of audit |
+| 15+ meaningful commits | **Verified** | GitHub reports more than 60 public commits, including the documentation updates |
 | Live demo video | **Pending replacement** | The owner-provided Google Drive URL currently returns a file-not-found page in the read-only access check; replace it before submission. |
 | Complete documentation | **Updated** | This README plus the `submission/` evidence notes |
 
