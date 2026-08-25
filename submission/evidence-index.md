@@ -6,6 +6,8 @@ This index catalogs evidence already present in the repository or supplied by th
 | --- | --- | --- |
 | Product UI | [`../public/product-ui.png`](../public/product-ui.png) | Existing repository screenshot; safe to reference in the README. |
 | Feedback UI | [`../public/feedback-ui.png`](../public/feedback-ui.png) | Existing repository screenshot; safe to reference in the README. |
+| Architecture | [`architecture.png`](architecture.png) | Supplied architecture diagram showing wallet → React client → FastAPI/observability/result-verifier → Soroban flow. |
+| User onboarding spreadsheet | [`user-feedback-sheet.png`](user-feedback-sheet.png) | Supplied Excel/Sheets-style evidence image showing 12 visible response rows; contains sensitive personal fields and should not be redistributed beyond authorized review. |
 | Mobile responsive UI | External GitHub user-attachment image referenced by the README | Existing owner-provided evidence; confirm the link remains accessible before final submission. |
 | CI/CD setup | [`../public/cicd-pipeline.png`](../public/cicd-pipeline.png) | Existing repository screenshot; reference only. |
 | Test output | [`../public/test-output.png`](../public/test-output.png) | Existing repository screenshot documenting the recorded 3-pass result. |

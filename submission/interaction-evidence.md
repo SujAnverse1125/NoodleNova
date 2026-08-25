@@ -4,6 +4,10 @@
 
 This register prevents the Green Belt submission from claiming more wallet activity than the available public evidence supports. It is based on the supplied feedback-sheet screenshot and the read-only inspection of the authorized admin panel.
 
+## Visual evidence
+
+The supplied Excel/Sheets-style user-response image is included here: [`user-feedback-sheet.png`](user-feedback-sheet.png). It shows the `Form_Responses` header and 12 visible response rows with timestamp, name, email, wallet address, transaction-hash, rating, and feedback columns. Because the image contains personal fields, it should be treated as sensitive evidence and used only in the authorized submission context.
+
 ## Current evidence status
 
 | Evidence source | What was observed | Submission status |

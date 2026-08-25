@@ -57,6 +57,10 @@ This README describes the current deployed product as documented by the reposito
 
 ## Architecture
 
+![Noodle Nova architecture diagram](submission/architecture.png)
+
+The architecture diagram above summarizes the current application flow: a Player using a Freighter or Albedo wallet connects to the React game client; the client communicates with the FastAPI game service, Sentry/PostHog observability, and the result-verifier path; the verifier records the compact signed result in the Soroban contract. Gameplay remains off-chain for responsive movement, collisions, core spawns, and abilities, while the final verified result is the blockchain-facing outcome.
+
 | Layer | Current implementation documented by the repository |
 | --- | --- |
 | Frontend | Next.js 14, React, TypeScript, and Tailwind CSS |
@@ -154,7 +158,11 @@ The table below is intentionally evidence-based. `Verified` means the item is di
 
 The shared onboarding and feedback sheet contains 12 visible responses. The recorded ratings are `5, 4, 5, 5, 4, 5, 5, 5, 5, 2, 4, 4`, producing an average of approximately **4.42/5**. The comments are predominantly positive about the interface and game experience, with one clear recurring improvement signal: gameplay could be refined further.
 
-The feedback evidence is summarized in [`submission/feedback-summary.md`](submission/feedback-summary.md). Names, email addresses, full wallet addresses, and raw personal data are intentionally not reproduced in this public README.
+The feedback evidence is summarized in [`submission/feedback-summary.md`](submission/feedback-summary.md), and the supplied spreadsheet screenshot is included as visual evidence below. The image is retained because it was explicitly provided for the submission; reviewers should treat the visible names, email addresses, and wallet addresses as sensitive evidence and avoid redistributing it beyond the authorized review process.
+
+![User onboarding and feedback spreadsheet](submission/user-feedback-sheet.png)
+
+The written summary avoids copying the full spreadsheet rows into Markdown and reports only aggregate counts, ratings, themes, and verification limitations.
 
 ## Admin and Privacy Note
 
