@@ -224,10 +224,9 @@ The complete current response data from the owner-provided [Noodle Nova Feedback
 
 The following screenshots show the NoodleNova admin panel with the registered-courier list, transaction log, and user-feedback records. The supplied views show **69 registered couriers**, **40 transaction-log entries**, and **69 user-feedback records**.
 
-![Noodle Nova admin panel showing registered couriers and transaction log](<img width="1599" height="727" alt="image" src="https://github.com/user-attachments/assets/43a6e0a5-6a33-4fc5-9252-c0363218da41" />)
+![Noodle Nova admin panel showing registered couriers and transaction log](submission/admin-panel-couriers-transactions.webp)
 
-![Noodle Nova admin panel showing user feedback records](<img width="1423" height="626" alt="image" src="https://github.com/user-attachments/assets/239ea458-6a24-47cf-959d-303a007ee56c" />
-)
+![Noodle Nova admin panel showing user feedback records](submission/admin-panel-feedback.webp)
 
 Because both screenshots contain names, wallet-address fragments, transaction identifiers, and other user-related fields, they should be treated as sensitive submission evidence and not redistributed beyond the authorized review process. The analysis in [`submission/feedback-summary.md`](submission/feedback-summary.md) intentionally reports aggregate results instead of reproducing the raw rows.
 
