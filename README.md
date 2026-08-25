@@ -16,7 +16,7 @@ Noodle Nova is a **Stellar Testnet dApp** built around a gamified ramen-delivery
 | Feedback form | [Noodle Nova Feedback Form](https://docs.google.com/forms/d/1xX9ZUomtbxvE2tiJn0mGrCLUxNrQhcoirE2Hi7-hPrU/viewform) |
 | Response sheet | [Noodle Nova response sheet](https://docs.google.com/spreadsheets/d/1i4tkHd1MR0qPSeLngOxr9hNsqelM31TxBhXPZilFecI/edit?usp=sharing) |
 | Walkthrough video | [`Download the Level 5 walkthrough`](submission/noodle-nova-level5-walkthrough.mp4) |
-| Pitch deck source | [`Level 5 pitch-deck outline`](submission/level5-pitch-deck.md) — editable presentation attached for review; public PPTX upload pending |
+| Pitch deck/PPT link | (https://1drv.ms/p/c/02c700637cf1bf4f/IQDxKvQ777MLTJY1k8-QM07GASO1z2yG7NYwWpfID7nuhoA?e=X42qG5g) |
 
 ### implementation links
 
