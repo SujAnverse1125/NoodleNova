@@ -16,6 +16,7 @@ The initial documentation update was pushed to the public repository in commit [
 | [`submission/noodlenova-architecture.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/noodlenova-architecture.png) | NoodleNova-specific architecture diagram generated from the verified repository structure. |
 | [`submission/user-feedback-sheet-updated.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/user-feedback-sheet-updated.png) | Supplied Excel/Sheets-style onboarding and feedback image with 12 visible rows. |
 | [`submission/admin-panel-user-onboarding.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/admin-panel-user-onboarding.png) | Supplied admin-panel screenshot showing the registered-courier list and transaction log. |
+| [`submission/ci-status-diagnosis.md`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/ci-status-diagnosis.md) | Documents the pre-existing GitHub Actions/test-discovery failure without changing the workflow. |
 
 ## Verified during delivery
 

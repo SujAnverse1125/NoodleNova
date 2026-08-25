@@ -132,6 +132,8 @@ npm test
 
 The existing README records **3 passed, 0 failed** for the documented frontend test run. This result is preserved as repository evidence and has not been regenerated or altered as part of the documentation-only update.
 
+The GitHub Actions check currently shows a red status because recursive `node --test` discovery encounters broken tracked `.claude/skills` links on the hosted runner. This is a pre-existing CI/test-discovery issue unrelated to the documentation or image updates; see [`submission/ci-status-diagnosis.md`](submission/ci-status-diagnosis.md) for the verified details.
+
 ## Green Belt Submission Evidence
 
 The detailed Green Belt checklist is maintained in [`submission/checklist.md`](submission/checklist.md). It uses evidence-based statuses: `Verified`, `Evidence available`, `Pending verification`, `Not verified`, and `Pending replacement`. Missing evidence is not represented as completed.

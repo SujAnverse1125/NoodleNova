@@ -18,6 +18,7 @@ This index catalogs evidence already present in the repository or supplied by th
 | Website interactions | [`admin-panel-user-onboarding.png`](admin-panel-user-onboarding.png), authorized admin panel, and [`interaction-evidence.md`](interaction-evidence.md) | Screenshot shows the registered-user list and transaction log; full hashes and the 10-interaction claim remain pending verification. Do not publish the admin token or private admin URL. |
 | Analytics | No public dashboard/configuration artifact found in read-only audit | Mark `Not verified`; do not imply integration is active. |
 | Monitoring | No public dashboard/configuration artifact found in read-only audit | Mark `Not verified`; do not imply monitoring is active. |
+| CI status | [`ci-status-diagnosis.md`](ci-status-diagnosis.md) | Documents the pre-existing GitHub Actions/test-discovery failure without changing the workflow. |
 
 ## Recommended submission order
 
