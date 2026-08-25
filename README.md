@@ -134,9 +134,7 @@ The existing README records **3 passed, 0 failed** for the documented frontend t
 
 ## Green Belt Submission Evidence
 
-The table below is intentionally evidence-based. `Verified` means the item is directly supported by a public repository or public link. `Evidence available` means the repository or owner-provided material contains supporting evidence, but the claim may still require reviewer-side confirmation. `Pending verification` means the available material is not sufficient for a cryptographic or operational claim. Missing evidence is not represented as completed.
-
-
+The detailed Green Belt checklist is maintained in [`submission/checklist.md`](submission/checklist.md). It uses evidence-based statuses: `Verified`, `Evidence available`, `Pending verification`, `Not verified`, and `Pending replacement`. Missing evidence is not represented as completed.
 
 ## Users Onboarded and Feedback Evidence
 
