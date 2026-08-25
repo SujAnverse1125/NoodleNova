@@ -35,6 +35,7 @@ export async function POST(req: Request) {
                     amount: amount,
                 })
             )
+            .addMemo(StellarSdk.Memo.text("Noodle Nova"))
             .setTimeout(30)
             .build();
 
