@@ -14,7 +14,7 @@ The initial documentation update was pushed to the public repository in commit [
 | [`submission/feedback-summary.md`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/feedback-summary.md) | Sanitized analysis of 12 visible feedback responses and approximately 4.42/5 average rating. |
 | [`submission/interaction-evidence.md`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/interaction-evidence.md) | Conservative wallet-interaction register distinguishing visible records from independently verified transactions. |
 | [`submission/noodlenova-architecture.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/noodlenova-architecture.png) | NoodleNova-specific architecture diagram generated from the verified repository structure. |
-| [`submission/user-feedback-sheet.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/user-feedback-sheet.png) | Supplied Excel/Sheets-style onboarding and feedback image with 12 visible rows. |
+| [`submission/user-feedback-sheet-updated.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/user-feedback-sheet-updated.png) | Supplied Excel/Sheets-style onboarding and feedback image with 12 visible rows. |
 | [`submission/admin-panel-user-onboarding.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/admin-panel-user-onboarding.png) | Supplied admin-panel screenshot showing the registered-courier list and transaction log. |
 
 ## Verified during delivery

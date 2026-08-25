@@ -6,7 +6,7 @@ This register prevents the Green Belt submission from claiming more wallet activ
 
 ## Visual evidence
 
-The supplied Excel/Sheets-style user-response image is included here: [`user-feedback-sheet.png`](user-feedback-sheet.png). It shows the `Form_Responses` header and 12 visible response rows with timestamp, name, email, wallet address, transaction-hash, rating, and feedback columns. The supplied admin-panel image is included here: [`admin-panel-user-onboarding.png`](admin-panel-user-onboarding.png). It shows the registered-courier list and transaction log used as operational onboarding evidence. Because both images contain personal fields or transaction identifiers, they should be treated as sensitive evidence and used only in the authorized submission context.
+The supplied Excel/Sheets-style user-response image is included here: [`user-feedback-sheet-updated.png`](user-feedback-sheet-updated.png). It shows the `Form_Responses` header and 12 visible response rows with timestamp, name, email, wallet address, transaction-hash, rating, and feedback columns. The supplied admin-panel image is included here: [`admin-panel-user-onboarding.png`](admin-panel-user-onboarding.png). It shows the registered-courier list and transaction log used as operational onboarding evidence. Because both images contain personal fields or transaction identifiers, they should be treated as sensitive evidence and used only in the authorized submission context.
 
 ## Current evidence status
 

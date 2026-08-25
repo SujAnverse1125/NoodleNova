@@ -140,7 +140,7 @@ The detailed Green Belt checklist is maintained in [`submission/checklist.md`](s
 
 The supplied Excel/Sheets-style response image is included as visual evidence for the onboarding and feedback requirement. It shows the `Form_Responses` sheet with 12 visible response rows and the fields used for the submission: timestamp, name, email, wallet address, transaction hash, rating, and written feedback.
 
-![User onboarding and feedback spreadsheet](submission/user-feedback-sheet.png)
+![User onboarding and feedback spreadsheet](submission/user-feedback-sheet-updated.png)
 
 ### Admin-panel interaction evidence
 

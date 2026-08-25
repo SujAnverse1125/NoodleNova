@@ -4,7 +4,7 @@
 
 This summary is based on the shared `Form_Responses` feedback-sheet screenshot provided for the NoodleNova Level 4 submission. It records **12 visible response rows** dated 24–25 August 2026. The original spreadsheet image is included below as the visual evidence source; this Markdown file intentionally contains only aggregate analysis and does not reproduce the raw spreadsheet rows.
 
-![User onboarding and feedback spreadsheet](user-feedback-sheet.png)
+![User onboarding and feedback spreadsheet](user-feedback-sheet-updated.png)
 
 ## Rating snapshot
 
