@@ -137,7 +137,6 @@ The GitHub Actions check currently shows a red status because recursive `node --
 ## Users Onboarded and Feedback Evidence
 
 The supplied Excel/Sheets-style response image is included as visual evidence for the onboarding and feedback requirement. It shows the `Form_Responses` sheet with 12 visible response rows and the fields used for the submission: timestamp, name, email, wallet address, transaction hash, rating, and written feedback.
-## Users Onboarded and Feedback
 
 | Timestamp | Full Name | Email Address | Wallet Address | Transaction Hash | Rating | Review / Suggestions |
 |---|---|---|---|---|---:|---|
