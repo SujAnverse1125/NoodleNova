@@ -11,9 +11,9 @@ This checklist records the evidence currently available for the existing NoodleN
 | Functional MVP | **Evidence available** | Existing live demo, feature description, product UI, contract proof, and test-output image |
 | Mobile responsive UI | **Evidence available** | Existing mobile screenshot referenced by README |
 | Loading and error handling | **Evidence available** | Existing README feature statement; no new behavior claimed |
-| 10+ real users onboarded | **Evidence available** | 12 visible rows in the shared feedback sheet; see [`feedback-summary.md`](feedback-summary.md) |
-| Proof of 10+ wallet interactions | **Pending verification** | Admin panel exposed nine shortened transaction-link entries in the inspected view; full hashes and independent Stellar verification are still required; see [`interaction-evidence.md`](interaction-evidence.md) |
-| Basic feedback collection | **Evidence available** | Existing feedback UI and shared response summary |
+| 10+ real users onboarded | **Evidence available** | 80 response rows in the current shared Google Sheet; see [`feedback-summary.md`](feedback-summary.md) |
+| Proof of 10+ wallet interactions | **Pending verification** | The current sheet contains 42 non-placeholder transaction-hash candidates, while the admin panel shows transaction-log entries; full-hash reconciliation and independent Stellar verification are still required; see [`interaction-evidence.md`](interaction-evidence.md) |
+| Basic feedback collection | **Evidence available** | Existing feedback UI and the current 80-response shared Google Sheet |
 | Analytics integration | **Not verified** | No public dashboard/configuration evidence available in the read-only audit |
 | Monitoring/error tracking | **Not verified** | No public dashboard/configuration evidence available in the read-only audit |
 | 15+ meaningful commits | **Verified** | GitHub reports more than 60 public commits, including the documentation updates |

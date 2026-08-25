@@ -2,7 +2,7 @@
 
 ## Evidence source
 
-This summary is based on the shared `Form_Responses` feedback-sheet screenshot provided for the NoodleNova Level 4 submission. It records **12 visible response rows** dated 24–25 August 2026. The original spreadsheet image is included below as the visual evidence source; this Markdown file intentionally contains only aggregate analysis and does not reproduce the raw spreadsheet rows.
+This summary is based on the current owner-provided [Noodle Nova Feedback Form response sheet](https://docs.google.com/spreadsheets/d/1i4tkHd1MR0qPSeLngOxr9hNsqelM31TxBhXPZilFecI/edit?usp=sharing). The sheet contains **80 response rows** dated 16–25 August 2026. The spreadsheet image below is retained as a visual layout snapshot; this Markdown file intentionally contains only aggregate analysis and does not reproduce the raw spreadsheet rows.
 
 ![User onboarding and feedback spreadsheet](user-feedback-sheet-updated.png)
 
@@ -10,14 +10,17 @@ This summary is based on the shared `Form_Responses` feedback-sheet screenshot p
 
 | Metric | Observed value |
 | --- | ---: |
-| Visible responses | 12 |
-| Average rating | 4.42 / 5 approximately |
-| Five-star ratings | 7 |
-| Four-star ratings | 4 |
-| Two-star ratings | 1 |
-| One-, three-star ratings | 0 visible |
+| Current responses | 80 |
+| Average rating | 4.34 / 5 |
+| Five-star ratings | 40 |
+| Four-star ratings | 30 |
+| Three-star ratings | 7 |
+| Two-star ratings | 3 |
+| One-star ratings | 0 |
+| Wallet-address fields populated | 80 |
+| Non-placeholder transaction-hash values | 42 |
 
-The average is calculated from the visible ratings `5, 4, 5, 5, 4, 5, 5, 5, 5, 2, 4, 4`, which sum to 53 across 12 responses.
+The average is calculated from all 80 current sheet ratings: 40 five-star, 30 four-star, 7 three-star, and 3 two-star responses, for a total rating sum of 347 and an average of 4.3375, rounded to **4.34/5**.
 
 ## Qualitative themes
 
@@ -30,11 +33,11 @@ The average is calculated from the visible ratings `5, 4, 5, 5, 4, 5, 5, 5, 5, 2
 
 ## Privacy handling
 
-The spreadsheet image was explicitly provided for this submission and is included as visual evidence. Because it visibly contains names, email addresses, and wallet-address fields, it should be treated as sensitive evidence and not redistributed beyond the authorized review process. The Markdown file does not reproduce those raw rows. Full records should be shared only through the authorized review channel and only where the respondents’ consent and the submission rules permit it.
+The response sheet and spreadsheet image contain names, email addresses, wallet addresses, and transaction-related fields. They should be treated as sensitive evidence and not redistributed beyond the authorized review process. The Markdown file does not reproduce those raw rows. Full records should be shared only through the authorized review channel and only where the respondents’ consent and the submission rules permit it.
 
 ## Evidence limitation
 
-The screenshot shows a transaction-hash column, but several visible values are null-like (`none`, `NADA`, `nil`, or `na`) and some wallet/hash values are truncated by the screenshot. Therefore, the image and this document support the **user feedback and onboarding-response count**, but they do not independently prove 10 completed Stellar wallet interactions. That requirement is tracked separately in [`interaction-evidence.md`](interaction-evidence.md).
+The current sheet contains 42 non-placeholder transaction-hash values and 80 populated wallet-address fields. These values support the **user feedback and onboarding-response count**, but they do not independently prove 10 completed Stellar wallet interactions until the candidate hashes are verified on Stellar Testnet and reconciled with the admin-panel records. That requirement is tracked separately in [`interaction-evidence.md`](interaction-evidence.md).
 
 ## References
 

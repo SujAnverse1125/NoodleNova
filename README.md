@@ -136,7 +136,7 @@ The GitHub Actions check currently shows a red status because recursive `node --
 
 ## Users Onboarded and Feedback Evidence
 
-The supplied Excel/Sheets-style response image is included as visual evidence for the onboarding and feedback requirement. It shows the `Form_Responses` sheet with 12 visible response rows and the fields used for the submission: timestamp, name, email, wallet address, transaction hash, rating, and written feedback.
+The current onboarding and feedback source is the owner-provided [Noodle Nova Feedback Form response sheet](https://docs.google.com/spreadsheets/d/1i4tkHd1MR0qPSeLngOxr9hNsqelM31TxBhXPZilFecI/edit?usp=sharing). The sheet contains the fields used for the submission: timestamp, full name, email address, wallet address, transaction hash, rating, and written feedback. The linked image is retained as a visual snapshot of the sheet layout; the aggregate counts below were calculated from the current shared sheet.
 
 | Timestamp | Full Name | Email Address | Wallet Address | Transaction Hash | Rating | Review / Suggestions |
 |---|---|---|---|---|---:|---|
@@ -164,7 +164,7 @@ Because both screenshots contain names, wallet-address fragments, transaction id
 
 ## Feedback Summary
 
-The shared onboarding and feedback sheet contains 12 visible responses. The recorded ratings are `5, 4, 5, 5, 4, 5, 5, 5, 5, 2, 4, 4`, producing an average of approximately **4.42/5**. The comments are predominantly positive about the interface and game experience, with one clear recurring improvement signal: gameplay could be refined further.
+The current shared sheet contains **80 responses**, all with a wallet-address field and written feedback. Ratings average **4.34/5**, with the following distribution: **40 five-star**, **30 four-star**, **7 three-star**, and **3 two-star** responses. The sheet contains **42 non-placeholder transaction-hash values**; these values are evidence candidates only and are not independently verified here as successful Stellar transactions. The responses span **16–25 August 2026**. Feedback is predominantly positive about the interface and overall experience, while gameplay refinement remains the clearest improvement theme.
 * **User Experience:** Players consistently describe the interface as visually appealing, engaging, and among the best they have encountered.
  * **Gameplay Development:** While the current gameplay is viewed positively, feedback indicates that it still requires further refinement and improvement.
 
