@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useCallback, useEffect } from "react";
+import { trackProductEvent } from "@/lib/analytics";
 
 interface WalletState {
     address: string | null;
@@ -74,6 +75,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
     }, []);
 
     const connect = useCallback(async (name?: string) => {
+        trackProductEvent("wallet_connect_started");
         setIsLoading(true);
         setError(null);
 
@@ -82,7 +84,9 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
             const connected = await freighterApi.isConnected();
 
             if (!connected) {
-                setError("Please install the Freighter wallet extension to continue.");
+                const message = "Please install the Freighter wallet extension to continue.";
+                trackProductEvent("wallet_connect_failed", { reason: "missing_extension" });
+                setError(message);
                 setIsLoading(false);
                 return;
             }
@@ -96,15 +100,20 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
                     await registerUser(pubKey, name);
                 } else {
                     // Show custom modal
+                    trackProductEvent("wallet_connected");
                     setTempPubKey(pubKey);
+                    setNameInput("");
                     setShowNameModal(true);
                 }
             } else {
-                setError("Could not retrieve wallet address. Please try again.");
+                const message = "Could not retrieve wallet address. Please try again.";
+                trackProductEvent("wallet_connect_failed", { reason: "address_unavailable" });
+                setError(message);
             }
         } catch (err: unknown) {
             const message =
                 err instanceof Error ? err.message : "Failed to connect wallet.";
+            trackProductEvent("wallet_connect_failed", { reason: "wallet_error" });
             setError(message);
         } finally {
             setIsLoading(false);
@@ -113,24 +122,30 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
 
     const registerUser = async (pubKey: string, name: string) => {
         setIsLoading(true);
+        setError(null);
         try {
             const res = await fetch("/api/users", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ walletAddress: pubKey, name }),
             });
-            if (res.ok) {
-                const data = await res.json();
-                setUserName(data.user.name);
+            const data = await res.json().catch(() => null);
+            if (!res.ok || !data?.user) {
+                throw new Error(data?.error || "Could not save your courier profile. Please retry.");
             }
-        } catch (e) {
-            console.error("Failed to register user:", e);
-        } finally {
+
+            setUserName(data.user.name);
             setAddress(pubKey);
             setIsConnected(true);
-            setError(null);
-            setIsLoading(false);
             setShowNameModal(false);
+            trackProductEvent("onboarding_completed");
+        } catch (e: unknown) {
+            const message = e instanceof Error ? e.message : "Could not save your courier profile. Please retry.";
+            trackProductEvent("wallet_connect_failed", { reason: "registration_error" });
+            setError(message);
+            console.error("Failed to register user:", e);
+        } finally {
+            setIsLoading(false);
         }
     };
 

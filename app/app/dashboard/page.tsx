@@ -5,6 +5,7 @@ import { useWallet } from "@/app/context/WalletContext";
 import { BalanceCard } from "@/components/BalanceCard";
 import { TxFeed } from "@/components/TxFeed";
 import Link from "next/link";
+import { OnboardingGuide } from "@/components/OnboardingGuide";
 
 export default function DashboardPage() {
     const { isConnected, address } = useWallet();
@@ -44,6 +45,8 @@ export default function DashboardPage() {
                     <i className="w-2 h-2 rounded-full bg-cyan animate-pulse" /> Courier Active
                 </div>
             </header>
+
+            <OnboardingGuide hasCompletedAction={stats.routesFunded > 0} />
 
             {/* Metrics */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">

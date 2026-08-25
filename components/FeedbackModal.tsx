@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useWallet } from "@/app/context/WalletContext";
 import { useToast } from "@/app/context/ToastContext";
+import { trackProductEvent } from "@/lib/analytics";
 
 interface FeedbackModalProps {
     isOpen: boolean;
@@ -24,6 +25,10 @@ export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
             showError("Please connect your wallet first");
             return;
         }
+        if (!message.trim()) {
+            showError("Please add a short comment before submitting.");
+            return;
+        }
 
         setIsSubmitting(true);
         try {
@@ -33,16 +38,20 @@ export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
                 body: JSON.stringify({ walletAddress: address, message, rating }),
             });
 
-            if (res.ok) {
+            const data = await res.json().catch(() => null);
+            if (res.ok && data?.success) {
+                trackProductEvent("feedback_submitted", { rating });
                 showSuccess("Thank you for your feedback!");
                 setMessage("");
                 setRating(5);
                 onClose();
             } else {
-                showError("Failed to submit feedback");
+                trackProductEvent("feedback_failed", { reason: "api_error" });
+                showError(data?.error || "Failed to submit feedback");
             }
         } catch (error) {
-            showError("An error occurred");
+            trackProductEvent("feedback_failed", { reason: "network_error" });
+            showError("Network error while submitting feedback. Please retry.");
         } finally {
             setIsSubmitting(false);
         }

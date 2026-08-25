@@ -4,10 +4,19 @@ import { SendForm } from "@/components/SendForm";
 import { useState } from "react";
 import { useWallet } from "@/app/context/WalletContext";
 import { useToast } from "@/app/context/ToastContext";
+import { trackProductEvent } from "@/lib/analytics";
+
+type TransactionStatus = {
+    routeId: number;
+    state: "pending" | "success" | "error";
+    message: string;
+    hash?: string;
+};
 
 export default function RoutesPage() {
     const [selectedRoute, setSelectedRoute] = useState<number | null>(null);
     const [isSponsoring, setIsSponsoring] = useState<number | null>(null);
+    const [transactionStatus, setTransactionStatus] = useState<TransactionStatus | null>(null);
     const { address } = useWallet();
     const { showSuccess, showError } = useToast();
 
@@ -25,21 +34,31 @@ export default function RoutesPage() {
         }
 
         setIsSponsoring(routeId);
+        setTransactionStatus({ routeId, state: "pending", message: "Submitting your Testnet route transaction…" });
+        trackProductEvent("transaction_submitted", { flow: "sponsor_route", route_id: routeId });
         try {
             const res = await fetch("/api/rewards", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ walletAddress: address, type: "sponsor_route" }),
             });
-            const data = await res.json();
+            const data = await res.json().catch(() => null);
 
-            if (res.ok && data.success) {
+            if (res.ok && data?.success && data.hash) {
+                trackProductEvent("transaction_succeeded", { flow: "sponsor_route", route_id: routeId });
+                setTransactionStatus({ routeId, state: "success", message: "Route sponsored successfully. Your Testnet receipt is ready.", hash: data.hash });
                 showSuccess("Route sponsored! Reward sent.", data.hash);
             } else {
-                showError(data.error || "Failed to sponsor route");
+                const message = data?.error || "The route could not be sponsored. Please retry.";
+                trackProductEvent("transaction_failed", { flow: "sponsor_route", route_id: routeId, reason: "api_error" });
+                setTransactionStatus({ routeId, state: "error", message });
+                showError(message);
             }
         } catch (error) {
-            showError("An error occurred while sponsoring");
+            trackProductEvent("transaction_failed", { flow: "sponsor_route", route_id: routeId, reason: "network_error" });
+            const message = "Network error while sponsoring. Check your connection and retry.";
+            setTransactionStatus({ routeId, state: "error", message });
+            showError(message);
         } finally {
             setIsSponsoring(null);
         }
@@ -92,7 +111,7 @@ export default function RoutesPage() {
                                                 e.stopPropagation();
                                                 handleSponsor(route.id);
                                             }}
-                                            disabled={isSponsoring === route.id}
+                                            disabled={isSponsoring !== null}
                                             className={`px-6 py-2 rounded-lg font-bold text-sm transition-colors ${isSponsoring === route.id ? "bg-white/10 text-muted" : "bg-cyan/20 text-cyan hover:bg-cyan/30 border border-cyan/30"}`}
                                         >
                                             {isSponsoring === route.id ? "Funding..." : "Sponsor"}
@@ -103,6 +122,49 @@ export default function RoutesPage() {
                         );
                     })}
                 </div>
+
+                {transactionStatus && (
+                    <div
+                        role="status"
+                        aria-live="polite"
+                        className={`mt-6 rounded-xl border p-4 ${transactionStatus.state === "success"
+                            ? "border-neon-green/30 bg-neon-green/5"
+                            : transactionStatus.state === "error"
+                                ? "border-red-400/30 bg-red-400/5"
+                                : "border-cyan/30 bg-cyan/5"
+                            }`}
+                    >
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                            <div>
+                                <p className={`text-sm font-semibold ${transactionStatus.state === "success" ? "text-neon-green" : transactionStatus.state === "error" ? "text-red-300" : "text-cyan"}`}>
+                                    {transactionStatus.state === "pending" ? "Transaction pending" : transactionStatus.state === "success" ? "Transaction confirmed" : "Transaction needs attention"}
+                                </p>
+                                <p className="mt-1 text-xs leading-5 text-muted">{transactionStatus.message}</p>
+                            </div>
+                            <div className="flex shrink-0 items-center gap-3">
+                                {transactionStatus.state === "success" && transactionStatus.hash && (
+                                    <a
+                                        className="text-xs font-bold text-cyan underline-offset-4 hover:underline"
+                                        href={`https://stellar.expert/explorer/testnet/tx/${transactionStatus.hash}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        View receipt ↗
+                                    </a>
+                                )}
+                                {transactionStatus.state === "error" && (
+                                    <button
+                                        type="button"
+                                        className="rounded-lg border border-cyan/30 px-3 py-2 text-xs font-bold text-cyan hover:bg-cyan/10"
+                                        onClick={() => handleSponsor(transactionStatus.routeId)}
+                                    >
+                                        Retry transaction
+                                    </button>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                )}
 
                 {/* Escrow strip */}
                 <div className="mt-8 rounded-xl border border-white/10 bg-ink-2/60 backdrop-blur-md p-5 flex justify-between items-center">
