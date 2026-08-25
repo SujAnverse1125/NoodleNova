@@ -1,0 +1,144 @@
+{
+  "project_info": {
+    "title": "Noodle Nova",
+    "created": 1787662036.549,
+    "last_updated": 1787662261.388,
+    "total_slides": 12
+  },
+  "slides": [
+    {
+      "id": "cover",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "problem",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "solution",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "product",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "architecture",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "proof",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "traction",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "feedback",
+      "state": "edited",
+      "pageNum": 8
+    },
+    {
+      "id": "market",
+      "state": "edited",
+      "pageNum": 9
+    },
+    {
+      "id": "growth",
+      "state": "edited",
+      "pageNum": 10
+    },
+    {
+      "id": "roadmap",
+      "state": "edited",
+      "pageNum": 11
+    },
+    {
+      "id": "close",
+      "state": "edited",
+      "pageNum": 12
+    }
+  ],
+  "outline": [
+    {
+      "id": "cover",
+      "title": "Noodle Nova",
+      "summary": "Title slide introducing Noodle Nova as an anime-styled Stellar Testnet courier dApp.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "problem",
+      "title": "The problem",
+      "summary": "Explain the onboarding and verification friction that blocks first-time Web3 users.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "solution",
+      "title": "The solution",
+      "summary": "Show the simple courier loop from wallet connection to a verifiable Testnet receipt.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "product",
+      "title": "Product experience",
+      "summary": "Present the landing page, guided onboarding, route board, dashboard, and feedback loop.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture",
+      "summary": "Explain the Next.js, Prisma, Horizon, Soroban, Vercel, and Analytics stack.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "proof",
+      "title": "Real Stellar proof",
+      "summary": "Show the deployed contract context, public receipt links, and evidence discipline.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "traction",
+      "title": "Early traction and evidence",
+      "summary": "Present the response-sheet, admin, and Testnet counts with attribution caveats.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "feedback",
+      "title": "Feedback became product work",
+      "summary": "Connect the 80-response feedback summary to shipped product improvements.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "market",
+      "title": "Market opportunity",
+      "summary": "Position the product within the Stellar ecosystem and adjacent blockchain-gaming opportunity.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "growth",
+      "title": "Growth strategy",
+      "summary": "Show acquisition, activation, retention, measurement, and trust loops.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "roadmap",
+      "title": "Roadmap",
+      "summary": "Lay out immediate, 30-day, 60–90-day, and longer-term milestones.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "close",
+      "title": "Demo and next step",
+      "summary": "End with the live app, repository, evidence package, and next review gate.",
+      "image_plan": "Use a suitable image if needed"
+    }
+  ]
+}

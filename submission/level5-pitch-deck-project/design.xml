@@ -1,0 +1,16 @@
+<design>
+  <size width="1280" height="720"></size>
+  <color name="ink" value="#0B1021"/>
+  <color name="surface" value="#131B33"/>
+  <color name="text-main" value="#FFFFFF"/>
+  <color name="text-muted" value="#94A3B8"/>
+  <color name="cyan-accent" value="#00F0FF"/>
+  <color name="pink-accent" value="#FF007F"/>
+  <color name="gold-accent" value="#FFD700"/>
+  <color name="hairline" value="#2A3655"/>
+  <font name="display" family="Inter" size="56"/>
+  <font name="heading" family="Inter" size="36"/>
+  <font name="strong" family="Inter" size="24"/>
+  <font name="body" family="Inter" size="18"/>
+  <font name="caption" family="Inter" size="14"/>
+</design>

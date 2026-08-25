@@ -1,0 +1,22 @@
+<slide id="close">
+  <background color="ink"/>
+  <shape id="close-top-rule" type="line" x="60" y="18" width="1160" height="0" stroke="cyan-accent" stroke-width="2"/>
+  <shape id="close-frame" type="rect" x="60" y="78" width="1160" height="535" fill="none" stroke="hairline" stroke-width="1"/>
+  <text id="close-kicker" x="160" y="125" width="960" height="24" font="caption" size="14" color="cyan-accent" align="center" wrap="false">11  /  DEMO + NEXT STEP</text>
+  <text id="close-title" x="150" y="170" width="980" height="100" font="display" size="54" color="text-main" align="center" line-height="1.05">Let the receipt tell the story.</text>
+  <text id="close-subtitle" x="190" y="300" width="900" height="46" font="body" size="21" color="text-muted" align="center" line-height="1.35">Landing → Freighter/Testnet → courier profile → route → receipt → feedback → evidence review</text>
+  <shape id="close-accent" type="line" x="520" y="382" width="240" height="0" stroke="gold-accent" stroke-width="2"/>
+  <shape id="close-link-1" type="rect" x="80" y="430" width="320" height="100" fill="surface" stroke="cyan-accent" stroke-width="1"/>
+  <shape id="close-link-2" type="rect" x="480" y="430" width="320" height="100" fill="surface" stroke="pink-accent" stroke-width="1"/>
+  <shape id="close-link-3" type="rect" x="880" y="430" width="320" height="100" fill="surface" stroke="gold-accent" stroke-width="1"/>
+  <text id="close-link-1-label" x="104" y="452" width="270" height="20" font="caption" size="14" color="cyan-accent" wrap="false">LIVE APP</text>
+  <text id="close-link-1-value" x="104" y="485" width="270" height="24" font="body" size="16" color="text-main" wrap="false">noodle-nova-seven.vercel.app</text>
+  <text id="close-link-2-label" x="504" y="452" width="270" height="20" font="caption" size="14" color="pink-accent" wrap="false">REPOSITORY</text>
+  <text id="close-link-2-value" x="504" y="485" width="270" height="24" font="body" size="16" color="text-main" wrap="false">github.com/SujAnverse1125/NoodleNova</text>
+  <text id="close-link-3-label" x="904" y="452" width="270" height="20" font="caption" size="14" color="gold-accent" wrap="false">EVIDENCE PACKAGE</text>
+  <text id="close-link-3-value" x="904" y="485" width="270" height="24" font="body" size="16" color="text-main" wrap="false">submission/level5-checklist.md</text>
+  <shape id="close-gate" type="rect" x="60" y="585" width="1160" height="45" fill="#00F0FF12" stroke="cyan-accent" stroke-width="1"/>
+  <text id="close-gate-text" x="84" y="598" width="1110" height="20" font="caption" size="14" color="cyan-accent" align="center" wrap="false">Next gate: publish a new accessible walkthrough and finish private user/activity reconciliation before claiming complete Level 5 compliance.</text>
+  <text id="close-page" x="60" y="678" width="80" height="20" font="caption" size="12" color="text-muted" wrap="false">12 / 12</text>
+  <text id="close-source" x="620" y="678" width="600" height="20" font="caption" size="12" color="text-muted" align="right" wrap="false">Noodle Nova · Level 5 review package</text>
+</slide>

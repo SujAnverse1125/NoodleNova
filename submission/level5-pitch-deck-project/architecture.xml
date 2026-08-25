@@ -1,0 +1,40 @@
+<slide id="architecture">
+  <background color="ink"/>
+  <shape id="architecture-top-rule" type="line" x="60" y="18" width="1160" height="0" stroke="cyan-accent" stroke-width="2"/>
+  <text id="architecture-kicker" x="60" y="72" width="300" height="24" font="caption" size="14" color="cyan-accent" wrap="false">04  /  ARCHITECTURE</text>
+  <text id="architecture-title" x="60" y="110" width="980" height="50" font="heading" size="38" color="text-main" wrap="false">A familiar web stack with Stellar at the proof layer.</text>
+  <text id="architecture-subtitle" x="60" y="168" width="1120" height="34" font="body" size="18" color="text-muted">Each user action moves through a clear boundary: browser → API → database / Horizon → public receipt.</text>
+  <shape id="architecture-client" type="rect" x="60" y="230" width="200" height="180" fill="surface" stroke="cyan-accent" stroke-width="1"/>
+  <shape id="architecture-api" type="rect" x="320" y="230" width="200" height="180" fill="surface" stroke="hairline" stroke-width="1"/>
+  <shape id="architecture-data" type="rect" x="580" y="230" width="200" height="180" fill="surface" stroke="hairline" stroke-width="1"/>
+  <shape id="architecture-stellar" type="rect" x="840" y="230" width="320" height="180" fill="surface" stroke="gold-accent" stroke-width="1"/>
+  <shape id="architecture-arrow-1" type="line" x="260" y="320" width="60" height="0" stroke="cyan-accent" stroke-width="2" arrow-end="arrow"/>
+  <shape id="architecture-arrow-2" type="line" x="520" y="320" width="60" height="0" stroke="cyan-accent" stroke-width="2" arrow-end="arrow"/>
+  <shape id="architecture-arrow-3" type="line" x="780" y="320" width="60" height="0" stroke="cyan-accent" stroke-width="2" arrow-end="arrow"/>
+  <text id="architecture-client-title" x="84" y="260" width="150" height="28" font="strong" size="22" color="cyan-accent" wrap="false">Client</text>
+  <text id="architecture-client-body" x="84" y="307" width="150" height="78" font="body" size="17" color="text-main" line-height="1.35">Next.js 14
+React + TypeScript
+Tailwind CSS
+Freighter context</text>
+  <text id="architecture-api-title" x="344" y="260" width="150" height="28" font="strong" size="22" color="text-main" wrap="false">Application</text>
+  <text id="architecture-api-body" x="344" y="307" width="150" height="78" font="body" size="17" color="text-muted" line-height="1.35">Next.js route handlers
+users · rewards
+transactions · feedback
+stats</text>
+  <text id="architecture-data-title" x="604" y="260" width="150" height="28" font="strong" size="22" color="text-main" wrap="false">Data</text>
+  <text id="architecture-data-body" x="604" y="307" width="150" height="78" font="body" size="17" color="text-muted" line-height="1.35">Prisma Client
+PostgreSQL
+User / Transaction /
+Feedback models</text>
+  <text id="architecture-stellar-title" x="864" y="260" width="250" height="28" font="strong" size="22" color="gold-accent" wrap="false">Stellar proof layer</text>
+  <text id="architecture-stellar-body" x="864" y="307" width="250" height="78" font="body" size="17" color="text-main" line-height="1.35">Horizon Testnet payments
+Soroban DeliveryEscrow
+Stellar Expert receipts
+Public verifiability</text>
+  <shape id="architecture-ops" type="rect" x="60" y="475" width="1100" height="80" fill="#00F0FF0D" stroke="hairline" stroke-width="1"/>
+  <text id="architecture-ops-title" x="84" y="500" width="160" height="24" font="strong" size="18" color="text-main" wrap="false">Operations</text>
+  <text id="architecture-ops-body" x="260" y="500" width="850" height="24" font="body" size="17" color="text-muted" wrap="false">Vercel deployment  ·  GitHub Actions tests/build  ·  Vercel Analytics events  ·  explicit Testnet warnings</text>
+  <text id="architecture-note" x="60" y="592" width="1100" height="30" font="caption" size="14" color="text-muted">Level 5 iteration changed the user-facing flow and CI test scope; the Soroban contract and database schema remain unchanged.</text>
+  <text id="architecture-page" x="60" y="678" width="80" height="20" font="caption" size="12" color="text-muted" wrap="false">05 / 12</text>
+  <text id="architecture-source" x="620" y="678" width="600" height="20" font="caption" size="12" color="text-muted" align="right" wrap="false">Source: submission/noodlenova-architecture.png and repository audit</text>
+</slide>

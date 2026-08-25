@@ -1,0 +1,23 @@
+<slide id="proof">
+  <background color="ink"/>
+  <shape id="proof-top-rule" type="line" x="60" y="18" width="1160" height="0" stroke="cyan-accent" stroke-width="2"/>
+  <text id="proof-kicker" x="60" y="72" width="300" height="24" font="caption" size="14" color="gold-accent" wrap="false">05  /  REAL STELLAR PROOF</text>
+  <text id="proof-title" x="60" y="110" width="1050" height="50" font="heading" size="38" color="text-main" wrap="false">Public receipts make the demo reviewable.</text>
+  <text id="proof-subtitle" x="60" y="166" width="1050" height="34" font="body" size="18" color="text-muted">The product story is backed by public Testnet records — with the limits of that evidence stated plainly.</text>
+  <image id="proof-architecture" src="https://private-us-east-1.manuscdn.com/sessionFile/tdmFPm3cAtrX9jrunomMam/sandbox/slides_resource_ivae4lzjjyjpo34d7h3z7-8c9bb842-e2b-prod-azure-central-us_1787662151261_na1fn_L2hvbWUvdWJ1bnR1L05vb2RsZU5vdmEtYXVkaXQvc3VibWlzc2lvbi9ub29kbGVub3ZhLWFyY2hpdGVjdHVyZQ.png?x-oss-process=image/resize,w_1560,h_1560/format,webp&Expires=1789430400&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvdGRtRlBtM2NBdHJYOWpydW5vbU1hbS9zYW5kYm94L3NsaWRlc19yZXNvdXJjZV9pdmFlNGx6amp5anBvMzRkN2gzejctOGM5YmI4NDItZTJiLXByb2QtYXp1cmUtY2VudHJhbC11c18xNzg3NjYyMTUxMjYxX25hMWZuX0wyaHZiV1V2ZFdKMWJuUjFMMDV2YjJSc1pVNXZkbUV0WVhWa2FYUXZjM1ZpYldsemMybHZiaTl1YjI5a2JHVnViM1poTFdGeVkyaHBkR1ZqZEhWeVpRLnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE1NjAsaF8xNTYwL2Zvcm1hdCx3ZWJwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzg5NDMwNDAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIQDVFvschXENXaRxVov-J5O6shkBCCsQGVC~io8DFWsDewIgD9LMriRqLjTwBdUX9k4rKPpTNa8EsNWqglf2~y0hRAg_" x="60" y="220" width="520" height="300" fit="contain" stroke="cyan-accent" stroke-width="1"/>
+  <text id="proof-visual-caption" x="60" y="535" width="520" height="24" font="caption" size="14" color="text-muted" wrap="false">Freighter → Next.js → Prisma / Horizon → Soroban</text>
+  <shape id="proof-ledger" type="rect" x="650" y="220" width="570" height="300" fill="surface" stroke="hairline" stroke-width="1"/>
+  <text id="proof-contract-label" x="680" y="250" width="170" height="22" font="caption" size="14" color="gold-accent" wrap="false">SOROBAN CONTRACT</text>
+  <text id="proof-contract-value" x="680" y="280" width="500" height="28" font="caption" size="14" color="text-main" wrap="false">CC42H6…XPIUKSBCM</text>
+  <shape id="proof-divider-1" type="line" x="680" y="325" width="510" height="0" stroke="hairline" stroke-width="1"/>
+  <text id="proof-hash-label" x="680" y="347" width="170" height="22" font="caption" size="14" color="cyan-accent" wrap="false">TESTNET HASHES</text>
+  <text id="proof-hash-value" x="680" y="377" width="500" height="28" font="strong" size="26" color="text-main" wrap="false">42 / 42 successful</text>
+  <text id="proof-hash-note" x="680" y="412" width="500" height="32" font="caption" size="14" color="text-muted">Each candidate resolves through Horizon at audit time.</text>
+  <shape id="proof-divider-2" type="line" x="680" y="450" width="510" height="0" stroke="hairline" stroke-width="1"/>
+  <text id="proof-boundary-label" x="680" y="472" width="170" height="22" font="caption" size="14" color="pink-accent" wrap="false">EVIDENCE BOUNDARY</text>
+  <text id="proof-boundary-value" x="680" y="500" width="500" height="28" font="body" size="16" color="text-main" wrap="false">Hash existence ≠ same-row user attribution.</text>
+  <shape id="proof-warning" type="rect" x="60" y="585" width="1160" height="45" fill="#FFD70012" stroke="gold-accent" stroke-width="1"/>
+  <text id="proof-warning-text" x="84" y="599" width="1110" height="20" font="caption" size="14" color="gold-accent" wrap="false">Re-check all public receipts immediately before submission: Stellar Testnet can reset, and a transaction hash alone does not prove user identity.</text>
+  <text id="proof-page" x="60" y="678" width="80" height="20" font="caption" size="12" color="text-muted" wrap="false">06 / 12</text>
+  <text id="proof-source" x="620" y="678" width="600" height="20" font="caption" size="12" color="text-muted" align="right" wrap="false">Source: submission/level5-user-activity.md</text>
+</slide>

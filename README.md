@@ -9,12 +9,56 @@ Noodle Nova is a **Stellar Testnet dApp** built around a gamified ramen-delivery
 | Resource | Link |
 | --- | --- |
 | Live demo | [noodle-nova-seven.vercel.app](https://noodle-nova-seven.vercel.app/) |
-| Demo video | https://drive.google.com/file/d/1N6QC__iKYQbef9ZXsaxMIjnC2TDsDUwN/view?usp=drive_link |
+| Demo video | [`Download the Level 5 walkthrough`](submission/noodle-nova-level5-walkthrough.mp4) — external host pending |
 | Public repository | [SujAnverse1125/NoodleNova](https://github.com/SujAnverse1125/NoodleNova) |
+| Level 5 checklist | [`submission/level5-checklist.md`](submission/level5-checklist.md) |
+| Feedback-to-improvement traceability | [`submission/feedback-to-improvements.md`](submission/feedback-to-improvements.md) |
+| User/activity evidence register | [`submission/level5-user-activity.md`](submission/level5-user-activity.md) |
+| Public feedback export | [`submission/noodle-nova-feedback-export.xlsx`](submission/noodle-nova-feedback-export.xlsx) |
+| Feedback form | [Noodle Nova Feedback Form](https://docs.google.com/forms/d/1xX9ZUomtbxvE2tiJn0mGrCLUxNrQhcoirE2Hi7-hPrU/viewform) |
+| Response sheet | [Noodle Nova response sheet](https://docs.google.com/spreadsheets/d/1i4tkHd1MR0qPSeLngOxr9hNsqelM31TxBhXPZilFecI/edit?usp=sharing) |
+| Walkthrough video | [`Download the Level 5 walkthrough`](submission/noodle-nova-level5-walkthrough.mp4) |
+| Pitch deck source | [`Level 5 pitch-deck outline`](submission/level5-pitch-deck.md) — editable presentation attached for review; public PPTX upload pending |
+
+## Level 5 Submission Status
+
+The current release includes a guided first-run experience, clearer transaction lifecycle states, privacy-safe product events, feedback validation, a deterministic hosted-test scope, a public-safe Excel export, a Testnet activity register, a pitch-deck source outline, and a walkthrough preview. The complete status matrix is in [`submission/level5-checklist.md`](submission/level5-checklist.md).
+
+### Evidence definitions
+
+- **Form respondents:** 80 response rows in the owner-confirmed sheet.
+- **Unique wallet values:** 76 after four repeated-wallet rows are deduplicated.
+- **Admin application records:** 69 registered couriers, 40 transaction-log records, and 69 feedback records at audit time.
+- **Verified Testnet hashes:** 42 unique non-placeholder hashes currently returned successful by Horizon Testnet.
+- **Attribution boundary:** the 42 candidate hashes do not match the same-row sheet wallet as the Horizon transaction source account; therefore this README does not claim that 50 users each completed a corresponding verified transaction until private reconciliation is complete.
+- **Active usage:** must be reported using a time-bounded, defined metric; a static form count is not treated as active usage proof.
+
+![Noodle Nova aggregate Level 5 activity evidence](submission/level5-activity-summary.png)
+
+![Noodle Nova aggregate feedback iteration](submission/level5-feedback-summary.png)
+
+See [`submission/analytics-evidence.md`](submission/analytics-evidence.md) for the event taxonomy and analytics verification boundary.
+
+### Level 5 implementation links
+
+| Improvement | Evidence | Commit |
+| --- | --- | --- |
+| First-flight onboarding checklist and landing-page How it works guide | [`feedback-to-improvements.md`](submission/feedback-to-improvements.md) | [`cdc89e0`](https://github.com/SujAnverse1125/NoodleNova/commit/cdc89e0) |
+| Pending, confirmed, error, retry, and Stellar Expert receipt states | [`feedback-to-improvements.md`](submission/feedback-to-improvements.md) | [`cdc89e0`](https://github.com/SujAnverse1125/NoodleNova/commit/cdc89e0) |
+| Wallet registration and feedback validation improvements | [`level5-release-notes.md`](submission/level5-release-notes.md) | [`cdc89e0`](https://github.com/SujAnverse1125/NoodleNova/commit/cdc89e0) |
+| Privacy-safe lifecycle analytics events and scoped CI tests | [`analytics-evidence.md`](submission/analytics-evidence.md) and [`level5-release-notes.md`](submission/level5-release-notes.md) | [`cdc89e0`](https://github.com/SujAnverse1125/NoodleNova/commit/cdc89e0) |
+
+### Remaining Level 5 gates
+
+- Reconcile the 50+ user claim against consented wallet identities, admin records, and successful Testnet activity before publishing a definitive user-to-transaction number.
+- Verify the final Vercel deployment and GitHub Actions result after the approved product commit is pushed.
+- Provide a dated provider-dashboard screenshot if analytics dashboard proof is required; source instrumentation alone is not dashboard evidence.
+- Publish the editable deck to a reviewer-accessible location because the sandbox export endpoint returned a permission error.
+- Replace the older unavailable Drive demo URL with the new walkthrough link if the reviewer requires an external video host; the repository video remains available as a downloadable artifact.
 
 ## Product Evidence
 
-The following assets are already present in this repository and document the existing product and development state. They are referenced here without changing the application or deployment.
+The following assets document the product baseline and the approved Level 5 iteration. Private operational data and credentials are intentionally excluded from public links.
 
 ### Product UI
 
@@ -50,9 +94,9 @@ Noodle Nova currently documents the following product capabilities:
 
 ## User Journey
 
-A user opens the deployed application, connects a Freighter wallet, reviews the available Testnet XLM information, and uses the ramen-delivery flow to create or complete a sponsored delivery. The application displays transaction progress through its existing interface. Users can also access the feedback experience to submit a rating and written review.
+A user opens the deployed application, follows the Testnet/Freighter guidance, connects a wallet, creates a courier profile, reviews Testnet XLM information, selects a ramen-delivery route, and receives explicit pending, confirmed, or retry feedback for the sponsored route request. Users can also access the feedback experience to submit a rating and written review.
 
-This README describes the current deployed product as documented by the repository. It does not claim that new application features, new smart-contract deployments, analytics configuration, or monitoring configuration were added during the documentation update.
+The Level 5 product iteration preserves the existing Soroban contract and database schema. It adds user-facing onboarding guidance, transaction lifecycle handling, feedback validation, privacy-safe Vercel Analytics event instrumentation, and a deterministic frontend test scope. Analytics is implemented in source, but a provider dashboard screenshot is not claimed until independently verified.
 
 ## Architecture
 
@@ -130,9 +174,9 @@ npm run build
 npm test
 ```
 
-The existing README records **3 passed, 0 failed** for the documented frontend test run. This result is preserved as repository evidence and has not been regenerated or altered as part of the documentation-only update.
+The current frontend validation passes **3 unit tests** with `npm test`, and `npm run build` completes successfully. The build still emits existing Stellar/Sodium critical-dependency warnings and an existing dynamic-server-usage diagnostic for `/api/user/stats`; these are documented limitations rather than hidden.
 
-The GitHub Actions check currently shows a red status because recursive `node --test` discovery encounters broken tracked `.claude/skills` links on the hosted runner. This is a pre-existing CI/test-discovery issue unrelated to the documentation or image updates; see [`submission/ci-status-diagnosis.md`](submission/ci-status-diagnosis.md) for the verified details.
+The `npm test` script now targets the intended repository unit tests only. The database smoke test remains available separately as `npm run test:db` because it requires a configured database and performs a temporary write. The hosted GitHub Actions result must be checked after the approved commit is pushed; do not claim the workflow is green until that run is verified.
 
 ## Users Onboarded and Feedback Evidence
 
@@ -232,11 +276,13 @@ Because both screenshots contain names, wallet-address fragments, transaction id
 
 ## Feedback Summary
 
-The current shared sheet contains **80 responses**, all with a wallet-address field and written feedback. Ratings average **4.34/5**, with the following distribution: **40 five-star**, **30 four-star**, **7 three-star**, and **3 two-star** responses. The sheet contains **42 non-placeholder transaction-hash values**; these values are evidence candidates only and are not independently verified here as successful Stellar transactions. The responses span **16–25 August 2026**. Feedback is predominantly positive about the interface and overall experience, while gameplay refinement remains the clearest improvement theme.
+The current shared sheet contains **80 responses**, all with a wallet-address field and written feedback. Ratings average **4.34/5**, with the following distribution: **40 five-star**, **30 four-star**, **7 three-star**, and **3 two-star** responses. After excluding placeholder values, the sheet contains **42 unique transaction-hash candidates**; all 42 currently return successful Horizon Testnet records, but the same-row wallet/source attribution match is **0/42**, so they are not presented here as 42 verified respondent interactions. The responses span **16–25 August 2026**. Feedback is predominantly positive about the interface and overall experience, while gameplay refinement, onboarding clarity, and transaction/synchronization clarity remain the clearest improvement themes.
 
 The table above is the complete current-sheet row-level evidence. The separate [`submission/user-onboarding-table.md`](submission/user-onboarding-table.md) remains available as the privacy-safe public version with masked emails and shortened identifiers.
-* **User Experience:** Players consistently describe the interface as visually appealing, engaging, and among the best they have encountered.
- * **Gameplay Development:** While the current gameplay is viewed positively, feedback indicates that it still requires further refinement and improvement.
+
+- **User Experience:** Players consistently describe the interface as visually appealing, engaging, and among the best they have encountered.
+- **Gameplay Development:** While the current gameplay is viewed positively, feedback indicates that it still requires further refinement and improvement.
+- **Onboarding and reliability:** The Level 5 iteration adds a first-flight checklist, an explicit How it works guide, registration failure handling, feedback validation, and pending/confirmed/error/retry transaction states. See [`submission/feedback-to-improvements.md`](submission/feedback-to-improvements.md) for the traceability table and Git commit link.
 
 ## Admin and Privacy Note
 
@@ -250,6 +296,5 @@ Stellar Testnet resets periodically. A reset can remove Testnet accounts, transa
 
 [1]: https://github.com/SujAnverse1125/NoodleNova "NoodleNova public repository" 
 [2]: https://noodle-nova-seven.vercel.app/ "Noodle Nova live deployment"
-[2]: https://lab.stellar.org/r/testnet/contract/CC42H6ONIV2527FPJZFTWV7UZNMWCEZDKZZNCNVF3ZN4ZWTXPIUKSBCM "Noodle Nova DeliveryEscrow contract on Stellar Lab Testnet"
+[3]: https://lab.stellar.org/r/testnet/contract/CC42H6ONIV2527FPJZFTWV7UZNMWCEZDKZZNCNVF3ZN4ZWTXPIUKSBCM "Noodle Nova DeliveryEscrow contract on Stellar Lab Testnet"
 [4]: https://stellar.expert/explorer/testnet/tx/c4ba73be851893fca97e42b724e3ce1cc1a8aba200748b0436eaea64e395dad6 "Noodle Nova deployment transaction on Stellar Expert Testnet"
-[5]: https://drive.google.com/file/d/1N6QC__iKYQbef9ZXsaxMIjnC2TDsDUWn/view?usp=drive_link "Noodle Nova demo video"

@@ -1,0 +1,33 @@
+<slide id="feedback">
+  <background color="ink"/>
+  <shape id="feedback-top-rule" type="line" x="60" y="18" width="1160" height="0" stroke="cyan-accent" stroke-width="2"/>
+  <text id="feedback-kicker" x="60" y="72" width="400" height="24" font="caption" size="14" color="gold-accent" wrap="false">07  /  FEEDBACK → PRODUCT</text>
+  <text id="feedback-title" x="60" y="110" width="1040" height="50" font="heading" size="38" color="text-main" wrap="false">The response sheet became a prioritized backlog.</text>
+  <text id="feedback-subtitle" x="60" y="166" width="1060" height="34" font="body" size="18" color="text-muted">The strongest signal was “keep the visual direction” — then remove the friction around the first route.</text>
+  <shape id="feedback-left-panel" type="rect" x="60" y="220" width="500" height="300" fill="surface" stroke="hairline" stroke-width="1"/>
+  <text id="feedback-score" x="88" y="248" width="230" height="64" font="display" size="52" color="gold-accent" wrap="false">4.34 / 5</text>
+  <text id="feedback-score-label" x="88" y="318" width="250" height="22" font="caption" size="14" color="text-muted" wrap="false">average rating · 80 responses</text>
+  <shape id="feedback-left-rule" type="line" x="88" y="355" width="420" height="0" stroke="hairline" stroke-width="1"/>
+  <text id="feedback-themes" x="88" y="380" width="420" height="110" font="body" size="17" color="text-muted" line-height="1.35">
+    <ul bullet="—">
+      <li>UI and gameplay are the baseline strengths.</li>
+      <li>New users need clearer wallet and Testnet context.</li>
+      <li>Performance, sync, and provider clarity need visible states.</li>
+    </ul>
+  </text>
+  <shape id="feedback-right-panel" type="rect" x="620" y="220" width="600" height="300" fill="#FFD7000D" stroke="gold-accent" stroke-width="1"/>
+  <text id="feedback-right-kicker" x="650" y="248" width="460" height="22" font="caption" size="14" color="gold-accent" wrap="false">SHIPPED IN CDC89E0</text>
+  <text id="feedback-right-title" x="650" y="285" width="500" height="34" font="strong" size="24" color="text-main" wrap="false">Four changes users can feel.</text>
+  <text id="feedback-right-body" x="650" y="340" width="500" height="135" font="body" size="17" color="text-main" line-height="1.4">
+    <ul bullet="✓">
+      <li>First-flight checklist and landing-page How it works guide.</li>
+      <li>Pending, confirmed, error, retry, and Explorer receipt states.</li>
+      <li>Registration failure handling and blank-comment validation.</li>
+      <li>Privacy-safe analytics events and deterministic CI tests.</li>
+    </ul>
+  </text>
+  <shape id="feedback-commit-band" type="rect" x="60" y="575" width="1160" height="40" fill="#00F0FF12" stroke="cyan-accent" stroke-width="1"/>
+  <text id="feedback-commit" x="84" y="587" width="1110" height="20" font="caption" size="14" color="cyan-accent" wrap="false">Traceability: submission/feedback-to-improvements.md  ·  commit: github.com/SujAnverse1125/NoodleNova/commit/cdc89e0</text>
+  <text id="feedback-page" x="60" y="678" width="80" height="20" font="caption" size="12" color="text-muted" wrap="false">08 / 12</text>
+  <text id="feedback-source" x="620" y="678" width="600" height="20" font="caption" size="12" color="text-muted" align="right" wrap="false">Source: submission/feedback-to-improvements.md</text>
+</slide>
