@@ -7,9 +7,8 @@ Noodle Nova is a **Stellar Testnet dApp** built around a gamified ramen-delivery
 | Resource | Link |
 | --- | --- |
 | Live demo | [noodle-nova-seven.vercel.app](https://noodle-nova-seven.vercel.app/) |
-| Demo video | [`Download the Level 5 walkthrough`](submission/noodle-nova-level5-walkthrough.mp4) — external host pending |
+| Demo video | [https://drive.google.com/file/d/1N6QC__iKYQbef9ZXsaxMIjnC2TDsDUwN/view?usp=drive_link |
 | Public repository | [SujAnverse1125/NoodleNova](https://github.com/SujAnverse1125/NoodleNova) |
-| Level 5 checklist | [`submission/level5-checklist.md`](submission/level5-checklist.md) |
 | CI verification | [`submission/ci-status-level5.md`](submission/ci-status-level5.md) · [successful workflow run](https://github.com/SujAnverse1125/NoodleNova/actions/runs/32850838890) |
 | Feedback-to-improvement traceability | [`submission/feedback-to-improvements.md`](submission/feedback-to-improvements.md) |
 | User/activity evidence register | [`submission/level5-user-activity.md`](submission/level5-user-activity.md) |
