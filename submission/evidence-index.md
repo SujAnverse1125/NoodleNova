@@ -8,13 +8,14 @@ This index catalogs evidence already present in the repository or supplied by th
 | Feedback UI | [`../public/feedback-ui.png`](../public/feedback-ui.png) | Existing repository screenshot; safe to reference in the README. |
 | Architecture | [`noodlenova-architecture.png`](noodlenova-architecture.png) and [`architecture.png`](architecture.png) | `noodlenova-architecture.png` is the NoodleNova-specific diagram based on the repository. `architecture.png` is the supplied Cosmic-Capture-style reference visual and is not presented as NoodleNova’s own architecture. |
 | User onboarding spreadsheet | [`user-feedback-sheet.png`](user-feedback-sheet.png) | Supplied Excel/Sheets-style evidence image showing 12 visible response rows; contains sensitive personal fields and should not be redistributed beyond authorized review. |
+| Admin-panel user onboarding | [`admin-panel-user-onboarding.png`](admin-panel-user-onboarding.png) | Supplied admin screenshot showing the registered-courier list and transaction log; use as private/sensitive operational evidence. |
 | Mobile responsive UI | External GitHub user-attachment image referenced by the README | Existing owner-provided evidence; confirm the link remains accessible before final submission. |
 | CI/CD setup | [`../public/cicd-pipeline.png`](../public/cicd-pipeline.png) | Existing repository screenshot; reference only. |
 | Test output | [`../public/test-output.png`](../public/test-output.png) | Existing repository screenshot documenting the recorded 3-pass result. |
 | Contract deployment | Root README contract table and public Stellar links | Existing project proof; reviewer should re-open the public links because Testnet state can reset. |
 | Demo video | [Owner-provided Google Drive link](https://drive.google.com/file/d/1N6QC__iKYQbef9ZXsaxMIjnC2TDsDUWn/view?usp=drive_link) | **Pending replacement:** the URL returned a file-not-found page in the read-only access check. |
 | Feedback/onboarding | Shared feedback-sheet screenshot and [`feedback-summary.md`](feedback-summary.md) | Summary is sanitized; original screenshot should not be published without redaction and consent. |
-| Website interactions | Authorized admin panel and [`interaction-evidence.md`](interaction-evidence.md) | Read-only evidence source; full hashes and 10-interaction claim remain pending verification. Do not publish the admin token or private admin URL. |
+| Website interactions | [`admin-panel-user-onboarding.png`](admin-panel-user-onboarding.png), authorized admin panel, and [`interaction-evidence.md`](interaction-evidence.md) | Screenshot shows the registered-user list and transaction log; full hashes and the 10-interaction claim remain pending verification. Do not publish the admin token or private admin URL. |
 | Analytics | No public dashboard/configuration artifact found in read-only audit | Mark `Not verified`; do not imply integration is active. |
 | Monitoring | No public dashboard/configuration artifact found in read-only audit | Mark `Not verified`; do not imply monitoring is active. |
 

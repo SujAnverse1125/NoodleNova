@@ -15,6 +15,7 @@ The initial documentation update was pushed to the public repository in commit [
 | [`submission/interaction-evidence.md`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/interaction-evidence.md) | Conservative wallet-interaction register distinguishing visible records from independently verified transactions. |
 | [`submission/noodlenova-architecture.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/noodlenova-architecture.png) | NoodleNova-specific architecture diagram generated from the verified repository structure. |
 | [`submission/user-feedback-sheet.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/user-feedback-sheet.png) | Supplied Excel/Sheets-style onboarding and feedback image with 12 visible rows. |
+| [`submission/admin-panel-user-onboarding.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/admin-panel-user-onboarding.png) | Supplied admin-panel screenshot showing the registered-courier list and transaction log. |
 
 ## Verified during delivery
 
@@ -30,7 +31,7 @@ The supplied Google Drive demo-video URL did **not** pass verification: it retur
 | Live production deployment | Evidence available | Open the live demo and capture any final owner-approved screenshot if required. |
 | Stellar Testnet contract | Evidence available | Re-open the public contract and transaction links shortly before review because Testnet state can reset. |
 | Product, architecture, and mobile UI screenshots | Evidence available | Confirm existing image links remain accessible; the NoodleNova-specific architecture diagram is now included in `submission/noodlenova-architecture.png`. |
-| 12 onboarding/feedback responses | Evidence available | Use the sanitized feedback summary; keep the original sheet private or redact it. |
+| 12 onboarding/feedback responses and admin user list | Evidence available | Use the feedback-sheet image, admin-panel screenshot, and sanitized summary; treat both images as sensitive evidence. |
 | 10+ wallet interactions | Pending verification | Reconcile full admin-panel records and independently verify at least 10 distinct successful Stellar transactions. |
 | Analytics | Not verified | Provide existing dashboard/configuration evidence if available; otherwise leave unverified. |
 | Monitoring/error tracking | Not verified | Provide existing dashboard/configuration evidence if available; otherwise leave unverified. |

@@ -144,7 +144,13 @@ The supplied Excel/Sheets-style response image is included as visual evidence fo
 
 ![User onboarding and feedback spreadsheet](submission/user-feedback-sheet.png)
 
-Because the image contains personal fields, it should be treated as sensitive submission evidence and not redistributed beyond the authorized review process. The analysis in [`submission/feedback-summary.md`](submission/feedback-summary.md) intentionally reports aggregate results instead of reproducing the raw rows.
+### Admin-panel interaction evidence
+
+The following screenshot shows the NoodleNova admin panel with the registered-courier list and transaction log used as operational onboarding evidence.
+
+![Noodle Nova admin panel showing registered users and transaction log](submission/admin-panel-user-onboarding.png)
+
+Because both screenshots contain names, wallet-address fragments, transaction identifiers, and other user-related fields, they should be treated as sensitive submission evidence and not redistributed beyond the authorized review process. The analysis in [`submission/feedback-summary.md`](submission/feedback-summary.md) intentionally reports aggregate results instead of reproducing the raw rows.
 
 ## Feedback Summary
 
