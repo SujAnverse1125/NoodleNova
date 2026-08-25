@@ -16,8 +16,8 @@ The initial documentation update was pushed to the public repository in commit [
 | [`submission/interaction-evidence.md`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/interaction-evidence.md) | Conservative wallet-interaction register distinguishing visible records from independently verified transactions. |
 | [`submission/noodlenova-architecture.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/noodlenova-architecture.png) | NoodleNova-specific architecture diagram generated from the verified repository structure. |
 | [`submission/user-feedback-sheet-updated.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/user-feedback-sheet-updated.png) | Supplied Excel/Sheets-style onboarding and feedback image with 12 visible rows. |
-| [`submission/admin-panel-user-onboarding.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/admin-panel-user-onboarding.png) | Updated admin-panel screenshot showing 69 registered couriers and the transaction log. |
-| [`submission/admin-panel-feedback.png`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/admin-panel-feedback.png) | Updated admin-panel screenshot showing 69 user-feedback records. |
+| [`submission/admin-panel-couriers-transactions.webp`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/admin-panel-couriers-transactions.webp) | Read-only admin-panel capture showing 69 registered couriers and the transaction log. |
+| [`submission/admin-panel-feedback.webp`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/admin-panel-feedback.webp) | Read-only admin-panel capture showing the user-feedback section with 69 records. |
 | [`submission/ci-status-diagnosis.md`](https://github.com/SujAnverse1125/NoodleNova/blob/master/submission/ci-status-diagnosis.md) | Documents the pre-existing GitHub Actions/test-discovery failure without changing the workflow. |
 
 ## Verified during delivery
