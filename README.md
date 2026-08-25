@@ -153,6 +153,8 @@ Because both screenshots contain names, wallet-address fragments, transaction id
 ## Feedback Summary
 
 The shared onboarding and feedback sheet contains 12 visible responses. The recorded ratings are `5, 4, 5, 5, 4, 5, 5, 5, 5, 2, 4, 4`, producing an average of approximately **4.42/5**. The comments are predominantly positive about the interface and game experience, with one clear recurring improvement signal: gameplay could be refined further.
+* **User Experience:** Players consistently describe the interface as visually appealing, engaging, and among the best they have encountered.
+ * **Gameplay Development:** While the current gameplay is viewed positively, feedback indicates that it still requires further refinement and improvement.
 
 ## Admin and Privacy Note
 
