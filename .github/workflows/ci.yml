@@ -2,28 +2,123 @@ name: Noodle Nova CI/CD
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [master, main]
   pull_request:
-    branches: [ "master" ]
+    branches: [master, main]
 
 jobs:
-  test-and-build:
-    name: Test and Build Frontend
+  frontend-ci:
+    name: Frontend Test & Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Setup Node.js
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
-          
+          node-version: 20
+          cache: npm
+
       - name: Install dependencies
         run: npm ci
-        
-      - name: Run Tests
+
+      - name: Run frontend unit tests
         run: npm test
-        
-      - name: Build Next.js app
+
+      - name: Build Next.js application
         run: npm run build
+        env:
+          NEXT_PUBLIC_HORIZON_URL: https://horizon-testnet.stellar.org
+          NEXT_PUBLIC_SOROBAN_RPC_URL: https://soroban-testnet.stellar.org
+          NEXT_PUBLIC_DELIVERY_ESCROW_CONTRACT_ID: CBEXVMRWS6DG7QRMRS5WBBHYME5UUY4L3ZZ6IUTTERQHBGHBY7B5MDXE
+
+  smart-contract-ci:
+    name: Soroban Smart Contract Checks
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: contracts/delivery_escrow
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify contract folder structure
+        run: |
+          test -d .
+          test -f Cargo.toml
+          test -f src/lib.rs
+          test -f src/test.rs
+
+      - name: Setup Rust Toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+          targets: wasm32v1-none
+
+      - name: Check Rust formatting (cargo fmt)
+        run: cargo fmt -- --check
+
+      - name: Lint contract (cargo clippy)
+        run: cargo clippy --all-targets -- -D warnings -A deprecated
+
+      - name: Run contract unit tests (cargo test)
+        run: cargo test
+
+      - name: Install Stellar CLI
+        run: cargo install --locked stellar-cli --version 27.0.0
+
+      - name: Build deployable Soroban WASM (stellar contract build)
+        run: stellar contract build
+
+  deploy-contract:
+    name: Deploy Soroban Contract (CD)
+    needs: [smart-contract-ci]
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: contracts/delivery_escrow
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Rust Toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32v1-none
+
+      - name: Install Stellar CLI
+        run: cargo install --locked stellar-cli --version 27.0.0
+
+      - name: Build and Deploy Soroban Contract to Stellar Testnet
+        run: |
+          stellar contract build
+          if [ -n "${{ secrets.STELLAR_DEPLOYER_SECRET }}" ]; then
+            stellar contract deploy \
+              --wasm target/wasm32v1-none/release/delivery_escrow.wasm \
+              --source-account ${{ secrets.STELLAR_DEPLOYER_SECRET }} \
+              --network testnet
+          else
+            echo "STELLAR_DEPLOYER_SECRET not configured in repository secrets; skipping live contract deployment."
+          fi
+
+  deploy-frontend:
+    name: Deploy Frontend to Vercel (CD)
+    needs: [frontend-ci, smart-contract-ci]
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        if: env.VERCEL_TOKEN != ''
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}

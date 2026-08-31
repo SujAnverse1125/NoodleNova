@@ -29,7 +29,7 @@ Test output with 3+ passing tests
 - Testnet XLM balance and recent transaction feed
 - XLM payment form with validation, loading, and error states
 - Responsive Next.js interface
-- Soroban `DeliveryEscrow` contract with create, complete, and read operations
+- Soroban escrow panel wired to `create_delivery`, `get_delivery`, and `complete_delivery`
 - Token-contract transfers and `DeliveryCreated` / `DeliveryCompleted` events
 - Three Rust unit tests for the delivery flow and invalid repeat operations
 
@@ -38,23 +38,24 @@ Test output with 3+ passing tests
 | Item | Value |
 | --- | --- |
 | Network | Stellar Testnet |
-| DeliveryEscrow contract | [`CC42H6ONIV2527FPJZFTWV7UZNMWCEZDKZZNCNVF3ZN4ZWTXPIUKSBCM`](https://lab.stellar.org/r/testnet/contract/CC42H6ONIV2527FPJZFTWV7UZNMWCEZDKZZNCNVF3ZN4ZWTXPIUKSBCM) |
+| DeliveryEscrow contract | [`CBEXVMRWS6DG7QRMRS5WBBHYME5UUY4L3ZZ6IUTTERQHBGHBY7B5MDXE`](https://lab.stellar.org/r/testnet/contract/CBEXVMRWS6DG7QRMRS5WBBHYME5UUY4L3ZZ6IUTTERQHBGHBY7B5MDXE) |
 | Native XLM asset contract | `CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC` |
 | Contract WASM hash | `ee3892dbe6df123ee75180a44674bf55040c422372f8684ea90f107d6548c1cb` |
-| Deployment transaction | [`c4ba73be851893fca97e42b724e3ce1cc1a8aba200748b0436eaea64e395dad6`](https://stellar.expert/explorer/testnet/tx/c4ba73be851893fca97e42b724e3ce1cc1a8aba200748b0436eaea64e395dad6) |
-| Create-delivery transaction | [`ed214acb9282d0ed596e5ed55f710170a68d83fcd657fd52e81f370e23083470`](https://stellar.expert/explorer/testnet/tx/ed214acb9282d0ed596e5ed55f710170a68d83fcd657fd52e81f370e23083470) |
-| Complete-delivery transaction | [`93e6df19413a77b2fa0b1041bb7edbb194e3e22cb244911989a078a3236f9ee5`](https://stellar.expert/explorer/testnet/tx/93e6df19413a77b2fa0b1041bb7edbb194e3e22cb244911989a078a3236f9ee5) |
+| Deployment transaction | [`42679eee67139ebbbc386a2b2b5db4c88dec4019093a703bd7b55c849514b326`](https://stellar.expert/explorer/testnet/tx/42679eee67139ebbbc386a2b2b5db4c88dec4019093a703bd7b55c849514b326) |
+| Create-delivery transaction | [`8ce1826b7c730870ca6423039f34c5b18d709e33caee18c1cb7bfccb31b0e87b`](https://stellar.expert/explorer/testnet/tx/8ce1826b7c730870ca6423039f34c5b18d709e33caee18c1cb7bfccb31b0e87b) |
+| Complete-delivery transaction | [`4b8746ebc5eae823aa1e9ff679415f2a059dda7412f40f5a135a3b8aaab7cfd9`](https://stellar.expert/explorer/testnet/tx/4b8746ebc5eae823aa1e9ff679415f2a059dda7412f40f5a135a3b8aaab7cfd9) |
 
-The verified Testnet flow created delivery `1`, locked 1 XLM in escrow, emitted `DeliveryCreated`, then completed the delivery, released the 1 XLM to the courier, and emitted `DeliveryCompleted`.
+The verified current Testnet flow created delivery `2`, locked 1 XLM in escrow, emitted `DeliveryCreated`, then completed the delivery, released the 1 XLM to the courier, and emitted `DeliveryCompleted`.
 
 ## Architecture
 
 - **Frontend:** Next.js 14, React, TypeScript, Tailwind CSS
 - **Wallet and payments:** `@stellar/freighter-api` and `@stellar/stellar-sdk`
 - **Smart contract:** Rust with Soroban SDK `27.0.6`
-- **CI configuration:** GitHub Actions workflow for frontend build and contract tests
+- **CI configuration:** GitHub Actions validates frontend tests/build plus Rust formatting, linting, tests, and deployable Soroban WASM
+- **Frontend deployment:** `vercel.json` provides the Vercel install and build configuration
 
-The contract uses Stellar's native asset contract through `token::Client` to transfer funds from the sponsor to escrow, then from escrow to the courier after completion.
+The contract uses Stellar's native asset contract through `token::Client` to transfer funds from the sponsor to escrow, then from escrow to the courier after completion. The Sponsor Routes page prepares each contract call with Soroban RPC, requests a Freighter signature, and submits it to Testnet.
 
 ## Run locally
 
@@ -69,10 +70,12 @@ npm run dev
 
 Open `http://localhost:3000`.
 
-Create `.env.local` if you need to override the default Horizon endpoint:
+Copy `.env.local.example` to `.env.local`. The current Testnet contract ID is included as a safe public default, but it can be overridden after a future deployment:
 
 ```env
 NEXT_PUBLIC_HORIZON_URL=https://horizon-testnet.stellar.org
+NEXT_PUBLIC_SOROBAN_RPC_URL=https://soroban-testnet.stellar.org
+NEXT_PUBLIC_DELIVERY_ESCROW_CONTRACT_ID=CBEXVMRWS6DG7QRMRS5WBBHYME5UUY4L3ZZ6IUTTERQHBGHBY7B5MDXE
 ```
 
 ## Test and build
@@ -83,9 +86,26 @@ npm run build
 
 # Frontend tests
 npm test
+
+# Contract checks
+cd contracts/delivery_escrow
+cargo fmt -- --check
+cargo clippy --all-targets -- -D warnings -A deprecated
+cargo test
+stellar contract build
 ```
 
-Current test result: **3 passed, 0 failed**.
+Current contract test result: **3 passed, 0 failed**.
+
+## Deploy the contract
+
+The deployment script builds the WASM and deploys it to Testnet. Provide a Testnet-only deployer secret through the environment; never commit it.
+
+```bash
+STELLAR_DEPLOYER_SECRET=your_testnet_secret ./scripts/deploy-testnet-contract.sh
+```
+
+Update `NEXT_PUBLIC_DELIVERY_ESCROW_CONTRACT_ID` in your Vercel project and local environment with the returned `C...` address after deployment.
 
 ## Contract interface
 

@@ -1,11 +1,14 @@
 #![cfg(test)]
 
 use super::*;
-use soroban_sdk::{testutils::Address as _, Address, Env};
 use soroban_sdk::token::Client as TokenClient;
 use soroban_sdk::token::StellarAssetClient as TokenAdminClient;
+use soroban_sdk::{testutils::Address as _, Address, Env};
 
-fn create_token_contract<'a>(env: &Env, admin: &Address) -> (TokenClient<'a>, TokenAdminClient<'a>) {
+fn create_token_contract<'a>(
+    env: &Env,
+    admin: &Address,
+) -> (TokenClient<'a>, TokenAdminClient<'a>) {
     let contract_address = env.register_stellar_asset_contract(admin.clone());
     (
         TokenClient::new(env, &contract_address),
@@ -47,7 +50,7 @@ fn test_delivery_flow() {
     assert_eq!(delivery.courier, courier);
     assert_eq!(delivery.amount, amount);
     assert_eq!(delivery.token, token.address);
-    assert_eq!(delivery.is_completed, false);
+    assert!(!delivery.is_completed);
 
     // Complete delivery
     client.complete_delivery(&delivery_id);
@@ -58,7 +61,7 @@ fn test_delivery_flow() {
 
     // Verify delivery state
     let delivery = client.get_delivery(&delivery_id);
-    assert_eq!(delivery.is_completed, true);
+    assert!(delivery.is_completed);
 }
 
 #[test]
@@ -81,7 +84,7 @@ fn test_duplicate_delivery_id() {
     let amount = 100;
 
     client.create_delivery(&delivery_id, &sponsor, &courier, &token.address, &amount);
-    
+
     // This should panic
     client.create_delivery(&delivery_id, &sponsor, &courier, &token.address, &amount);
 }
@@ -107,7 +110,7 @@ fn test_double_complete() {
 
     client.create_delivery(&delivery_id, &sponsor, &courier, &token.address, &amount);
     client.complete_delivery(&delivery_id);
-    
+
     // This should panic
     client.complete_delivery(&delivery_id);
 }
