@@ -67,14 +67,10 @@ jobs:
         run: cargo test
 
       - name: Install Stellar CLI
-        run: |
-          cargo install --locked stellar-cli --version 27.0.0
-          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+        uses: stellar/stellar-cli@v27.1.0
 
       - name: Build deployable Soroban WASM (stellar contract build)
-        run: |
-          export PATH="$HOME/.cargo/bin:$PATH"
-          stellar contract build
+        run: stellar contract build
 
   deploy-contract:
     name: Deploy Soroban Contract (CD)
@@ -94,7 +90,7 @@ jobs:
           targets: wasm32v1-none, wasm32-unknown-unknown
 
       - name: Install Stellar CLI
-        run: cargo install --locked stellar-cli --version 27.0.0
+        uses: stellar/stellar-cli@v27.1.0
 
       - name: Build and Deploy Soroban Contract to Stellar Testnet
         env:
