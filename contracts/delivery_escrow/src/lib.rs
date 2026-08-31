@@ -88,11 +88,7 @@ impl DeliveryEscrow {
         // Transfer tokens from contract to courier
         let token_client = token::Client::new(&env, &delivery.token);
         let contract_address = env.current_contract_address();
-        token_client.transfer(
-            &contract_address,
-            &delivery.courier,
-            &delivery.amount,
-        );
+        token_client.transfer(&contract_address, &delivery.courier, &delivery.amount);
 
         // Emit event
         env.events().publish(
