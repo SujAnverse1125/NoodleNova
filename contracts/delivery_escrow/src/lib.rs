@@ -1,5 +1,5 @@
 #![no_std]
-use soroban_sdk::{contract, contractimpl, contracttype, Address, Env, Symbol, token};
+use soroban_sdk::{contract, contractimpl, contracttype, token, Address, Env, Symbol};
 
 #[contracttype]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -45,7 +45,8 @@ impl DeliveryEscrow {
 
         // Transfer tokens from sponsor to the contract
         let token_client = token::Client::new(&env, &token);
-        token_client.transfer(&sponsor, &env.current_contract_address(), &amount);
+        let contract_address = env.current_contract_address();
+        token_client.transfer(&sponsor, &contract_address, &amount);
 
         let delivery = Delivery {
             sponsor,
@@ -86,7 +87,12 @@ impl DeliveryEscrow {
 
         // Transfer tokens from contract to courier
         let token_client = token::Client::new(&env, &delivery.token);
-        token_client.transfer(&env.current_contract_address(), &delivery.courier, &delivery.amount);
+        let contract_address = env.current_contract_address();
+        token_client.transfer(
+            &contract_address,
+            &delivery.courier,
+            &delivery.amount,
+        );
 
         // Emit event
         env.events().publish(

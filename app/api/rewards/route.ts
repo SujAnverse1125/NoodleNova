@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import * as StellarSdk from "@stellar/stellar-sdk";
 
+export const dynamic = "force-dynamic";
+
 const server = new StellarSdk.Horizon.Server("https://horizon-testnet.stellar.org");
 
 export async function POST(req: Request) {
@@ -61,6 +63,9 @@ export async function POST(req: Request) {
                     hash: response.hash,
                     walletAddress,
                     type,
+                    userId: user.id,
+                    verificationStatus: "verified",
+                    verifiedAt: new Date(),
                 },
             });
         }
