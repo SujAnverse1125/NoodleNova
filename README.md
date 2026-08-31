@@ -14,6 +14,7 @@ Noodle Nova is a **Stellar Testnet dApp** built around a gamified ramen-delivery
 | Live demo | [noodle-nova-seven.vercel.app](https://noodle-nova-seven.vercel.app/) |
 | Demo video | [Google Drive Demo Video](https://drive.google.com/file/d/1N6QC__iKYQbef9ZXsaxMIjnC2TDsDUwN/view?usp=drive_link) |
 | Public repository | [SujAnverse1125/NoodleNova](https://github.com/SujAnverse1125/NoodleNova) |
+| Change history | [`CHANGELOG.md`](CHANGELOG.md) |
 | CI verification | [`submission/ci-status-level5.md`](submission/ci-status-level5.md) · [successful workflow run](https://github.com/SujAnverse1125/NoodleNova/actions) |
 | Feedback-to-improvement traceability | [`submission/feedback-to-improvements.md`](submission/feedback-to-improvements.md) |
 | User/activity evidence register | [`submission/level5-user-activity.md`](submission/level5-user-activity.md) |
@@ -140,6 +141,16 @@ The deployment script builds the WASM and deploys it to Testnet.
 ```bash
 STELLAR_DEPLOYER_SECRET=your_testnet_secret ./scripts/deploy-testnet-contract.sh
 ```
+
+### GitHub Actions deployment secrets
+
+The production deployment jobs intentionally fail rather than report a false success when configuration is missing. Add these repository secrets before merging a deployment commit to `master`:
+
+- `STELLAR_DEPLOYER_SECRET` — a Testnet-only Stellar deployer secret.
+- `VERCEL_TOKEN` — a Vercel token authorized for this project.
+- `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID` — the Vercel project identifiers.
+
+The workflow reports the new Testnet `C...` contract ID in its job summary after a successful contract deployment.
 
 ## Contract Interface
 
