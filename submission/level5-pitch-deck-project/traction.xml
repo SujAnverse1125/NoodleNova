@@ -1,0 +1,25 @@
+<slide id="traction">
+  <background color="ink"/>
+  <shape id="traction-top-rule" type="line" x="60" y="18" width="1160" height="0" stroke="cyan-accent" stroke-width="2"/>
+  <text id="traction-kicker" x="60" y="72" width="360" height="24" font="caption" size="14" color="cyan-accent" wrap="false">06  /  EARLY TRACTION</text>
+  <text id="traction-title" x="60" y="110" width="1080" height="50" font="heading" size="38" color="text-main" wrap="false">The evidence is promising — and we count it carefully.</text>
+  <text id="traction-subtitle" x="60" y="166" width="1080" height="34" font="body" size="18" color="text-muted">Owner-confirmed form data, admin records, and public Testnet verification show meaningful activity signals.</text>
+  <text id="traction-chart-title" x="60" y="198" width="650" height="24" font="strong" size="19" color="text-main" wrap="false">Observed records at audit time</text>
+  <chart id="traction-chart" type="column" x="60" y="230" width="650" height="300" font="caption" categories="Responses,Unique wallets,Admin couriers,Successful hashes" color="cyan-accent" data-labels="true" y-axis="true" x-axis="true" gridlines="none" y-min="0" y-max="90">
+    <series name="Observed" values="80,76,79,42" label-expr="{value:.0f}"/>
+  </chart>
+  <shape id="traction-ledger" type="rect" x="760" y="210" width="460" height="320" fill="surface" stroke="hairline" stroke-width="1"/>
+  <text id="traction-ledger-title" x="790" y="240" width="380" height="26" font="strong" size="22" color="text-main" wrap="false">What each number means</text>
+  <text id="traction-ledger-body" x="790" y="290" width="385" height="190" font="body" size="17" color="text-muted" line-height="1.42">
+    <ul bullet="—">
+      <li><strong color="text-main">80</strong> response rows; <strong color="text-main">76</strong> unique wallet values after four repeated rows.</li>
+      <li><strong color="text-main">79</strong> registered couriers in the latest admin application snapshot.</li>
+      <li><strong color="text-main">42</strong> unique non-placeholder hashes resolved successfully through Horizon Testnet.</li>
+      <li><strong color="pink-accent">0 / 42</strong> same-row wallet/source matches; attribution remains a private reconciliation task.</li>
+    </ul>
+  </text>
+  <shape id="traction-caveat" type="rect" x="60" y="575" width="1160" height="40" fill="#FF007F12" stroke="pink-accent" stroke-width="1"/>
+  <text id="traction-caveat-text" x="84" y="587" width="1110" height="20" font="caption" size="14" color="pink-accent" wrap="false">Submission decision: candidate onboarding and verified receipts are strong; “50 users with corresponding real transactions” remains partial until attribution is reconciled.</text>
+  <text id="traction-page" x="60" y="678" width="80" height="20" font="caption" size="12" color="text-muted" wrap="false">07 / 12</text>
+  <text id="traction-source" x="620" y="678" width="600" height="20" font="caption" size="12" color="text-muted" align="right" wrap="false">Source: submission/level5-user-activity.md, audit 25 Aug 2026</text>
+</slide>

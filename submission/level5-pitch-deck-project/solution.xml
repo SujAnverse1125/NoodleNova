@@ -1,0 +1,28 @@
+<slide id="solution">
+  <background color="ink"/>
+  <shape id="solution-top-rule" type="line" x="60" y="18" width="1160" height="0" stroke="cyan-accent" stroke-width="2"/>
+  <text id="solution-kicker" x="60" y="72" width="300" height="24" font="caption" size="14" color="cyan-accent" wrap="false">02  /  THE SOLUTION</text>
+  <text id="solution-title" x="60" y="110" width="900" height="50" font="heading" size="38" color="text-main" wrap="false">Make the first route feel obvious.</text>
+  <text id="solution-subtitle" x="60" y="172" width="880" height="34" font="body" size="18" color="text-muted">Noodle Nova turns the technical path into a guided courier loop that stays non-custodial and verifiable.</text>
+  <shape id="solution-card-1" type="rect" x="60" y="230" width="300" height="235" fill="surface" stroke="hairline" stroke-width="1"/>
+  <shape id="solution-card-2" type="rect" x="440" y="230" width="300" height="235" fill="surface" stroke="hairline" stroke-width="1"/>
+  <shape id="solution-card-3" type="rect" x="820" y="230" width="300" height="235" fill="surface" stroke="hairline" stroke-width="1"/>
+  <shape id="solution-step-1" type="rect" x="84" y="255" width="54" height="42" fill="cyan-accent"/>
+  <shape id="solution-step-2" type="rect" x="464" y="255" width="54" height="42" fill="pink-accent"/>
+  <shape id="solution-step-3" type="rect" x="844" y="255" width="54" height="42" fill="gold-accent"/>
+  <text id="solution-step-1-text" x="84" y="263" width="54" height="24" font="strong" size="20" color="ink" align="center" wrap="false">01</text>
+  <text id="solution-step-2-text" x="464" y="263" width="54" height="24" font="strong" size="20" color="ink" align="center" wrap="false">02</text>
+  <text id="solution-step-3-text" x="844" y="263" width="54" height="24" font="strong" size="20" color="ink" align="center" wrap="false">03</text>
+  <text id="solution-card-1-title" x="84" y="335" width="240" height="30" font="strong" size="24" color="text-main" wrap="false">Connect</text>
+  <text id="solution-card-1-body" x="84" y="382" width="240" height="62" font="body" size="17" color="text-muted" line-height="1.35">Freighter wallet, Stellar Testnet, and a lightweight courier profile.</text>
+  <text id="solution-card-2-title" x="464" y="335" width="240" height="30" font="strong" size="24" color="text-main" wrap="false">Deliver</text>
+  <text id="solution-card-2-body" x="464" y="382" width="240" height="62" font="body" size="17" color="text-muted" line-height="1.35">Choose a ramen route and trigger the real application-backed Testnet flow.</text>
+  <text id="solution-card-3-title" x="844" y="335" width="240" height="30" font="strong" size="24" color="text-main" wrap="false">Verify</text>
+  <text id="solution-card-3-body" x="844" y="382" width="240" height="62" font="body" size="17" color="text-muted" line-height="1.35">See pending or confirmed status, then open the public Explorer receipt.</text>
+  <shape id="solution-arrow-1" type="line" x="360" y="348" width="80" height="0" stroke="cyan-accent" stroke-width="2" arrow-end="arrow"/>
+  <shape id="solution-arrow-2" type="line" x="740" y="348" width="80" height="0" stroke="cyan-accent" stroke-width="2" arrow-end="arrow"/>
+  <shape id="solution-outcome-band" type="rect" x="60" y="535" width="1160" height="70" fill="#00F0FF12" stroke="cyan-accent" stroke-width="1"/>
+  <text id="solution-outcome" x="84" y="555" width="1100" height="30" font="strong" size="23" color="text-main" wrap="false">A playful interface on top of real rails — not a simulated blockchain demo.</text>
+  <text id="solution-page" x="60" y="678" width="80" height="20" font="caption" size="12" color="text-muted" wrap="false">03 / 12</text>
+  <text id="solution-source" x="620" y="678" width="600" height="20" font="caption" size="12" color="text-muted" align="right" wrap="false">Source: Noodle Nova product flow and Testnet architecture</text>
+</slide>

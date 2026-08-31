@@ -1,0 +1,28 @@
+<slide id="market">
+  <background color="ink"/>
+  <shape id="market-top-rule" type="line" x="60" y="18" width="1160" height="0" stroke="cyan-accent" stroke-width="2"/>
+  <text id="market-kicker" x="60" y="72" width="420" height="24" font="caption" size="14" color="cyan-accent" wrap="false">08  /  MARKET OPPORTUNITY</text>
+  <text id="market-title" x="60" y="110" width="1100" height="50" font="heading" size="38" color="text-main" wrap="false">A growing ecosystem needs better first-run experiences.</text>
+  <text id="market-subtitle" x="60" y="166" width="1100" height="34" font="body" size="18" color="text-muted">Noodle Nova starts at the intersection of Stellar education, community activation, and playful on-chain participation.</text>
+  <shape id="market-metric-1" type="rect" x="60" y="215" width="240" height="125" fill="surface" stroke="cyan-accent" stroke-width="1"/>
+  <shape id="market-metric-2" type="rect" x="330" y="215" width="240" height="125" fill="surface" stroke="cyan-accent" stroke-width="1"/>
+  <shape id="market-metric-3" type="rect" x="600" y="215" width="240" height="125" fill="surface" stroke="cyan-accent" stroke-width="1"/>
+  <text id="market-metric-1-value" x="84" y="238" width="190" height="44" font="display" size="38" color="cyan-accent" wrap="false">22.5B</text>
+  <text id="market-metric-1-label" x="84" y="292" width="190" height="30" font="caption" size="14" color="text-muted">Stellar total operations</text>
+  <text id="market-metric-2-value" x="354" y="238" width="190" height="44" font="display" size="38" color="cyan-accent" wrap="false">10.6M</text>
+  <text id="market-metric-2-label" x="354" y="292" width="190" height="30" font="caption" size="14" color="text-muted">Unique addresses</text>
+  <text id="market-metric-3-value" x="624" y="238" width="190" height="44" font="display" size="38" color="cyan-accent" wrap="false">86%</text>
+  <text id="market-metric-3-label" x="624" y="292" width="190" height="30" font="caption" size="14" color="text-muted">Developer growth YoY</text>
+  <shape id="market-opportunity-1" type="rect" x="60" y="390" width="300" height="205" fill="surface" stroke="cyan-accent" stroke-width="1"/>
+  <shape id="market-opportunity-2" type="rect" x="440" y="390" width="300" height="205" fill="surface" stroke="pink-accent" stroke-width="1"/>
+  <shape id="market-opportunity-3" type="rect" x="820" y="390" width="300" height="205" fill="surface" stroke="gold-accent" stroke-width="1"/>
+  <text id="market-opportunity-1-title" x="84" y="418" width="240" height="28" font="strong" size="22" color="cyan-accent" wrap="false">Builder onboarding</text>
+  <text id="market-opportunity-1-body" x="84" y="466" width="240" height="96" font="body" size="17" color="text-main" line-height="1.38">Guided Testnet flows that help new users understand wallets, signing, receipts, and Stellar applications.</text>
+  <text id="market-opportunity-2-title" x="464" y="418" width="240" height="28" font="strong" size="22" color="pink-accent" wrap="false">Community activation</text>
+  <text id="market-opportunity-2-body" x="464" y="466" width="240" height="96" font="body" size="17" color="text-main" line-height="1.38">Hackathons, campus clubs, and ecosystem campaigns need memorable, measurable participation loops.</text>
+  <text id="market-opportunity-3-title" x="844" y="418" width="240" height="28" font="strong" size="22" color="gold-accent" wrap="false">Loyalty + play</text>
+  <text id="market-opportunity-3-body" x="844" y="466" width="240" height="96" font="body" size="17" color="text-main" line-height="1.38">Rewards, stamps, and quests can make verifiable participation feel human without hiding the rails.</text>
+  <text id="market-footnote" x="60" y="620" width="1160" height="24" font="caption" size="12" color="text-muted">Official Stellar source: stellar.org/blog/foundation-news/q1-2026-execution-at-network-scale · Adjacent context: IMARC estimates blockchain gaming at USD 24.0B in 2025; directional only.</text>
+  <text id="market-page" x="60" y="678" width="80" height="20" font="caption" size="12" color="text-muted" wrap="false">09 / 12</text>
+  <text id="market-source" x="620" y="678" width="600" height="20" font="caption" size="12" color="text-muted" align="right" wrap="false">Sources: stellar.org · imarcgroup.com</text>
+</slide>

@@ -1,0 +1,32 @@
+<slide id="problem">
+  <background color="ink"/>
+  <shape id="problem-top-rule" type="line" x="60" y="18" width="1160" height="0" stroke="cyan-accent" stroke-width="2"/>
+  <text id="problem-kicker" x="60" y="72" width="300" height="24" font="caption" size="14" color="pink-accent" wrap="false">01  /  THE FRICTION</text>
+  <text id="problem-title" x="60" y="110" width="540" height="92" font="heading" size="38" color="text-main" line-height="1.05">Web3 asks users to understand the rails before they feel the value.</text>
+  <text id="problem-body" x="60" y="242" width="500" height="270" font="body" size="19" color="text-muted" line-height="1.45">
+    <ul bullet="—">
+      <li>First-time users must navigate wallet installation, network selection, approval, and signing before the first meaningful action.</li>
+      <li>Transactions can feel invisible after clicking “submit,” leaving users unsure whether to wait, retry, or verify a receipt.</li>
+      <li>Builders need a human-scale, reviewable way to demonstrate real on-chain participation without hiding the technical truth.</li>
+    </ul>
+  </text>
+  <shape id="problem-connector-1" type="line" x="755" y="245" width="105" height="0" stroke="pink-accent" stroke-width="2" arrow-end="arrow"/>
+  <shape id="problem-connector-2" type="line" x="930" y="245" width="105" height="0" stroke="pink-accent" stroke-width="2" arrow-end="arrow"/>
+  <shape id="problem-connector-3" type="line" x="1105" y="245" width="105" height="0" stroke="pink-accent" stroke-width="2" arrow-end="arrow"/>
+  <shape id="problem-card-wallet" type="rect" x="660" y="185" width="145" height="120" fill="surface" stroke="hairline" stroke-width="1"/>
+  <shape id="problem-card-network" type="rect" x="835" y="185" width="145" height="120" fill="surface" stroke="hairline" stroke-width="1"/>
+  <shape id="problem-card-sign" type="rect" x="1010" y="185" width="145" height="120" fill="surface" stroke="hairline" stroke-width="1"/>
+  <shape id="problem-card-receipt" type="rect" x="1185" y="185" width="35" height="120" fill="pink-accent" opacity="0.85"/>
+  <text id="problem-wallet-label" x="678" y="208" width="110" height="24" font="strong" size="18" color="text-main" wrap="false">Wallet</text>
+  <text id="problem-wallet-copy" x="678" y="245" width="110" height="42" font="caption" size="14" color="text-muted">Install + approve</text>
+  <text id="problem-network-label" x="853" y="208" width="110" height="24" font="strong" size="18" color="text-main" wrap="false">Network</text>
+  <text id="problem-network-copy" x="853" y="245" width="110" height="42" font="caption" size="14" color="text-muted">Testnet context</text>
+  <text id="problem-sign-label" x="1028" y="208" width="110" height="24" font="strong" size="18" color="text-main" wrap="false">Sign</text>
+  <text id="problem-sign-copy" x="1028" y="245" width="110" height="42" font="caption" size="14" color="text-muted">Pending? Failed?</text>
+  <text id="problem-receipt-label" x="1160" y="365" width="80" height="24" font="caption" size="14" color="pink-accent" rotation="90" wrap="false">RECEIPT</text>
+  <text id="problem-friction-note" x="660" y="370" width="560" height="120" font="body" size="24" color="text-main" line-height="1.25">Noodle Nova makes the invisible steps explicit — without hiding the chain.</text>
+  <shape id="problem-bottom-rule" type="line" x="660" y="535" width="560" height="0" stroke="hairline" stroke-width="1"/>
+  <text id="problem-bottom-note" x="660" y="555" width="560" height="32" font="caption" size="14" color="text-muted">The goal is not to abstract away Web3. It is to make the first interaction legible.</text>
+  <text id="problem-page" x="60" y="678" width="80" height="20" font="caption" size="12" color="text-muted" wrap="false">02 / 12</text>
+  <text id="problem-source" x="620" y="678" width="600" height="20" font="caption" size="12" color="text-muted" align="right" wrap="false">Source: Noodle Nova product baseline audit</text>
+</slide>

@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import { cookies } from "next/headers";
 
+export const dynamic = "force-dynamic";
+
 const PAGE_SIZE = 20;
 const VALID_TX_TYPES = ["sponsor_route", "delivery_funded", "delivery_completed", "game_win", "send_xlm"] as const;
 const VALID_TX_STATUSES = ["unverified", "verified", "failed"] as const;
@@ -28,7 +30,9 @@ export default async function AdminPage({
     searchParams: Record<string, string | string[] | undefined>;
 }) {
     const cookieStore = await cookies();
-    const token = cookieStore.get("admin_token")?.value;
+    const cookieToken = cookieStore.get("admin_token")?.value;
+    const searchToken = typeof searchParams.token === "string" ? searchParams.token : undefined;
+    const token = cookieToken || searchToken;
     const adminToken = process.env.ADMIN_ACCESS_TOKEN;
 
     if (!token || !adminToken || token !== adminToken) {
@@ -37,7 +41,7 @@ export default async function AdminPage({
                 <div className="text-center">
                     <h1 className="text-4xl font-bold text-red-500 mb-4">Access Denied</h1>
                     <p className="text-muted">You do not have permission to view this page.</p>
-                    <p className="text-muted text-sm mt-2">Set an <code>admin_token</code> cookie to authenticate.</p>
+                    <p className="text-muted text-sm mt-2">Use <code>?token=&lt;secret&gt;</code> or set an <code>admin_token</code> cookie to authenticate.</p>
                 </div>
             </div>
         );

@@ -3,13 +3,18 @@
 import Link from "next/link";
 import { useWallet } from "@/app/context/WalletContext";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { trackProductEvent } from "@/lib/analytics";
 
 export default function HomePage() {
     const { isConnected, connect, isLoading, error } = useWallet();
     const router = useRouter();
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    useEffect(() => {
+        trackProductEvent("landing_view");
+    }, []);
 
     const handleEnter = () => {
         localStorage.removeItem("noodle-nova-prologue-complete");
@@ -196,6 +201,32 @@ export default function HomePage() {
                             </span>
                             <h3>Live Dispatch</h3>
                             <p>Watch real-time on-chain events. See who sponsored what, which routes completed, and XLM flows.</p>
+                        </div>
+                    </div>
+                </section>
+
+                {/* ═══════ How it works ═══════ */}
+                <section id="how-it-works" className="landing-section">
+                    <div className="section-heading">
+                        <div className="eyebrow mb-3">HOW IT WORKS</div>
+                        <h2>Your first route, made simple.</h2>
+                        <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">Noodle Nova keeps the experience non-custodial and uses Stellar Testnet so you can learn the flow without risking real funds.</p>
+                    </div>
+                    <div className="feature-grid">
+                        <div className="feature-card">
+                            <span className="text-2xl text-cyan">01</span>
+                            <h3>Connect a wallet</h3>
+                            <p>Install Freighter, switch to Stellar Testnet, and approve access to your public address.</p>
+                        </div>
+                        <div className="feature-card">
+                            <span className="text-2xl text-pink">02</span>
+                            <h3>Choose a route</h3>
+                            <p>Open the route board, select a mission, and review the Testnet status before sponsoring.</p>
+                        </div>
+                        <div className="feature-card">
+                            <span className="text-2xl text-gold">03</span>
+                            <h3>Verify the receipt</h3>
+                            <p>Follow the pending and confirmed states, then open the public Stellar Explorer receipt.</p>
                         </div>
                     </div>
                 </section>
